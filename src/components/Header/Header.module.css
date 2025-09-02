@@ -1,0 +1,122 @@
+button {
+  border: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+.header {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+
+  max-width: 1440px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1440px;
+  padding: 20px 24px 20px 39px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerLogo {
+  width: 63px;
+  height: 60px;
+}
+
+.headerLogoLink {
+  cursor: pointer;
+}
+
+.headerLogoIcon {
+  width: 63px;
+  height: 60px;
+}
+
+.headerNav {
+  display: flex;
+  flex-wrap: wrap;
+  width: 543px;
+  height: 32px;
+}
+
+.headerNavList {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.headerNavItem {
+  display: flex;
+  justify-content: center;
+  padding: 4px 10px;
+
+  align-items: center;
+  color: #000;
+}
+
+.headerBtnWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 472px;
+}
+
+#btnChooseHouse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border-radius: 5px;
+  width: 236px;
+  height: 60px;
+  box-shadow: 0 1px 1px 0 rgba(30, 30, 30, 0.15);
+  background: #25a02a;
+}
+
+#btnMakeOrder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #25a02a;
+  border-radius: 5px;
+  width: 212px;
+  height: 60px;
+  box-shadow: 0 1px 1px 0 rgba(30, 30, 30, 0.15);
+}
+
+.headerBtnWrapper #btnChooseHouse:hover {
+  background: #0d6511;
+}
+.headerBtnWrapper #btnChooseHouse:active {
+  background: #25a02a;
+}
+
+.headerBtnWrapper #btnChooseHouse:disabled {
+  background: #7a7a7a;
+}
+
+.headerBtnWrapper #btnMakeOrder:hover {
+  border-color: #0d6511;
+}
+.headerBtnWrapper #btnMakeOrder:active {
+  border-color: #25a02a;
+}
+
+.headerBtnWrapper #btnMakeOrder:disabled {
+  border-color: #7a7a7a;
+}
