@@ -42,10 +42,10 @@ export default function Advantages() {
               <li> <IconHomePage3 /> <p><span>Екологічність</span> - натуральні матеріали та сонячні панелі</p></li>
               <li> <IconHomePage4 /> <p><span>Доступність</span> - відчутно дешевше за традиційне житло</p></li>
             </AdvantagesListIcons>
-            <img src="/public/images/homePage/img2.jpg" alt="House" width={801} height={342} />
+            <img src="/images/homePage/img2.jpg" alt="House" width={801} height={342} />
             <p><span>Еко</span>Гніздо - це благодійний проєкт, що допомагає створювати доступне та екологічне житло. Ми поєднуємо сучасні технології, стильний дизайн та продумані планування, щоб ваш новий дім був затишним та безпечним</p>
           </FlexColumn>
-          <img src="/public/images/homePage/img1.jpg" alt="House" width={567} height={884}/>
+          <img src="/images/homePage/img1.jpg" alt="House" width={567} height={884}/>
         </FlexSpaceBetween>
       </AdvantagesContent>
     </section>
