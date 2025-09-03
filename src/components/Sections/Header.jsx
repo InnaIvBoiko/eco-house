@@ -16,22 +16,22 @@ export default function Header() {
         <HeaderNav>
           <HeaderNavList>
             <HeaderNavItem>
-              <a href="#" target="_blank" rel="noopener noreferer">
+              <a href="#" rel="noopener noreferer">
                 Про нас
               </a>
             </HeaderNavItem>
             <HeaderNavItem>
-              <a href="#" target="_blank" rel="noopener noreferer">
+              <a href="#" rel="noopener noreferer">
                 Каталог Будинків
               </a>
             </HeaderNavItem>
             <HeaderNavItem>
-              <a href="#" target="_blank" rel="noopener noreferer">
+              <a href="#" rel="noopener noreferer">
                 Донати
               </a>
             </HeaderNavItem>
             <HeaderNavItem>
-              <a href="#" target="_blank" rel="noopener noreferer">
+              <a href="#" rel="noopener noreferer">
                 Контакти
               </a>
             </HeaderNavItem>
