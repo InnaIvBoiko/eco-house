@@ -22,7 +22,7 @@ export default function Header() {
             </HeaderNavItem>
             <HeaderNavItem>
               <a href="#" rel="noopener noreferer">
-                Каталог Будинків
+                Каталог будинків
               </a>
             </HeaderNavItem>
             <HeaderNavItem>
