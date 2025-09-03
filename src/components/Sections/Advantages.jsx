@@ -24,7 +24,7 @@ export default function Advantages() {
       <AdvantagesContent>
         <FlexSpaceBetween>
           <h2>
-            Еко<span>Гніздо</span>
+            <span>Еко</span>Гніздо
           </h2>
           <h3 style={{ width: '684px' }}>
             дім для <span>життя в гармонії</span> з природою
