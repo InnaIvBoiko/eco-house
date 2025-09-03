@@ -28,7 +28,6 @@ const SectionHero = styled.section`
   text-align: center;
 
   h1 {
-    font-family: 'Inter', sans-serif;
     font-weight: 600;
     font-style: Semi Bold;
     font-size: 180px;
@@ -50,7 +49,6 @@ const SectionHero = styled.section`
     }
 
   h4 {
-    font-family: Inter;
     font-weight: 500;
     font-style: Medium;
     font-size: 48px;
@@ -70,7 +68,6 @@ export const Text = styled.p`
   text-align: left;
   font-size: 24px;
   color: #333333;
-  font: 'Inter', sans-serif;
   font-weight: 500;
 
   span {
@@ -110,7 +107,6 @@ const ListItem = styled.li`
   padding: 8px;
   backdrop-filter: blur(20px);
   background: rgba(251, 254, 251, 0.4);
-  font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 24px;
   color: #000;
