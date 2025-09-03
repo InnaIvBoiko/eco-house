@@ -4,7 +4,9 @@ export default function Hero() {
   return (
     <SectionHero>
       <h4>Оберіть житло майбутнього вже сьогодні</h4>
-      <h1><span>Еко</span> <br /> гніздо</h1>
+      <h1>
+        <span>Еко</span> <br /> гніздо
+      </h1>
       <Text>Сучасні квартири з продуманими плануваннями, зеленими зонами та сервісом для вашого комфорту.</Text>
       <HomeImage>
         <img src="/images/house.png" alt="" />
@@ -41,12 +43,12 @@ const SectionHero = styled.section`
     margin-top: 16px;
 
     span {
-        font-weight: 700;
-        font-style: Bold;
-        font-size: 200px;
-        color: #006837;
-        }
+      font-weight: 700;
+      font-style: Bold;
+      font-size: 200px;
+      color: #006837;
     }
+  }
 
   h4 {
     font-weight: 500;

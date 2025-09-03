@@ -9,9 +9,9 @@ export default function App() {
   return (
     <Layout>
       <Routes>
-        <Route path='/' element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         {/* <Route path='/*' element={<NotFoundPage />} /> */}
       </Routes>
     </Layout>
-  )
+  );
 }
