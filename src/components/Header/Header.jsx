@@ -8,7 +8,7 @@ export default function Header() {
           <a href="#" rel="noopener noreferer">
             <SvgWrapper>
               <svg>
-                <use style={{ transform: 'scale(0.5)' }} href="../../../public/logo.svg"></use>
+                <use style={{ transform: 'scale(0.5)' }} href="/logo.svg"></use>
               </svg>
             </SvgWrapper>
           </a>
