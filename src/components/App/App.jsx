@@ -3,6 +3,8 @@ import Layout from '../Layout/Layout.jsx';
 import { Route, Routes } from 'react-router-dom';
 
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage.jsx'));
+const CatalogPage = lazy(() => import('../../pages/CatalogPage/CatalogPage.jsx'));
+const ContactsPage = lazy(() => import('../../pages/ContactsPage/ContactsPage.jsx'));
 // const NotFoundPage = lazy(() => import('../../pages/NotFoundPage/NotFoundPage.jsx'));
 
 export default function App() {
@@ -10,6 +12,8 @@ export default function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/catalog" element={<CatalogPage />} />
+        <Route path="/contacts" element={<ContactsPage />} />
         {/* <Route path='/*' element={<NotFoundPage />} /> */}
       </Routes>
     </Layout>

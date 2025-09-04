@@ -104,7 +104,7 @@ const List = styled.ul`
   gap: 16px;
 `;
 
-const ListItem = styled.li`
+export const ListItem = styled.li`
   border-radius: 10px;
   padding: 8px;
   backdrop-filter: blur(20px);
