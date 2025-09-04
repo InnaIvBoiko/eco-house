@@ -32,7 +32,7 @@ export default function MiniCatalog() {
                             <li><Bed /> <p>2</p></li>
                             <li><Discount /> <p>А++</p></li>
                         </ul>
-                        <FlexSpaceBetween>
+                        <FlexSpaceBetween style={{ alignItems: 'center' }}>
                             <BtnPrimary type="button">Дізнатися більше</BtnPrimary>
                             <h3>1 276 000 грн</h3>
                         </FlexSpaceBetween>
@@ -45,7 +45,7 @@ export default function MiniCatalog() {
                             <li><Bed /> <p>3</p></li>
                             <li><Discount /> <p>А+++</p></li>
                         </ul>
-                        <FlexSpaceBetween>
+                        <FlexSpaceBetween style={{ alignItems: 'center' }}>
                             <BtnPrimary type="button">Дізнатися більше</BtnPrimary>
                             <h3>1 276 000 грн</h3>
                         </FlexSpaceBetween>
