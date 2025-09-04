@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-// import Header from '../../components/Sections/Header';git
+
 export default function Header() {
   return (
     <HeaderBox>
@@ -38,8 +38,8 @@ export default function Header() {
           </HeaderNavList>
         </HeaderNav>
         <HeaderBtnWrapper>
-          <BtnChooseHouse>Обрати дім</BtnChooseHouse>
-          <BtnMakeOrder>Залишити заявку</BtnMakeOrder>
+          <BtnPrimary type="button" style={{width: '236px'}}>Обрати дім</BtnPrimary>
+          <BtnSecondary type="button">Залишити заявку</BtnSecondary>
         </HeaderBtnWrapper>
       </Container>
     </HeaderBox>
@@ -115,19 +115,24 @@ const HeaderBtnWrapper = styled.div`
   width: 472px;
 `;
 
-const BtnChooseHouse = styled.button`
+export const BtnPrimary = styled.button`
   border: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
   color: #fff;
   border-radius: 5px;
-  width: 236px;
   height: 60px;
+  padding: 20px 24px;
   box-shadow: 0 1px 1px 0 rgba(30, 30, 30, 0.15);
-  background: #25a02a;
+  background: #0d6511;
+  
   &:hover {
-    background: #0d6511;
+    background: #25a02a;
   }
   &:active {
     background: #25a02a;
@@ -137,19 +142,25 @@ const BtnChooseHouse = styled.button`
   }
 `;
 
-const BtnMakeOrder = styled.button`
+export const BtnSecondary = styled.button`
   background-color: transparent;
   border: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 3px solid #25a02a;
+  border: 3px solid #0d6511;
   border-radius: 5px;
-  width: 212px;
   height: 60px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: #000;
   box-shadow: 0 1px 1px 0 rgba(30, 30, 30, 0.15);
+  padding: 20px 24px;
+
   &:hover {
-    border-color: #0d6511;
+    border-color: #25a02a;
   }
   &:active {
     border-color: #25a02a;

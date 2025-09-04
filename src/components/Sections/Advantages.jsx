@@ -21,7 +21,7 @@ export default function Advantages() {
           100+ <span>партнерів та нагород</span>
         </AdvantagesListItem>
       </AdvantagesList>
-      <AdvantagesContent>
+      <SectionContent>
         <FlexSpaceBetween>
           <h2>
             <span>Еко</span>Гніздо
@@ -47,7 +47,7 @@ export default function Advantages() {
           </FlexColumn>
           <img src="/images/homePage/img1.jpg" alt="House" width={567} height={884}/>
         </FlexSpaceBetween>
-      </AdvantagesContent>
+      </SectionContent>
     </section>
   );
 }
@@ -77,7 +77,7 @@ const AdvantagesListItem = styled.li`
   }
 `;
 
-const AdvantagesContent = styled.div`
+export const SectionContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 60px;
@@ -115,9 +115,13 @@ const AdvantagesContent = styled.div`
   }
 `;
 
-const FlexSpaceBetween = styled.div`
+export const FlexSpaceBetween = styled.div`
   display: flex;
   justify-content: space-between;
+
+  img {
+    border-radius: 10px;
+  }
 `;
 
 const FlexColumn = styled.div`
@@ -125,6 +129,10 @@ const FlexColumn = styled.div`
   flex-direction: column;
   gap: 60px;
   justify-content: space-between;
+
+  img {
+    border-radius: 10px;
+  }
 `;
 
 const AdvantagesListIcons = styled.ul`
