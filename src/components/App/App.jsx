@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage.jsx'));
 const CatalogPage = lazy(() => import('../../pages/CatalogPage/CatalogPage.jsx'));
+const DonatePage = lazy(() => import('../../pages/DonatePage/DonatePage.jsx'));
 const ContactsPage = lazy(() => import('../../pages/ContactsPage/ContactsPage.jsx'));
 const HouseCompactPage = lazy(() => import('../../pages/HouseCompactPage/HouseCompactPage.jsx'));
 // const NotFoundPage = lazy(() => import('../../pages/NotFoundPage/NotFoundPage.jsx'));
@@ -14,6 +15,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<CatalogPage />} />
+        <Route path="/donate" element={<DonatePage />} />
         <Route path="/contacts" element={<ContactsPage />} />
         <Route path="/house/compact" element={<HouseCompactPage />} />
         {/* <Route path='/*' element={<NotFoundPage />} /> */}
