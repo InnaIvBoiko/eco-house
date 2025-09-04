@@ -1,18 +1,17 @@
-import { NavLink  } from 'react-router-dom';
+import { NavLink, useNavigate  } from 'react-router-dom';
 import styled from 'styled-components';
 
 export default function Header() {
+  const navigate = useNavigate();
   return (
     <HeaderBox>
       <Container>
-        <HeaderLogo>
-          <a href="#" rel="noopener noreferer">
-            <SvgWrapper>
+        <HeaderLogo onClick={() => navigate('/')}>
+            <SvgWrapper >
               <svg style={{ width: 63, height: 60}}>
                 <use style={{ transform: 'scale(0.5)' }} href="/logo.svg"></use>
               </svg>
             </SvgWrapper>
-          </a>
         </HeaderLogo>
         <HeaderNav>
           <HeaderNavList>
@@ -79,6 +78,7 @@ const Container = styled.div`
 const HeaderLogo = styled.div`
   width: 63px;
   height: 60px;
+  cursor: pointer;
 `;
 
 const SvgWrapper = styled.div`

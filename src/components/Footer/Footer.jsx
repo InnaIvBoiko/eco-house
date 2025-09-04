@@ -133,6 +133,7 @@ const FooterNavItem = styled.li`
   padding: 4px 10px;
   align-items: center;
   color: #000;
+  cursor: pointer;
 `;
 
 const FooterSocialsWrapper = styled.div`
