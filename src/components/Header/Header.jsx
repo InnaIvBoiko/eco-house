@@ -26,8 +26,8 @@ export default function Header() {
               </StyledNavLink>
             </HeaderNavItem>
             <HeaderNavItem>
-              <StyledNavLink to={`/donate`}>
-                Донати
+              <StyledNavLink to={`/modular-dream`}>
+                Модульна мрія
               </StyledNavLink>
             </HeaderNavItem>
             <HeaderNavItem>
@@ -89,7 +89,6 @@ const SvgWrapper = styled.div`
 const HeaderNav = styled.nav`
   display: flex;
   flex-wrap: wrap;
-  width: 543px;
   height: 32px;
 `;
 

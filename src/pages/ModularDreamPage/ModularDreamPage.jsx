@@ -4,7 +4,7 @@ import { Form } from "react-router-dom";
 import FormHousePage from "../../components/Sections/FormHousePage";
 import Footer from "../../components/Footer/Footer";
 
-export default function DonatePage() {
+export default function ModularDreamPage() {
     return (
         <Container>
             <Header />

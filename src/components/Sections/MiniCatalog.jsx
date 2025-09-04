@@ -23,7 +23,7 @@ export default function MiniCatalog() {
                         </ul>
                         <FlexSpaceBetween style={{ alignItems: 'center' }}>
                             <BtnPrimary type="button" onClick={() => navigate('/house/compact')}>Дізнатися більше</BtnPrimary>
-                            <h3>1 276 000 грн</h3>
+                            <h3>476 000 грн</h3>
                         </FlexSpaceBetween>
                     </CatalogItem>
                     <CatalogItem>
@@ -36,7 +36,7 @@ export default function MiniCatalog() {
                         </ul>
                         <FlexSpaceBetween style={{ alignItems: 'center' }}>
                             <BtnPrimary type="button" onClick={() => navigate('/house/family')}>Дізнатися більше</BtnPrimary>
-                            <h3>1 276 000 грн</h3>
+                            <h3>982 000 грн</h3>
                         </FlexSpaceBetween>
                     </CatalogItem>
                     <CatalogItem>

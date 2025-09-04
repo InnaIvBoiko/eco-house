@@ -7,14 +7,12 @@ export default function Footer() {
     <FooterBox>
       <Container>
         <FooteLogoAndNavWrapper>
-          <FooterLogo>
-            <a href="#" rel="noopener noreferer">
+          <FooterLogo onClick={() => navigate('/')}>
               <SvgWrapper>
                 <svg style={{ width: 125, height: 120 }}>
                   <use href="/logo.svg"></use>
                 </svg>
               </SvgWrapper>
-            </a>
           </FooterLogo>
           <FooterNav>
             <FooterNavList>
@@ -24,8 +22,8 @@ export default function Footer() {
               <FooterNavItem onClick={() => navigate('/catalog')}>
                   Каталог будинків
               </FooterNavItem>
-              <FooterNavItem onClick={() => navigate('/donate')}>
-                  Донати
+              <FooterNavItem onClick={() => navigate('/modular-dream')}>
+                  Модульна мрія
               </FooterNavItem>
               <FooterNavItem onClick={() => navigate('/contacts')}>
                   Контакти
@@ -86,7 +84,7 @@ const Container = styled.div`
   width: 1440px;
   padding: 24px;
   justify-content: space-between;
-  align-items: start;
+  align-items: flex-start;
 
   a {
     color: #000;
@@ -101,6 +99,7 @@ const FooteLogoAndNavWrapper = styled.div`
 const FooterLogo = styled.div`
   width: 125px;
   height: 120px;
+  cursor: pointer;
 `;
 
 const SvgWrapper = styled.div`
@@ -110,16 +109,13 @@ const SvgWrapper = styled.div`
 
 const FooterNav = styled.nav`
   display: flex;
-  flex-wrap: wrap;
-  width: 543px;
+  flex-direction: column;
   margin-left: 300px;
-  justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
 `;
 
 const FooterNavList = styled.ul`
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
   list-style-type: none;
