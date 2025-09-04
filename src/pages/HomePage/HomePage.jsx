@@ -3,6 +3,8 @@ import Header from '../../components/Header/Header';
 import Hero from '../../components/Sections/Hero';
 import Advantages from '../../components/Sections/Advantages';
 import MiniCatalog from '../../components/Sections/MiniCatalog';
+import Donat from '../../components/Sections/Donat';
+import FormHomePage from '../../components/Sections/FormHomePage';
 
 export default function HomePage() {
   return (
@@ -13,6 +15,8 @@ export default function HomePage() {
       <Hero />
       <Advantages />
       <MiniCatalog />
+      <Donat />
+      <FormHomePage />
     </Container>
   );
 }
