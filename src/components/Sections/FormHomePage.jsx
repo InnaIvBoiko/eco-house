@@ -54,7 +54,7 @@ export const TextContainer = styled.div`
     }
 `;
 
-const Input = styled.input`
+export const Input = styled.input`
     border: 1px solid #000;
     border-radius: 5px;
     padding: 20px 24px;
