@@ -3,6 +3,7 @@ import Header from "../../components/Header/Header";
 import HeroCatalog from "../../components/Sections/HeroCatalog";
 import FormHomePage from "../../components/Sections/FormHomePage";
 import Donat from "../../components/Sections/Donat";
+import Footer from "../../components/Footer/Footer";
 
 export default function CatalogPage() {
     return (
@@ -11,12 +12,13 @@ export default function CatalogPage() {
             <HeroCatalog />
             <FormHomePage />
             <Donat />
+            <Footer />
         </Container>
   );
 }
 
 const Container = styled.div`
-  max-width: 1440px;
-  margin-left: auto;
-  margin-right: auto;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
 `;

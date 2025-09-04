@@ -5,6 +5,7 @@ import Advantages from '../../components/Sections/Advantages';
 import MiniCatalog from '../../components/Sections/MiniCatalog';
 import Donat from '../../components/Sections/Donat';
 import FormHomePage from '../../components/Sections/FormHomePage';
+import Footer from '../../components/Footer/Footer';
 
 export default function HomePage() {
   return (
@@ -17,6 +18,7 @@ export default function HomePage() {
       <MiniCatalog />
       <Donat />
       <FormHomePage />
+      <Footer />
     </Container>
   );
 }
