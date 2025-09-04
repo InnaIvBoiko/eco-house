@@ -1,6 +1,8 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 export default function Footer() {
+  const navigate = useNavigate();
   return (
     <FooterBox>
       <Container>
@@ -16,25 +18,17 @@ export default function Footer() {
           </FooterLogo>
           <FooterNav>
             <FooterNavList>
-              <FooterNavItem>
-                <a href="#" rel="noopener noreferer">
+              <FooterNavItem onClick={() => navigate('/')}>
                   Про нас
-                </a>
               </FooterNavItem>
-              <FooterNavItem>
-                <a href="#" rel="noopener noreferer">
+              <FooterNavItem onClick={() => navigate('/catalog')}>
                   Каталог будинків
-                </a>
               </FooterNavItem>
-              <FooterNavItem>
-                <a href="#" rel="noopener noreferer">
+              <FooterNavItem onClick={() => navigate('/donate')}>
                   Донати
-                </a>
               </FooterNavItem>
-              <FooterNavItem>
-                <a href="#" rel="noopener noreferer">
+              <FooterNavItem onClick={() => navigate('/contacts')}>
                   Контакти
-                </a>
               </FooterNavItem>
             </FooterNavList>
             <FooterSocialsWrapper>
