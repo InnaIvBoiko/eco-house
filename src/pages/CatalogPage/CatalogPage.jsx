@@ -4,12 +4,16 @@ import HeroCatalog from "../../components/Sections/HeroCatalog";
 import FormHomePage from "../../components/Sections/FormHomePage";
 import Donat from "../../components/Sections/Donat";
 import Footer from "../../components/Footer/Footer";
+import FuturesBuildings from "../../components/Sections/FuturesBuildings";
+import InteriorsCatalog from "../../components/Sections/InteriorsCatalog";
 
 export default function CatalogPage() {
     return (
         <Container>
             <Header />
             <HeroCatalog />
+            <FuturesBuildings />
+            <InteriorsCatalog />
             <FormHomePage />
             <Donat />
             <Footer />
