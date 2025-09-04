@@ -1,42 +1,43 @@
+import { NavLink, useNavigate  } from 'react-router-dom';
 import styled from 'styled-components';
 
 export default function Header() {
+  const navigate = useNavigate();
   return (
     <HeaderBox>
       <Container>
-        <HeaderLogo>
-          <a href="#" rel="noopener noreferer">
-            <SvgWrapper>
+        <HeaderLogo onClick={() => navigate('/')}>
+            <SvgWrapper >
               <svg style={{ width: 63, height: 60}}>
                 <use style={{ transform: 'scale(0.5)' }} href="/logo.svg"></use>
               </svg>
             </SvgWrapper>
-          </a>
         </HeaderLogo>
         <HeaderNav>
           <HeaderNavList>
             <HeaderNavItem>
-              <a href="#" rel="noopener noreferer">
+              <StyledNavLink to={`/`}>
                 Про нас
-              </a>
+              </StyledNavLink>
             </HeaderNavItem>
             <HeaderNavItem>
-              <a href="#" rel="noopener noreferer">
+              <StyledNavLink to={`/catalog`}>
                 Каталог будинків
-              </a>
+              </StyledNavLink>
             </HeaderNavItem>
             <HeaderNavItem>
-              <a href="#" rel="noopener noreferer">
-                Донати
-              </a>
+              <StyledNavLink to={`/modular-dream`}>
+                Модульна мрія
+              </StyledNavLink>
             </HeaderNavItem>
             <HeaderNavItem>
-              <a href="#" rel="noopener noreferer">
+              <StyledNavLink to={`/contacts`}>
                 Контакти
-              </a>
+              </StyledNavLink>
             </HeaderNavItem>
           </HeaderNavList>
         </HeaderNav>
+        
         <HeaderBtnWrapper>
           <BtnPrimary type="button" style={{width: '236px'}}>Обрати дім</BtnPrimary>
           <BtnSecondary type="button">Залишити заявку</BtnSecondary>
@@ -77,6 +78,7 @@ const Container = styled.div`
 const HeaderLogo = styled.div`
   width: 63px;
   height: 60px;
+  cursor: pointer;
 `;
 
 const SvgWrapper = styled.div`
@@ -87,7 +89,6 @@ const SvgWrapper = styled.div`
 const HeaderNav = styled.nav`
   display: flex;
   flex-wrap: wrap;
-  width: 543px;
   height: 32px;
 `;
 
@@ -168,4 +169,16 @@ export const BtnSecondary = styled.button`
   &:disabled {
     border-color: #7a7a7a;
   }
+`;
+
+
+const StyledNavLink = styled(NavLink)`
+    font-weight: 500;
+    font-size: 20px;
+    text-wrap: nowrap;
+    color: #000;
+
+    &.active {
+        color: #006837;
+    }
 `;

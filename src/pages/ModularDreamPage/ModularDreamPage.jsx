@@ -3,12 +3,16 @@ import Header from "../../components/Header/Header";
 import { Form } from "react-router-dom";
 import FormHousePage from "../../components/Sections/FormHousePage";
 import Footer from "../../components/Footer/Footer";
+import HeroDream from "../../components/Sections/HeroDream";
+import WhyImportant from "../../components/Sections/WhyImportant";
 
-export default function DonatePage() {
+export default function ModularDreamPage() {
     return (
         <Container>
             <Header />
             <div style={{ height: '100px', width: '1440px' }}></div>
+            <HeroDream />
+            <WhyImportant />
             <FormHousePage />
             <Footer />
         </Container>

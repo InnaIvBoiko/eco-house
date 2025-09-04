@@ -1,40 +1,32 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 export default function Footer() {
+  const navigate = useNavigate();
   return (
     <FooterBox>
       <Container>
         <FooteLogoAndNavWrapper>
-          <FooterLogo>
-            <a href="#" rel="noopener noreferer">
+          <FooterLogo onClick={() => navigate('/')}>
               <SvgWrapper>
                 <svg style={{ width: 125, height: 120 }}>
                   <use href="/logo.svg"></use>
                 </svg>
               </SvgWrapper>
-            </a>
           </FooterLogo>
           <FooterNav>
             <FooterNavList>
-              <FooterNavItem>
-                <a href="#" rel="noopener noreferer">
+              <FooterNavItem onClick={() => navigate('/')}>
                   Про нас
-                </a>
               </FooterNavItem>
-              <FooterNavItem>
-                <a href="#" rel="noopener noreferer">
+              <FooterNavItem onClick={() => navigate('/catalog')}>
                   Каталог будинків
-                </a>
               </FooterNavItem>
-              <FooterNavItem>
-                <a href="#" rel="noopener noreferer">
-                  Донати
-                </a>
+              <FooterNavItem onClick={() => navigate('/modular-dream')}>
+                  Модульна мрія
               </FooterNavItem>
-              <FooterNavItem>
-                <a href="#" rel="noopener noreferer">
+              <FooterNavItem onClick={() => navigate('/contacts')}>
                   Контакти
-                </a>
               </FooterNavItem>
             </FooterNavList>
             <FooterSocialsWrapper>
@@ -92,7 +84,7 @@ const Container = styled.div`
   width: 1440px;
   padding: 24px;
   justify-content: space-between;
-  align-items: start;
+  align-items: flex-start;
 
   a {
     color: #000;
@@ -107,6 +99,7 @@ const FooteLogoAndNavWrapper = styled.div`
 const FooterLogo = styled.div`
   width: 125px;
   height: 120px;
+  cursor: pointer;
 `;
 
 const SvgWrapper = styled.div`
@@ -116,16 +109,13 @@ const SvgWrapper = styled.div`
 
 const FooterNav = styled.nav`
   display: flex;
-  flex-wrap: wrap;
-  width: 543px;
+  flex-direction: column;
   margin-left: 300px;
-  justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
 `;
 
 const FooterNavList = styled.ul`
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
   list-style-type: none;
@@ -139,6 +129,7 @@ const FooterNavItem = styled.li`
   padding: 4px 10px;
   align-items: center;
   color: #000;
+  cursor: pointer;
 `;
 
 const FooterSocialsWrapper = styled.div`
