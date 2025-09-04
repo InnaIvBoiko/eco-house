@@ -1,3 +1,4 @@
+import { NavLink  } from 'react-router-dom';
 import styled from 'styled-components';
 
 export default function Header() {
@@ -16,27 +17,28 @@ export default function Header() {
         <HeaderNav>
           <HeaderNavList>
             <HeaderNavItem>
-              <a href="#" rel="noopener noreferer">
+              <StyledNavLink to={`/`}>
                 Про нас
-              </a>
+              </StyledNavLink>
             </HeaderNavItem>
             <HeaderNavItem>
-              <a href="#" rel="noopener noreferer">
+              <StyledNavLink to={`/catalog`}>
                 Каталог будинків
-              </a>
+              </StyledNavLink>
             </HeaderNavItem>
             <HeaderNavItem>
-              <a href="#" rel="noopener noreferer">
+              <StyledNavLink to={`/donate`}>
                 Донати
-              </a>
+              </StyledNavLink>
             </HeaderNavItem>
             <HeaderNavItem>
-              <a href="#" rel="noopener noreferer">
+              <StyledNavLink to={`/contacts`}>
                 Контакти
-              </a>
+              </StyledNavLink>
             </HeaderNavItem>
           </HeaderNavList>
         </HeaderNav>
+        
         <HeaderBtnWrapper>
           <BtnPrimary type="button" style={{width: '236px'}}>Обрати дім</BtnPrimary>
           <BtnSecondary type="button">Залишити заявку</BtnSecondary>
@@ -168,4 +170,16 @@ export const BtnSecondary = styled.button`
   &:disabled {
     border-color: #7a7a7a;
   }
+`;
+
+
+const StyledNavLink = styled(NavLink)`
+    font-weight: 500;
+    font-size: 20px;
+    text-wrap: nowrap;
+    color: #000;
+
+    &.active {
+        color: #006837;
+    }
 `;
