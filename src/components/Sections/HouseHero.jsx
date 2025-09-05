@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import IconHousePage1 from '../Icons/IconHousePage1';
-import IconHousePage2 from '../Icons/IconHousePage2';
-import IconHousePage3 from '../Icons/IconHousePage3';
-import IconHousePage4 from '../Icons/IconHousePage4';
+import IconHousePage1 from '../Icons/IconsHousePage/IconHousePage1';
+import IconHousePage2 from '../Icons/IconsHousePage/IconHousePage2';
+import IconHousePage3 from '../Icons/IconsHousePage/IconHousePage3';
+import IconHousePage4 from '../Icons/IconsHousePage/IconHousePage4';
 
 
 export default function HouseHero() {
@@ -11,24 +11,28 @@ export default function HouseHero() {
             
             <h1>
                 <span>Еко</span>Гніздо Компакт
-            </h1>
-            {/* <Text>Сучасні квартири з продуманими плануваннями, зеленими зонами та сервісом для вашого комфорту.</Text> */}
-            <HouseImage>
-                <img src="" alt="" />
-            </HouseImage>
+        </h1>
             <List>
-                <ListItemHouse> <IconHousePage1/> <p>
-                  <h4>Дах</h4>натуральні матеріали
-                </p></ListItemHouse>
-                <ListItemHouse> <IconHousePage2/> <p>
-                  <h4>Стіни</h4>екологічні SIP-панелі
-                </p></ListItemHouse>
-                <ListItemHouse> <IconHousePage3/> <p>
-                  <h4>Вікна</h4>енергоефективні склопакети
-                </p></ListItemHouse>
-                <ListItemHouse><IconHousePage4/> <p>
-                  <h4>Двері</h4>із захистом від втрати тепла
-                </p></ListItemHouse>
+                <ListItemHouse> <IconHousePage1 />
+                  <div>
+                    <h4>Дах</h4><p>натуральні матеріали</p>
+                  </div>
+                </ListItemHouse>
+                <ListItemHouse> <IconHousePage2/> 
+                  <div>
+                    <h4>Стіни</h4><p>екологічні SIP-панелі</p>
+                  </div>
+                 </ListItemHouse>
+                <ListItemHouse> <IconHousePage3/> 
+                   <div>
+                     <h4>Вікна</h4><p>енергоефективні склопакети</p>
+                   </div>
+                </ListItemHouse>
+                <ListItemHouse><IconHousePage4/>
+                   <div>
+                     <h4>Двері</h4> <p>із захистом від втрати тепла</p>
+                    </div>
+               </ListItemHouse>
             </List>
         </SectionHeroHouse>
     );
@@ -93,22 +97,7 @@ export const Text = styled.p`
   }
 `;
 
-const HouseImage = styled.div`
-  position: absolute;
-  width: 1440px;
-  height: 768px;
-  top: 0;
-  left: 0;
-  border-radius: 12px;
-  z-index: 1;
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 12px;
-  }
-`;
 
 const List = styled.ul`
   position: absolute;
