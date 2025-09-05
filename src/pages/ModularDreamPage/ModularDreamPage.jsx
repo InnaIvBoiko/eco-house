@@ -6,6 +6,7 @@ import Footer from "../../components/Footer/Footer";
 import HeroDream from "../../components/Sections/HeroDream";
 import WhyImportant from "../../components/Sections/WhyImportant";
 import DreamsMiniCatalog from "../../components/Sections/DreamsMiniCatalog";
+import ModulCity from "../../components/Sections/ModulCity";
 
 export default function ModularDreamPage() {
     return (
@@ -15,6 +16,7 @@ export default function ModularDreamPage() {
             <HeroDream />
             <WhyImportant />
             <DreamsMiniCatalog />
+            <ModulCity />
             <FormHousePage />
             <Footer />
         </Container>

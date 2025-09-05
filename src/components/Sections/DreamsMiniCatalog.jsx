@@ -52,7 +52,7 @@ export default function DreamsMiniCatalog() {
 }
 
 
-export const SectionContent = styled.div`
+export const SectionContent = styled.section`
   display: flex;
   flex-direction: column;
   gap: 60px;
