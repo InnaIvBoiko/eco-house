@@ -78,6 +78,8 @@ const IconButton = styled.div`
   justify-content: center;
   color: ${({ isOpen }) => (isOpen ? '#fff' : '#000')};
   font-size: ${({ $isOpen }) => ($isOpen ? '10px' : '20px')};
+  padding-bottom: ${({ isOpen }) => (isOpen ? '0' : '5px')};
+
 `;
 
 const Answer = styled.div`
