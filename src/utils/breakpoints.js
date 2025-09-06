@@ -1,7 +1,7 @@
 // breakpoints.js
 export const size = {
   mobile: '320px',
-  tablet: '743px',
+  tablet: '744px',
   laptop: '1024px',
   desktop: '1440px',
 };
@@ -15,5 +15,6 @@ export const device = {
 
 export const range = {
   mobileToTablet: `(min-width: ${size.mobile}) and (max-width: ${size.tablet})`,
-  tabletToDesktop: `(min-width: ${size.tablet}) and (max-width: ${size.desktop})`,
+  tabletToDesktop: `(min-width: 745px) and (max-width: ${size.desktop})`,
+  fromDesktop: `(min-width: 1441px)`,
 };

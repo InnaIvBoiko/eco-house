@@ -1,46 +1,52 @@
 export default function IconContactsPageAddress() {
   return (
-    <svg width="62" height="62" viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g filter="url(#filter0_d_276_3248)">
-        <rect x="1" width="60" height="60" rx="30" fill="#006837" shapeRendering="crispEdges" />
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g filter="url(#filter0_d_278_3248)">
+        <rect x="1" width="40" height="40" rx="20" fill="#006837" shape-rendering="crispEdges" />
         <path
-          d="M18.353 30.2502V47.9999H26.3449"
+          d="M12.5684 20.1667V31.9999H17.8963"
           stroke="white"
+          strokeWidth="0.666667"
           strokeMiterlimit="10"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
-          d="M43.6652 30.2502V47.9999H35.6733"
+          d="M29.4432 20.1667V31.9999H24.1152"
           stroke="white"
+          strokeWidth="0.666667"
           strokeMiterlimit="10"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
-          d="M43.703 30.2597L31.0007 17.8015L18.2983 30.2597"
+          d="M29.4682 20.1731L20.9999 11.8677L12.5317 20.1731"
           stroke="white"
+          strokeWidth="0.666667"
           strokeMiterlimit="10"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
-          d="M43.6657 30.2499H49L31.0001 12L13 30.2499H18.3524"
+          d="M29.4438 20.1666H33L21.0001 8L9 20.1666H12.5683"
           stroke="white"
+          strokeWidth="0.666667"
           strokeMiterlimit="10"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
-          d="M26.3447 48V36.5947C26.3447 36.45 26.4614 36.3347 26.6037 36.3347H35.4171C35.5595 36.3347 35.6742 36.4498 35.6742 36.5947V48"
+          d="M17.8965 32V24.3965C17.8965 24.3 17.9743 24.2231 18.0691 24.2231H23.9447C24.0397 24.2231 24.1161 24.2999 24.1161 24.3965V32"
           stroke="white"
+          strokeWidth="0.666667"
           strokeMiterlimit="10"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
-          d="M39.769 20.8908V15.2559H44.6678V25.8573"
+          d="M26.8457 13.9273V10.1707H30.1115V17.2383"
           stroke="white"
+          strokeWidth="0.666667"
           strokeMiterlimit="10"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -48,11 +54,11 @@ export default function IconContactsPageAddress() {
       </g>
       <defs>
         <filter
-          id="filter0_d_276_3248"
-          x="0"
+          id="filter0_d_278_3248"
+          x="0.333333"
           y="0"
-          width="62"
-          height="62"
+          width="41.3333"
+          height="41.3333"
           filterUnits="userSpaceOnUse"
           colorInterpolationFilters="sRGB"
         >
@@ -63,12 +69,12 @@ export default function IconContactsPageAddress() {
             values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
             result="hardAlpha"
           />
-          <feOffset dy="1" />
-          <feGaussianBlur stdDeviation="0.5" />
+          <feOffset dy="0.666667" />
+          <feGaussianBlur stdDeviation="0.333333" />
           <feComposite in2="hardAlpha" operator="out" />
           <feColorMatrix type="matrix" values="0 0 0 0 0.117647 0 0 0 0 0.117647 0 0 0 0 0.117647 0 0 0 0.15 0" />
-          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_276_3248" />
-          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_276_3248" result="shape" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_278_3248" />
+          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_278_3248" result="shape" />
         </filter>
       </defs>
     </svg>

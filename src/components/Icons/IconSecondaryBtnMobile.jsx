@@ -1,97 +1,100 @@
 export default function IconContactsPageAddress() {
   return (
-    <svg width="62" height="62" viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g filter="url(#filter0_d_276_3256)">
-        <rect
-          x="2.5"
-          y="1.5"
-          width="57"
-          height="57"
-          rx="28.5"
-          stroke="#006837"
-          strokeWidth="3"
-          shapeRendering="crispEdges"
-        />
+    <svg width="40" height="40" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g filter="url(#filter0_d_278_3256)">
+        <rect x="2" y="1" width="38" height="38" rx="19" stroke="#006837" strokeWidth="2" shapeRendering="crispEdges" />
         <path
-          d="M41.9128 30.882L39.8394 28.9778L38.4252 30.6129L40.4987 32.5171L41.9128 30.882Z"
+          d="M28.2749 20.5881L26.8926 19.3186L25.9498 20.4087L27.3321 21.6782L28.2749 20.5881Z"
           stroke="black"
+          strokeWidth="0.666667"
           strokeMiterlimit="10"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
-          d="M40.4998 32.5168L38.4263 30.6125L29.0465 41.4578L31.12 43.3621L40.4998 32.5168Z"
+          d="M27.333 21.6779L25.9507 20.4084L19.6975 27.6386L21.0798 28.9081L27.333 21.6779Z"
           stroke="black"
+          strokeWidth="0.666667"
           strokeMiterlimit="10"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
-          d="M29.0578 41.4734L28.0234 44.7871L31.1314 43.3778"
+          d="M19.7052 27.6489L19.0156 29.8581L21.0876 28.9185"
           stroke="black"
+          strokeWidth="0.666667"
           strokeMiterlimit="10"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
-          d="M31.0002 31.0225H22.0718"
+          d="M20.9997 20.6816H15.0474"
           stroke="black"
+          strokeWidth="0.666667"
           strokeMiterlimit="10"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
-          d="M28.5208 33.8516H21.9136"
+          d="M19.3467 22.5676H14.9419"
           stroke="black"
+          strokeWidth="0.666667"
           strokeMiterlimit="10"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
-          d="M21.9136 37.9409H25.8818"
+          d="M14.9419 25.2939H17.5874"
           stroke="black"
+          strokeWidth="0.666667"
           strokeMiterlimit="10"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
-          d="M23.2861 21.9165V26.5907H25.3358"
+          d="M15.8564 14.6111V17.7272H17.2229"
           stroke="black"
+          strokeWidth="0.666667"
           strokeMiterlimit="10"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
-          d="M29.7777 21.9165V26.5907H27.728"
+          d="M20.1843 14.6111V17.7272H18.8179"
           stroke="black"
+          strokeWidth="0.666667"
           strokeMiterlimit="10"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
-          d="M29.779 21.9166H31.147L26.5306 17.1106L21.9141 21.9166H23.2869"
+          d="M20.1847 14.611H21.0967L18.0191 11.407L14.9414 14.611H15.8566"
           stroke="black"
+          strokeWidth="0.666667"
           strokeMiterlimit="10"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
-          d="M25.335 26.5909V23.5874C25.335 23.5493 25.3649 23.519 25.4014 23.519H27.6617C27.6982 23.519 27.7277 23.5493 27.7277 23.5874V26.5909"
+          d="M17.2222 17.7274V15.725C17.2222 15.6996 17.2421 15.6794 17.2664 15.6794H18.7733C18.7977 15.6794 18.8173 15.6996 18.8173 15.725V17.7274"
           stroke="black"
+          strokeWidth="0.666667"
           strokeMiterlimit="10"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
-          d="M44.5 21.3186V19.5204C44.5 19.1334 44.2904 18.7968 43.983 18.624C43.8432 18.5466 43.6825 18.5016 43.5113 18.5016H38.1889V13.017C38.1889 12.4554 37.7469 12 37.2002 12H17.5V48H44.5V21.3186Z"
+          d="M30 14.2124V13.0136C30 12.7556 29.8603 12.5312 29.6553 12.416C29.5621 12.3644 29.455 12.3344 29.3409 12.3344H25.7926V8.678C25.7926 8.3036 25.498 8 25.1335 8H12V32H30V14.2124Z"
           stroke="black"
+          strokeWidth="0.666667"
           strokeMiterlimit="10"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
-          d="M43.9877 18.6284L40.4033 14.9348"
+          d="M29.6586 12.4189L27.269 9.95654"
           stroke="black"
+          strokeWidth="0.666667"
           strokeMiterlimit="10"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -99,11 +102,11 @@ export default function IconContactsPageAddress() {
       </g>
       <defs>
         <filter
-          id="filter0_d_276_3256"
-          x="0"
+          id="filter0_d_278_3256"
+          x="0.333333"
           y="0"
-          width="62"
-          height="62"
+          width="41.3333"
+          height="41.3333"
           filterUnits="userSpaceOnUse"
           colorInterpolationFilters="sRGB"
         >
@@ -114,12 +117,12 @@ export default function IconContactsPageAddress() {
             values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
             result="hardAlpha"
           />
-          <feOffset dy="1" />
-          <feGaussianBlur stdDeviation="0.5" />
+          <feOffset dy="0.666667" />
+          <feGaussianBlur stdDeviation="0.333333" />
           <feComposite in2="hardAlpha" operator="out" />
           <feColorMatrix type="matrix" values="0 0 0 0 0.117647 0 0 0 0 0.117647 0 0 0 0 0.117647 0 0 0 0.15 0" />
-          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_276_3256" />
-          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_276_3256" result="shape" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_278_3256" />
+          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_278_3256" result="shape" />
         </filter>
       </defs>
     </svg>
