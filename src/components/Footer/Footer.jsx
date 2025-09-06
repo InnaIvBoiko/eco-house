@@ -135,6 +135,7 @@ const FooterNavItem = styled.li`
 const FooterSocialsWrapper = styled.div`
   width: 132px;
   height: 28px;
+  margin-right: 82px;   
 `;
 
 const FooterSocialsList = styled.ul`
