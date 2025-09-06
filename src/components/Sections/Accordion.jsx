@@ -17,9 +17,9 @@ export default function Accordion() {
           <Item key={index}>
             <QuestionRow onClick={() => toggle(index)}>
               <QuestionText>{item.question}</QuestionText>
-              <IconButton isOpen={isOpen}>{isOpen ? '✕' : '+'}</IconButton>
+              <IconButton $isOpen={isOpen}>{isOpen ? '✕' : '+'}</IconButton>
             </QuestionRow>
-            <Answer isOpen={isOpen}>{item.answer}</Answer>
+            <Answer $isOpen={isOpen}>{item.answer}</Answer>
           </Item>
         );
       })}
@@ -72,20 +72,21 @@ const IconButton = styled.div`
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: ${({ isOpen }) => (isOpen ? '#000' : '#ccc')};
+  background-color: ${({ $isOpen }) => ($isOpen ? '#000' : '#ccc')};
   display: flex;
   align-items: center;
   justify-content: center;
   color: ${({ isOpen }) => (isOpen ? '#fff' : '#000')};
-  font-size: ${({ isOpen }) => (isOpen ? '10px' : '20px')};
+  font-size: ${({ $isOpen }) => ($isOpen ? '10px' : '20px')};
   padding-bottom: ${({ isOpen }) => (isOpen ? '0' : '5px')};
+
 `;
 
 const Answer = styled.div`
-  max-height: ${({ isOpen }) => (isOpen ? '500px' : '0')};
+  max-height: ${({ $isOpen }) => ($isOpen ? '500px' : '0')};
   overflow: hidden;
   transition: all 0.4s ease-in-out;
-  padding: ${({ isOpen }) => (isOpen ? '16px' : '0 16px')};
+  padding: ${({ $isOpen }) => ($isOpen ? '16px' : '0 16px')};
   background-color: #fafafa;
   font-weight: 400;
   font-size: 24px;

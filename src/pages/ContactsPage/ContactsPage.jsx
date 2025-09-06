@@ -7,7 +7,11 @@ import IconContactsPageAddress from '../../components/Icons/IconContactsPageAddr
 import IconContactsPageEmail from '../../components/Icons/IconContactsPageEmail';
 import IconContactsPagePhone from '../../components/Icons/IconContactsPagePhone';
 import IconContactsPageSchedule from '../../components/Icons/IconContactsPageSchedule';
+import IconBurgerMenu from '../../components/Icons/IconBurgerMenu';
+import IconPrimaryBtn from '../../components/Icons/IconPrimaryBtn';
+import IconSecondaryBtn from '../../components/Icons/IconSecondaryBtn';
 import Accordion from '../../components/Sections/Accordion';
+import { size, range } from '../../utils/breakpoints';
 
 export default function ContactsPage() {
   return (
@@ -27,11 +31,11 @@ export default function ContactsPage() {
           <p style={{ width: '800px' }}>Залиште повідомлення і ми обов’язково з Вами зв’яжемося</p>
           <ContactsForm>
             <ContactsInputWrapper>
-              <ContactsLabelInput for="username">Ім'я</ContactsLabelInput>
+              <ContactsLabelInput htmlFor="username">Ім'я</ContactsLabelInput>
               <ContactsInput type="text" id="username" name="username" placeholder="Ваше Ім'я"></ContactsInput>
             </ContactsInputWrapper>
             <ContactsInputWrapper>
-              <ContactsLabelInput for="usertel">Телефон</ContactsLabelInput>
+              <ContactsLabelInput htmlFor="usertel">Телефон</ContactsLabelInput>
               <ContactsInput
                 style={{ width: '448px' }}
                 type="text"
@@ -41,7 +45,7 @@ export default function ContactsPage() {
               ></ContactsInput>
             </ContactsInputWrapper>
             <ContactsInputWrapper style={{ width: '802px' }}>
-              <ContactsLabelInput for="useremail">Ел. адреса</ContactsLabelInput>
+              <ContactsLabelInput htmlFor="useremail">Ел. адреса</ContactsLabelInput>
               <ContactsInput
                 style={{ width: '802px' }}
                 type="text"
@@ -51,7 +55,7 @@ export default function ContactsPage() {
               ></ContactsInput>
             </ContactsInputWrapper>
             <ContactsInputWrapper style={{ width: 'auto', height: 'auto' }}>
-              <ContactsLabelInput style={{ width: '802px' }} for="usermessage">
+              <ContactsLabelInput style={{ width: '802px' }} htmlFor="usermessage">
                 Повідомлення (максимум 400 символів)
               </ContactsLabelInput>
               <ContactsMessage name="usermessage" id="usermessage" placeholder="Ваше повідомлення"></ContactsMessage>
@@ -106,6 +110,14 @@ const Container = styled.div`
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
+
+  @media only screen and ${range.mobileToTablet} {
+    background: pink;
+  }
+
+  // @media ${size.mobile} {
+  //   background: lightblue;
+  // }
 `;
 
 const SectionHero = styled.section`
@@ -232,6 +244,14 @@ const ContactsMessage = styled.textarea`
     line-height: 120%;
     letter-spacing: -0.02em;
     color: #666;
+  }
+
+  @media ${size.tablet} {
+    background: pink;
+  }
+
+  @media ${size.mobile} {
+    background: lightblue;
   }
 `;
 
