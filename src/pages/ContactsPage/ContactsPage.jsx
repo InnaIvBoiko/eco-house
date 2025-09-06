@@ -37,7 +37,7 @@ export default function ContactsPage() {
                 type="text"
                 id="usertel"
                 name="usertel"
-                placeholder="Ваше телефон"
+                placeholder="Ваш телефон"
               ></ContactsInput>
             </ContactsInputWrapper>
             <ContactsInputWrapper style={{ width: '802px' }}>
@@ -47,7 +47,7 @@ export default function ContactsPage() {
                 type="text"
                 id="useremail"
                 name="useremail"
-                placeholder="Ваше ел. адреса"
+                placeholder="Ваша ел. адреса"
               ></ContactsInput>
             </ContactsInputWrapper>
             <ContactsInputWrapper style={{ width: 'auto', height: 'auto' }}>
@@ -73,14 +73,14 @@ export default function ContactsPage() {
                 <IconContactsPagePhone />
                 <p style={{ margin: '0 0 0 16px' }}>
                   Телефон:
-                  <br /> <span>+38 (098) 000-00-00</span>
+                  <br /> <span><a href="tel:+380980000000" style={{ textDecoration: "none", color: "currentcolor" }}>+38 (098) 000-00-00</a></span>
                 </p>
               </AddressListItem>
               <AddressListItem>
                 <IconContactsPageEmail />
                 <p style={{ margin: '0 0 0 16px' }}>
                   Email:
-                  <br /> <span>info@econest.ua</span>
+                  <br /> <span><a href="mailto:info@econest.ua"  style={{ textDecoration: "none", color: "currentcolor" }}>info@econest.ua</a></span>
                 </p>
               </AddressListItem>
               <AddressListItem>
