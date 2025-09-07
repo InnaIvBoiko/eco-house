@@ -3,7 +3,7 @@ import { BtnPrimary } from "../Header/Header";
 import { FlexSpaceBetween } from "./Advantages";
 import { Input, SectionForm, TextContainer } from "./FormHomePage";
 
-export default function FormHousePage() {
+export default function FormHousePage({ setShowThanksModal }) {
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
 
@@ -19,8 +19,8 @@ export default function FormHousePage() {
             method: "POST",
             body: formData,
         });
-
-        alert("Inviato con successo!");
+        
+        setShowThanksModal(true);
         setName("");
         setPhone("");
     };

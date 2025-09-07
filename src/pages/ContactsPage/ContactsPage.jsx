@@ -13,12 +13,16 @@ import IconPrimaryBtn from '../../components/Icons/IconPrimaryBtn';
 import IconSecondaryBtn from '../../components/Icons/IconSecondaryBtn';
 import Accordion from '../../components/Sections/Accordion';
 import { size, range } from '../../utils/breakpoints';
+import ThanksModal from '../../components/Modal/ThanksModal';
 
 export default function ContactsPage() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+
+  const [showThanksModal, setShowThanksModal] = useState(false);
+
   const handleSubmit = async(e) => {
     e.preventDefault();
 
@@ -33,12 +37,14 @@ export default function ContactsPage() {
       method: "POST",
       body: formData,
     });
-
-    alert("Messaggio inviato!");
+    // Clear form fields after submission
     setName("");
     setPhone("");
     setEmail("");
     setMessage("");
+    
+    
+    setShowThanksModal(true);
   };
 
   return (
@@ -134,6 +140,9 @@ export default function ContactsPage() {
       </SectionFAQ>
       <Donat />
       <Footer />
+      {showThanksModal && (
+        <ThanksModal onClose={() => setShowThanksModal(false)} />
+      )}
     </Container>
   );
 }

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { BtnPrimary } from "../Header/Header";
 import { FlexSpaceBetween } from "./Advantages";
 
-export default function FormHomePage() {
+export default function FormHomePage({setShowThanksModal}) {
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
 
@@ -19,8 +19,8 @@ export default function FormHomePage() {
             method: "POST",
             body: formData,
         });
-
-        alert("Inviato con successo!");
+        
+        setShowThanksModal(true);
         setName("");
         setPhone("");
     };

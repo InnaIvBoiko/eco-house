@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import Header from '../../components/Header/Header';
 import Hero from '../../components/Sections/Hero';
@@ -6,8 +7,11 @@ import MiniCatalog from '../../components/Sections/MiniCatalog';
 import Donat from '../../components/Sections/Donat';
 import FormHomePage from '../../components/Sections/FormHomePage';
 import Footer from '../../components/Footer/Footer';
+import ThanksModal from '../../components/Modal/ThanksModal';
 
 export default function HomePage() {
+  const [showThanksModal, setShowThanksModal] = useState(false);
+
   return (
     <Container>
       <div>
@@ -17,8 +21,9 @@ export default function HomePage() {
       <Advantages />
       <MiniCatalog />
       <Donat />
-      <FormHomePage />
+      <FormHomePage setShowThanksModal={setShowThanksModal} />
       <Footer />
+      {showThanksModal && <ThanksModal onClose={() => setShowThanksModal(false)} />}
     </Container>
   );
 }
