@@ -1,8 +1,8 @@
-export default function IconContactsPageAddress() {
+export default function IconPrimaryBtnMobile() {
   return (
     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_d_278_3248)">
-        <rect x="1" width="40" height="40" rx="20" fill="#006837" shape-rendering="crispEdges" />
+        <rect x="1" width="40" height="40" rx="20" fill="#006837" shapeRendering="crispEdges" />
         <path
           d="M12.5684 20.1667V31.9999H17.8963"
           stroke="white"
