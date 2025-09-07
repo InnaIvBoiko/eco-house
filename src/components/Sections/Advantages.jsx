@@ -146,6 +146,7 @@ export const SectionContent = styled.div`
     font-weight: 600;
     font-size: 64px;
     color: #000;
+    margin-left: 78px;
 
     span {
       color: #006837;
