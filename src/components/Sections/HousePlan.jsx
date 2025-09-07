@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { ChevronLeft, ChevronRight } from "lucide-react"; 
+import IconHousePage9 from '../Icons/IconsHousePage/IconHousePage9';
 
 
 export default function HousePlan() {
@@ -49,30 +50,73 @@ export default function HousePlan() {
 
             <PlanSection>
                 <h3>План будинку</h3>
-                <img src="/images/housePage/housePlan.jpg" alt="Плвн будинку" />
+                <img src="/images/housePage/housePlan.jpg" alt="План будинку" />
             </PlanSection>
 
-          
+        <HousePriceInfo>
+          <h2>Що входить у вартість будинку</h2>
+          <FirstImage src="/images/housePage/FullInfoSection1.jpg" alt="Будинок"/>
+          <SecondImage src="/images/housePage/FullInfoSection2.jpg" alt="Будинок"/>
+          <FirstCardList>
+            <h3><IconHousePage9/> Конструкція та матеріали </h3>
+            <ul>
+              <li>Фундамент: гвинтові палі (не шкодять ґрунту, швидкий монтаж).</li>
+              <li>Каркас: метал + дерев’яні елементи з сертифікованої деревини.</li>
+              <li>Стіни: SIP-панелі з утепленням (екологічні матеріали).</li>
+              <li>Дах: натуральні покрівельні матеріали, підготовка для сонячних панелей.</li>
+              <li>Вікна: енергоефективні склопакети класу А+.</li>
+              <li>Двері: утеплені, з підвищеною безпекою.</li>
+            </ul>
+          </FirstCardList>
+          <SecondCardList>
+            <h3><IconHousePage9/> Внутрішнє оздоблення </h3>
+            <ul>
+              <li>Стінові панелі з екологічних матеріалів.</li>
+              <li>Підлога: ламінат/вініл високої міцності.</li>
+              <li>LED-освітлення.</li>
+              <li>Вбудовані розетки та вимикачі.</li>
+            </ul>
+          </SecondCardList>
+          <ThirdCardList>
+            <h3><IconHousePage9/> Інженерія </h3>
+            <ul>
+              <li>Система вентиляції з рекуперацією.</li>
+              <li>Електропроводка (готова для підключення).</li>
+              <li>Точки для підключення кухні та санвузла.</li>
+              <li>Опалення (інфрачервоні панелі або тепловий насос — залежно від комплектації).</li>
+            </ul>
+          </ThirdCardList>
+          <FourthCardList>
+            <h3><IconHousePage9/> Додатково </h3>
+            <ul>
+              <li>Базові меблі (шафа-купе, кухня-мінімум).</li>
+              <li>Санвузол з душовою кабіною.</li>
+              <li>Гарантія: 5 років на конструкцію, 2 роки на обладнання.</li>
+            </ul>
+          </FourthCardList>
+          <FifthCardList>
+            <h3><IconHousePage9/> Доставка та монтаж </h3>
+            <ul>
+              <li>Доставка по Україні включена у вартість.</li>
+              <li>Монтаж під ключ — 3–7 днів (залежно від ділянки).</li>
+              <li>Підключення до мереж (електрика, вода, каналізація — за наявності на ділянці).</li>
+            </ul>
+          </FifthCardList>
+        </HousePriceInfo>
+        <BtnLeaveAppl>Залишити заявку</BtnLeaveAppl>
+        
         </SectionHousePlan>
     );
 }
 
 const SectionHousePlan = styled.div`
 padding: 60px 24px;
-
-
-
-
-img {
-
-}
 `
 
 const TitleSection = styled.h3`
 font-weight: 600;
 font-size: 48px;
 color: #000;
-
 margin-bottom: 60px;
 
 `
@@ -81,6 +125,7 @@ const MainImage = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  position:relative;
 
   img {
     width: 1391px;
@@ -91,7 +136,7 @@ const MainImage = styled.div`
   }
       .nav-btn {
     position: absolute;
-    top: 180%;
+    top: 400px;
     transform: translateY(-50%);
     background: rgba(251, 254, 251, 0.4);  
     backdrop-filter: blur(5px);
@@ -117,8 +162,6 @@ const MainImage = styled.div`
     right: 60px;
   }
 `;
-
-
 
 const Thumbnails = styled.div`
   display: flex;
@@ -154,9 +197,223 @@ img.active {
 const PlanSection = styled.div`
 display: flex;
 gap: 17px;
+margin-bottom: 60px;
 
 h3{
 font-weight: 600;
 font-size: 48px;
 color: #000;
-}`
+}`;
+
+const HousePriceInfo = styled.div`
+position: relative;
+height: 1486px;
+
+h2 {
+font-weight: 600;
+font-size: 48px;
+color: #000;}
+`
+
+const FirstImage = styled.img`
+position:absolute;
+left:-24px;
+`
+
+const SecondImage = styled.img`
+position:absolute;
+right: -24px;
+top: 650px;
+`
+
+const FirstCardList = styled.div`
+position: absolute;
+left: 530px;
+top: 130px;
+width: 828px;
+height: 301px;
+
+
+h3{
+font-weight: 500;
+font-size: 48px;
+color: #006837;
+margin-bottom: 40px;
+
+display:flex;
+align-items:center;
+justify-content: flex-start;
+gap:24px;
+
+}
+ul{
+list-style-type: inherit;
+padding-left: 50px;
+}
+
+li{
+font-weight: 400;
+font-size: 24px;
+color: #333;
+
+
+}
+`
+
+const SecondCardList = styled.div`
+position: absolute;
+right: 120px;
+top: 530px;
+width: 620px;
+height: 214px;
+
+
+h3{
+font-weight: 500;
+font-size: 48px;
+color: #006837;
+margin-bottom: 40px;
+
+display:flex;
+align-items:center;
+justify-content: flex-start;
+gap:24px;
+
+}
+ul{
+list-style-type: inherit;
+padding-left: 50px;
+}
+
+li{
+font-weight: 400;
+font-size: 24px;
+color: #333;
+}
+`
+
+const ThirdCardList = styled.div`
+position: absolute;
+right: 245px;
+top: 815px;
+width: 606px;
+height: 243px;
+
+
+h3{
+font-weight: 500;
+font-size: 48px;
+color: #006837;
+margin-bottom: 40px;
+
+display:flex;
+align-items:center;
+justify-content: flex-start;
+gap:24px;
+
+}
+ul{
+list-style-type: inherit;
+padding-left: 50px;
+}
+
+li{
+font-weight: 400;
+font-size: 24px;
+color: #333;
+}
+`
+
+const FourthCardList = styled.div`
+position: absolute;
+left: 37px;
+bottom: 250px;
+width: 723px;
+height: 185px;
+
+
+h3{
+font-weight: 500;
+font-size: 48px;
+color: #006837;
+margin-bottom: 40px;
+
+display:flex;
+align-items:center;
+justify-content: flex-start;
+gap:24px;
+
+}
+ul{
+list-style-type: inherit;
+padding-left: 50px;
+}
+
+li{
+font-weight: 400;
+font-size: 24px;
+color: #333;
+}
+`
+
+const FifthCardList = styled.div`
+position: absolute;
+left: 37px;
+bottom: 0px;
+width: 1018px;
+height: 185px;
+
+
+
+h3{
+font-weight: 500;
+font-size: 48px;
+color: #006837;
+margin-bottom: 40px;
+
+display:flex;
+align-items:center;
+justify-content: flex-start;
+gap:24px;
+
+}
+ul{
+list-style-type: inherit;
+padding-left: 50px;
+
+}
+
+li{
+font-weight: 400;
+font-size: 24px;
+color: #333;
+}
+`
+
+
+const BtnLeaveAppl = styled.button`
+
+margin: 60px auto 0 auto;
+border:none;
+border-radius: 5px;
+padding: 20px 24px;
+width: 330px;
+height: 60px;
+box-shadow: 0 1px 1px 0 rgba(30, 30, 30, 0.15);
+background-color: #006837;
+
+font-weight: 500;
+font-size: 20px;
+line-height: 1.2;
+letter-spacing: -0.02em;
+color: #fff;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+ &:hover {
+        background: #25a02a;
+        color: #fff;
+    }
+`
