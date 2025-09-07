@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import Header from '../../components/Header/Header';
 import Donat from '../../components/Sections/Donat';
@@ -14,6 +15,32 @@ import Accordion from '../../components/Sections/Accordion';
 import { size, range } from '../../utils/breakpoints';
 
 export default function ContactsPage() {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    
+    const formData = new URLSearchParams();
+    formData.append("type", "form2");
+    formData.append("name", name);
+    formData.append("phone", phone);
+    formData.append("email", email);
+    formData.append("message", message);
+
+    await fetch("https://script.google.com/macros/s/AKfycbyNA9MQdS6iVOu8dV_d0t4hTzP-kyYbZRMBU5cg-mFA_LOkRxf3kP6Xh-8u_MSVWVHn/exec", {
+      method: "POST",
+      body: formData,
+    });
+
+    alert("Messaggio inviato!");
+    setName("");
+    setPhone("");
+    setEmail("");
+    setMessage("");
+  };
+
   return (
     <Container>
       <Header />
@@ -29,10 +56,10 @@ export default function ContactsPage() {
         <div style={{ width: '802px' }}>
           <h2 style={{ width: '800px' }}>Залишилися запитання?</h2>
           <p style={{ width: '800px' }}>Залиште повідомлення і ми обов’язково з Вами зв’яжемося</p>
-          <ContactsForm>
+          <ContactsForm onSubmit={handleSubmit}>
             <ContactsInputWrapper>
               <ContactsLabelInput htmlFor="username">Ім'я</ContactsLabelInput>
-              <ContactsInput type="text" id="username" name="username" placeholder="Ваше Ім'я"></ContactsInput>
+              <ContactsInput type="text" id="username" name="username" placeholder="Ваше Ім'я" value={name} onChange={(e) => setName(e.target.value.trim())}></ContactsInput>
             </ContactsInputWrapper>
             <ContactsInputWrapper>
               <ContactsLabelInput htmlFor="usertel">Телефон</ContactsLabelInput>
@@ -42,6 +69,8 @@ export default function ContactsPage() {
                 id="usertel"
                 name="usertel"
                 placeholder="Ваш телефон"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value.trim())}
               ></ContactsInput>
             </ContactsInputWrapper>
             <ContactsInputWrapper style={{ width: '802px' }}>
@@ -52,13 +81,15 @@ export default function ContactsPage() {
                 id="useremail"
                 name="useremail"
                 placeholder="Ваша ел. адреса"
+                value={email}
+                onChange={(e) => setEmail(e.target.value.trim())}
               ></ContactsInput>
             </ContactsInputWrapper>
             <ContactsInputWrapper style={{ width: 'auto', height: 'auto' }}>
               <ContactsLabelInput style={{ width: '802px' }} htmlFor="usermessage">
                 Повідомлення (максимум 400 символів)
               </ContactsLabelInput>
-              <ContactsMessage name="usermessage" id="usermessage" placeholder="Ваше повідомлення"></ContactsMessage>
+              <ContactsMessage name="usermessage" id="usermessage" placeholder="Ваше повідомлення" value={message} onChange={(e) => setMessage(e.target.value.trim())}></ContactsMessage>
             </ContactsInputWrapper>
             <BtnPrimary style={{ width: '100%' }}>Надіслати</BtnPrimary>
           </ContactsForm>
