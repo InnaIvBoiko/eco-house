@@ -21,13 +21,13 @@ export default function ContactsPage() {
   const [message, setMessage] = useState("");
   const handleSubmit = async(e) => {
     e.preventDefault();
-    
+
     const formData = new URLSearchParams();
     formData.append("type", "form2");
-    formData.append("name", name);
-    formData.append("phone", phone);
-    formData.append("email", email);
-    formData.append("message", message);
+    formData.append("name", name.trim());
+    formData.append("phone", phone.trim());
+    formData.append("email", email.trim());
+    formData.append("message", message.trim());
 
     await fetch("https://script.google.com/macros/s/AKfycbyNA9MQdS6iVOu8dV_d0t4hTzP-kyYbZRMBU5cg-mFA_LOkRxf3kP6Xh-8u_MSVWVHn/exec", {
       method: "POST",
@@ -59,7 +59,7 @@ export default function ContactsPage() {
           <ContactsForm onSubmit={handleSubmit}>
             <ContactsInputWrapper>
               <ContactsLabelInput htmlFor="username">Ім'я</ContactsLabelInput>
-              <ContactsInput type="text" id="username" name="username" placeholder="Ваше Ім'я" value={name} onChange={(e) => setName(e.target.value.trim())}></ContactsInput>
+              <ContactsInput type="text" id="username" name="username" placeholder="Ваше Ім'я" value={name} onChange={(e) => setName(e.target.value)}></ContactsInput>
             </ContactsInputWrapper>
             <ContactsInputWrapper>
               <ContactsLabelInput htmlFor="usertel">Телефон</ContactsLabelInput>
@@ -70,7 +70,7 @@ export default function ContactsPage() {
                 name="usertel"
                 placeholder="Ваш телефон"
                 value={phone}
-                onChange={(e) => setPhone(e.target.value.trim())}
+                onChange={(e) => setPhone(e.target.value)}
               ></ContactsInput>
             </ContactsInputWrapper>
             <ContactsInputWrapper style={{ width: '802px' }}>
@@ -82,14 +82,14 @@ export default function ContactsPage() {
                 name="useremail"
                 placeholder="Ваша ел. адреса"
                 value={email}
-                onChange={(e) => setEmail(e.target.value.trim())}
+                onChange={(e) => setEmail(e.target.value)}
               ></ContactsInput>
             </ContactsInputWrapper>
             <ContactsInputWrapper style={{ width: 'auto', height: 'auto' }}>
               <ContactsLabelInput style={{ width: '802px' }} htmlFor="usermessage">
                 Повідомлення (максимум 400 символів)
               </ContactsLabelInput>
-              <ContactsMessage name="usermessage" id="usermessage" placeholder="Ваше повідомлення" value={message} onChange={(e) => setMessage(e.target.value.trim())}></ContactsMessage>
+              <ContactsMessage name="usermessage" id="usermessage" placeholder="Ваше повідомлення" value={message} onChange={(e) => setMessage(e.target.value)}></ContactsMessage>
             </ContactsInputWrapper>
             <BtnPrimary style={{ width: '100%' }}>Надіслати</BtnPrimary>
           </ContactsForm>
