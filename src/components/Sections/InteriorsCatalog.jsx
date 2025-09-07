@@ -1,14 +1,58 @@
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
 import styled from "styled-components";
+import PrevButton from './PrevButton';
+import NextButton from './NextButton';
+
+const images = [
+    { src: "/images/catalogPage/interiors1.jpg", alt: "Інтер'єр 1", width: 409, height: 494 },
+    { src: "/images/catalogPage/interiors2.jpg", alt: "Інтер'єр 2", width: 568, height: 612 },
+    { src: "/images/catalogPage/interiors3.jpg", alt: "Інтер'єр 3", width: 409, height: 494 },
+    // duplicate images to enable looping effect
+    { src: "/images/catalogPage/interiors1.jpg", alt: "Інтер'єр 1", width: 409, height: 494 },
+    { src: "/images/catalogPage/interiors2.jpg", alt: "Інтер'єр 2", width: 568, height: 612 },
+    { src: "/images/catalogPage/interiors3.jpg", alt: "Інтер'єр 3", width: 409, height: 494 },
+];
 
 export default function InteriorsCatalog() {
     return (
         <Section>
             <h2>Інтер'єри <span>готових модульних будинків</span> під ключ</h2>
-            <FotoWrapper>
-                <img src="/images/catalogPage/interiors1.jpg" alt="Інтер'єр 1" width="409" height="494" />
-                <img src="/images/catalogPage/interiors2.jpg" alt="Інтер'єр 2" width="568" height="612" />
-                <img src="/images/catalogPage/interiors3.jpg" alt="Інтер'єр 3" width="409" height="494" />
-            </FotoWrapper>
+            <SliderWrapper>
+                <Swiper
+                    modules={[Navigation]}
+                    navigation={{
+                        prevEl: '.custom-swiper-prev',
+                        nextEl: '.custom-swiper-next',
+                    }}
+                    spaceBetween={24}
+                    slidesPerView={3}
+                    centeredSlides={true}
+                    initialSlide={1}
+                    loop={true}
+                    style={{ position: 'relative' }}
+                >
+                    {images.map((img, idx) => (
+                        <SwiperSlide key={idx}>
+                            <ImgStyled
+                                src={img.src}
+                                alt={img.alt}
+                                width={img.width}
+                                height={img.height}
+                            />
+                        </SwiperSlide>
+                    ))}
+                    <NavButton className="custom-swiper-prev" $left>
+                        <PrevButton />
+                    </NavButton>
+                    <NavButton className="custom-swiper-next" $right>
+                        <NextButton />
+                    </NavButton>
+                </Swiper>
+            </SliderWrapper>
         </Section>
     );
 }
@@ -32,13 +76,62 @@ const Section = styled.section`
     }
 `;
 
-const FotoWrapper = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    align-items: center;
 
-    img {
+const SliderWrapper = styled.div`
+    position: relative;
+    width: 1440px;
+    height: 612px;
+    display: flex;
+    align-items: center;
+    .swiper {
+        width: 100%;
+        height: 100%;
+        padding-bottom: 0;
+        display: flex;
+        align-items: center;
+    }
+    .swiper-wrapper {
+        align-items: flex-end !important;
+    }
+`;
+
+const ImgStyled = styled.img`
+    border-radius: 10px;
+    object-fit: cover;
+    transition: all 0.3s;
+    display: block;
+    margin: 0 auto;
+    width: 409px;
+    height: 494px;
+    position: relative;
+
+    .swiper-slide-active & {
+        width: 568px;
+        height: 612px;
+        z-index: 2;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        margin-bottom: 0;
+    }
+`;
+
+const NavButton = styled.div`
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    transform: translateY(-50%);
+    ${({ $left }) => $left && `left: 0;`}
+    ${({ $right }) => $right && `right: 0;`}
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    button {
         border-radius: 10px;
+        background: none;
+        padding: 0;
+        outline: none;
+        margin-left: 64px;
+        margin-right: 64px;
+        cursor: pointer;
     }
 `;

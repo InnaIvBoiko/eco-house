@@ -11,7 +11,7 @@ export default function FormHomePage() {
             </TextContainer>
             <form>
                 <FlexSpaceBetween style={{gap: '24px', marginBottom: '40px'}}>
-                    <Input type="text" placeholder="Ім’я" />
+                    <Input type="text" placeholder="Ім&#39;я" />
                     <Input type="tel" placeholder="Телефон" />
                 </FlexSpaceBetween>
                 <BtnPrimary type="submit" style={{ width: "100%" }}>Надіслати</BtnPrimary>
