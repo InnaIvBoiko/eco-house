@@ -11,7 +11,7 @@ export default function HauseCompactPage() {
     return (
         <Container>
             <Header />
-            <div style={{ height: "10vh" }}>
+            <div style={{ height: "100px" }}>
             </div>
             <HouseHero />
             <HouseInfo />
