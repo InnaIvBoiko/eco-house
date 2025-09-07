@@ -15,11 +15,15 @@ export default function Accordion() {
         const isOpen = openIndex === index;
         return (
           <Item key={index}>
-            <QuestionRow onClick={() => toggle(index)}>
+            <QuestionRow className="accordionqestion" onClick={() => toggle(index)}>
               <QuestionText>{item.question}</QuestionText>
-              <IconButton $isOpen={isOpen}>{isOpen ? '✕' : '+'}</IconButton>
+              <IconButton className="accordionbtn" $isOpen={isOpen}>
+                {isOpen ? '✕' : '+'}
+              </IconButton>
             </QuestionRow>
-            <Answer $isOpen={isOpen}>{item.answer}</Answer>
+            <Answer className="accordionanswer" $isOpen={isOpen}>
+              {item.answer}
+            </Answer>
           </Item>
         );
       })}
@@ -76,10 +80,9 @@ const IconButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${({ isOpen }) => (isOpen ? '#fff' : '#000')};
-  font-size: ${({ $isOpen }) => ($isOpen ? '10px' : '20px')};
+  color: ${({ $isOpen }) => ($isOpen ? '#fff' : '#000')};
+  font-size: ${({ $isOpen }) => ($isOpen ? '9px' : '20px')};
   padding-bottom: ${({ isOpen }) => (isOpen ? '0' : '5px')};
-
 `;
 
 const Answer = styled.div`
