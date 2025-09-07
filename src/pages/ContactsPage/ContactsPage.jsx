@@ -1,21 +1,335 @@
-import styled from "styled-components";
-import Header from "../../components/Header/Header";
-import Donat from "../../components/Sections/Donat";
-import Footer from "../../components/Footer/Footer";
+import { useState } from 'react';
+import styled from 'styled-components';
+import Header from '../../components/Header/Header';
+import Donat from '../../components/Sections/Donat';
+import Footer from '../../components/Footer/Footer';
+import { BtnPrimary } from '../../components/Header/Header';
+import IconContactsPageAddress from '../../components/Icons/IconContactsPageAddress';
+import IconContactsPageEmail from '../../components/Icons/IconContactsPageEmail';
+import IconContactsPagePhone from '../../components/Icons/IconContactsPagePhone';
+import IconContactsPageSchedule from '../../components/Icons/IconContactsPageSchedule';
+import IconBurgerMenu from '../../components/Icons/IconBurgerMenu';
+import IconPrimaryBtn from '../../components/Icons/IconPrimaryBtn';
+import IconSecondaryBtn from '../../components/Icons/IconSecondaryBtn';
+import Accordion from '../../components/Sections/Accordion';
+import { size, range } from '../../utils/breakpoints';
+import ThanksModal from '../../components/Modal/ThanksModal';
 
 export default function ContactsPage() {
-    return (
-        <Container>
-            <Header />
-            <div style={{ height: "30vh" }}>
-            </div>
-            <Donat />
-            <Footer />
-        </Container>
-    );
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const [showThanksModal, setShowThanksModal] = useState(false);
+
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+
+    const formData = new URLSearchParams();
+    formData.append("type", "form2");
+    formData.append("name", name.trim());
+    formData.append("phone", phone.trim());
+    formData.append("email", email.trim());
+    formData.append("message", message.trim());
+
+    await fetch("https://script.google.com/macros/s/AKfycbyNA9MQdS6iVOu8dV_d0t4hTzP-kyYbZRMBU5cg-mFA_LOkRxf3kP6Xh-8u_MSVWVHn/exec", {
+      method: "POST",
+      body: formData,
+    });
+    // Clear form fields after submission
+    setName("");
+    setPhone("");
+    setEmail("");
+    setMessage("");
+    
+    
+    setShowThanksModal(true);
+  };
+
+  return (
+    <Container>
+      <Header />
+      <SectionHero>
+        <h1>
+          <span>Наші</span> контакти
+        </h1>
+        <HomeImage>
+          <img src="/images/contactsPage/contactPageHerohouse.png" alt="" />
+        </HomeImage>
+      </SectionHero>
+      <SectionContacts>
+        <div style={{ width: '802px' }}>
+          <h2 style={{ width: '800px' }}>Залишилися запитання?</h2>
+          <p style={{ width: '800px' }}>Залиште повідомлення і ми обов’язково з Вами зв’яжемося</p>
+          <ContactsForm onSubmit={handleSubmit}>
+            <ContactsInputWrapper>
+              <ContactsLabelInput htmlFor="username">Ім'я</ContactsLabelInput>
+              <ContactsInput type="text" id="username" name="username" placeholder="Ваше Ім'я" value={name} onChange={(e) => setName(e.target.value)}></ContactsInput>
+            </ContactsInputWrapper>
+            <ContactsInputWrapper>
+              <ContactsLabelInput htmlFor="usertel">Телефон</ContactsLabelInput>
+              <ContactsInput
+                style={{ width: '448px' }}
+                type="text"
+                id="usertel"
+                name="usertel"
+                placeholder="Ваш телефон"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              ></ContactsInput>
+            </ContactsInputWrapper>
+            <ContactsInputWrapper style={{ width: '802px' }}>
+              <ContactsLabelInput htmlFor="useremail">Ел. адреса</ContactsLabelInput>
+              <ContactsInput
+                style={{ width: '802px' }}
+                type="text"
+                id="useremail"
+                name="useremail"
+                placeholder="Ваша ел. адреса"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              ></ContactsInput>
+            </ContactsInputWrapper>
+            <ContactsInputWrapper style={{ width: 'auto', height: 'auto' }}>
+              <ContactsLabelInput style={{ width: '802px' }} htmlFor="usermessage">
+                Повідомлення (максимум 400 символів)
+              </ContactsLabelInput>
+              <ContactsMessage name="usermessage" id="usermessage" placeholder="Ваше повідомлення" value={message} onChange={(e) => setMessage(e.target.value)}></ContactsMessage>
+            </ContactsInputWrapper>
+            <BtnPrimary style={{ width: '100%' }}>Надіслати</BtnPrimary>
+          </ContactsForm>
+        </div>
+        <div style={{ width: '472px' }}>
+          <ContactsAddress>
+            <AddressList>
+              <AddressListItem>
+                <IconContactsPageAddress />
+                <p style={{ margin: '0 0 0 16px' }}>
+                  Адреса офісу:
+                  <br /> <span>м. Київ, вул. Зелена, 12</span>
+                </p>
+              </AddressListItem>
+              <AddressListItem>
+                <IconContactsPagePhone />
+                <p style={{ margin: '0 0 0 16px' }}>
+                  Телефон:
+                  <br /> <span><a href="tel:+380980000000" style={{ textDecoration: "none", color: "currentcolor" }}>+38 (098) 000-00-00</a></span>
+                </p>
+              </AddressListItem>
+              <AddressListItem>
+                <IconContactsPageEmail />
+                <p style={{ margin: '0 0 0 16px' }}>
+                  Email:
+                  <br /> <span><a href="mailto:info@econest.ua"  style={{ textDecoration: "none", color: "currentcolor" }}>info@econest.ua</a></span>
+                </p>
+              </AddressListItem>
+              <AddressListItem>
+                <IconContactsPageSchedule />
+                <p style={{ margin: '0 0 0 16px' }}>
+                  Графік роботи:
+                  <br /> <span>Пн – Сб, 9:00 – 18:00</span>
+                </p>
+              </AddressListItem>
+            </AddressList>
+          </ContactsAddress>
+        </div>
+      </SectionContacts>
+      <SectionFAQ>
+        <Accordion></Accordion>
+      </SectionFAQ>
+      <Donat />
+      <Footer />
+      {showThanksModal && (
+        <ThanksModal onClose={() => setShowThanksModal(false)} />
+      )}
+    </Container>
+  );
 }
 const Container = styled.div`
-    max-width: 1440px;
-    margin-left: auto;
-    margin-right: auto;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media only screen and ${range.mobileToTablet} {
+    background: pink;
+  }
+
+  // @media ${size.mobile} {
+  //   background: lightblue;
+  // }
+`;
+
+const SectionHero = styled.section`
+  position: relative;
+  width: 1440px;
+  height: 768px;
+  background-image: url('/images/contactsPage/contactPageHeroBackground.png');
+  background-size: cover;
+  text-align: center;
+
+  h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 128px;
+    color: #000;
+    padding-top: 102px;
+
+    span {
+      font-weight: 700;
+      font-style: Bold;
+      color: #006837;
+    }
+  }
+`;
+
+const HomeImage = styled.div`
+  position: absolute;
+  width: 1440px;
+  //   height: 768px;
+  top: 101px;
+  left: 0;
+  border-radius: 12px;
+  z-index: 1;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+`;
+
+const SectionContacts = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  font-family: 'Inter', sans-serif;
+  width: 1440px;
+  height: 846px;
+  padding: 60px 24px;
+  gap: 118px;
+
+  h2 {
+    font-weight: 600;
+    font-size: 64px;
+    color: #000;
+    margin-bottom: 24px;
+  }
+
+  p {
+    font-weight: 500;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 8px;
+  }
+`;
+
+const ContactsForm = styled.form`
+  display: flex;
+  flex-wrap: wrap;
+  width: 802px;
+  gap: 24px;
+`;
+
+const ContactsInputWrapper = styled.div`
+  width: 330px;
+  height: 92px;
+  display: flex;
+  flex-direction: column;
+`;
+
+const ContactsLabelInput = styled.label`
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: #000;
+  margin-bottom: 8px;
+`;
+
+const ContactsInput = styled.input`
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 20px 24px;
+  width: 330px;
+  height: 60px;
+  box-shadow: 0 1px 1px 0 rgba(30, 30, 30, 0.15);
+  background: #fff;
+
+  &::placeholder {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+    color: #666;
+  }
+`;
+
+const ContactsMessage = styled.textarea`
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 20px 24px;
+  width: 802px;
+  height: 224px;
+  box-shadow: 0 1px 1px 0 rgba(30, 30, 30, 0.15);
+  background: #fff;
+  resize: none;
+
+  &::placeholder {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+    color: #666;
+  }
+
+  @media ${size.tablet} {
+    background: pink;
+  }
+
+  @media ${size.mobile} {
+    background: lightblue;
+  }
+`;
+
+const ContactsAddress = styled.address`
+  border-radius: 10px;
+  padding: 24px;
+  width: 472px;
+  height: 362px;
+  padding: 24px;
+  box-shadow: 0 1px 1px 0 rgba(30, 30, 30, 0.15);
+  background: #fff;
+  margin-top: 22px;
+`;
+
+const AddressList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+`;
+
+const AddressListItem = styled.li`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  p {
+    font-size: 24px;
+    color: #006837;
+    font-weight: 500;
+    font-style: normal;
+    span {
+      font-weight: 600;
+      color: #000;
+    }
+  }
+`;
+
+const SectionFAQ = styled.section`
+  padding: 60px 24px;
+  height: 760px;
 `;

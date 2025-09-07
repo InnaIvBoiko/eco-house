@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { BtnPrimary, BtnSecondary } from "../Header/Header";
 import { FlexSpaceBetween, SectionContent } from "./Advantages";
@@ -6,6 +7,7 @@ import Bed from "../Icons/Bed";
 import Discount from "../Icons/Discount";
 
 export default function MiniCatalog() {
+    const navigate = useNavigate();
     return (
         <section>
             <SectionContent style={{alignItems: 'center'}}>
@@ -20,8 +22,8 @@ export default function MiniCatalog() {
                             <li><Discount /> <p>А+</p></li>
                         </ul>
                         <FlexSpaceBetween style={{ alignItems: 'center' }}>
-                            <BtnPrimary type="button">Дізнатися більше</BtnPrimary>
-                            <h3>1 276 000 грн</h3>
+                            <BtnPrimary type="button" onClick={() => navigate('/house/compact')}>Дізнатися більше</BtnPrimary>
+                            <h3>476 000 грн</h3>
                         </FlexSpaceBetween>
                     </CatalogItem>
                     <CatalogItem>
@@ -33,8 +35,8 @@ export default function MiniCatalog() {
                             <li><Discount /> <p>А++</p></li>
                         </ul>
                         <FlexSpaceBetween style={{ alignItems: 'center' }}>
-                            <BtnPrimary type="button">Дізнатися більше</BtnPrimary>
-                            <h3>1 276 000 грн</h3>
+                            <BtnPrimary type="button" onClick={() => navigate('/house/family')}>Дізнатися більше</BtnPrimary>
+                            <h3>982 000 грн</h3>
                         </FlexSpaceBetween>
                     </CatalogItem>
                     <CatalogItem>
@@ -46,12 +48,12 @@ export default function MiniCatalog() {
                             <li><Discount /> <p>А+++</p></li>
                         </ul>
                         <FlexSpaceBetween style={{ alignItems: 'center' }}>
-                            <BtnPrimary type="button">Дізнатися більше</BtnPrimary>
+                            <BtnPrimary type="button" onClick={() => navigate('/house/premium')}>Дізнатися більше</BtnPrimary>
                             <h3>1 276 000 грн</h3>
                         </FlexSpaceBetween>
                     </CatalogItem>
                 </CatalogList>
-                <BtnSecondary style={{width: '448px'}}>Подивитися всі</BtnSecondary>
+                <BtnSecondary style={{width: '448px'}} onClick={() => navigate('/catalog')}>Подивитися всі</BtnSecondary>
             </SectionContent>
         </section>
   );

@@ -18,6 +18,7 @@
     "simplelightbox": "^2.14.3",
     "styled-components": "^6.1.19",
     "yet-another-react-lightbox": "^3.25.0"
+    "swiper": "^11.2.10"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",

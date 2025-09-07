@@ -1,42 +1,35 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { size, range } from '../../utils/breakpoints';
 
 export default function Footer() {
+  const navigate = useNavigate();
   return (
     <FooterBox>
       <Container>
         <FooteLogoAndNavWrapper>
-          <FooterLogo>
-            <a href="#" rel="noopener noreferer">
-              <SvgWrapper>
-                <svg style={{ width: 125, height: 120 }}>
-                  <use href="/logo.svg"></use>
-                </svg>
-              </SvgWrapper>
-            </a>
+          <FooterLogo onClick={() => navigate('/')}>
+            <SvgWrapper>
+              <svg style={{ width: 125, height: 120 }}>
+                <use href="/logo.svg"></use>
+              </svg>
+            </SvgWrapper>
           </FooterLogo>
+          <FooterLogoMobile onClick={() => navigate('/')}>
+            <SvgWrapper>
+              <svg style={{ width: 42, height: 40 }}>
+                <use href="/footerLogoMobile.svg"></use>
+              </svg>
+            </SvgWrapper>
+          </FooterLogoMobile>
           <FooterNav>
             <FooterNavList>
-              <FooterNavItem>
-                <a href="#" rel="noopener noreferer">
-                  Про нас
-                </a>
-              </FooterNavItem>
-              <FooterNavItem>
-                <a href="#" rel="noopener noreferer">
-                  Каталог будинків
-                </a>
-              </FooterNavItem>
-              <FooterNavItem>
-                <a href="#" rel="noopener noreferer">
-                  Донати
-                </a>
-              </FooterNavItem>
-              <FooterNavItem>
-                <a href="#" rel="noopener noreferer">
-                  Контакти
-                </a>
-              </FooterNavItem>
+              <FooterNavItem onClick={() => navigate('/')}>Про нас</FooterNavItem>
+              <FooterNavItem onClick={() => navigate('/catalog')}>Каталог будинків</FooterNavItem>
+              <FooterNavItem onClick={() => navigate('/modular-dream')}>Модульна мрія</FooterNavItem>
+              <FooterNavItem onClick={() => navigate('/contacts')}>Контакти</FooterNavItem>
             </FooterNavList>
+            <FooterPhoneNumberInNav>+38 (098) 000-00-00</FooterPhoneNumberInNav>
             <FooterSocialsWrapper>
               <FooterSocialsList>
                 <FooterSocialsItem>
@@ -72,41 +65,94 @@ export default function Footer() {
 }
 
 const FooterBox = styled.footer`
-  z-index: 999;
-  position: absolute;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 120%;
   letter-spacing: -0.02em;
-  display: flex;
-  flex-wrap: wrap;
   margin: 0 auto;
   max-width: 1440px;
   background-color: transparent;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media only screen and ${range.fromDesktop} {
+    flex-direction: row;
+    align-items: initial;
+    justify-content: initial;
+  }
 `;
 
 const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  width: 1440px;
-  padding: 24px;
-  justify-content: space-between;
-  align-items: start;
-
   a {
     color: #000;
+  }
+  padding: 16px;
+
+  display: none;
+  @media only screen and ${range.mobileToTablet} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  @media only screen and ${range.tabletToDesktop} {
+    display: flex;
+    flex-direction: column;
+    min-width: 320px;
+    max-width: 1439.98px;
+    padding: 24px;
+    justify-content: space-between;
+  }
+
+  @media only screen and ${range.fromDesktop} {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1440px;
+    padding: 24px;
+    justify-content: space-between;
+    align-items: flex-start;
   }
 `;
 
 const FooteLogoAndNavWrapper = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  @media only screen and ${range.fromDesktop} {
+    display: flex;
+    flex-direction: row;
+  }
 `;
 
 const FooterLogo = styled.div`
   width: 125px;
   height: 120px;
+  cursor: pointer;
+  @media only screen and ${range.mobileToTablet} {
+    display: none;
+  }
+`;
+
+const FooterLogoMobile = styled(FooterLogo)`
+  width: 42px;
+  height: 40px;
+  margin-bottom: 24px;
+
+  @media only screen and ${range.mobileToTablet} {
+    display: flex;
+  }
+
+  @media only screen and ${range.tabletToDesktop} {
+    display: none;
+  }
+  @media only screen and ${range.fromDesktop} {
+    display: none;
+  }
 `;
 
 const SvgWrapper = styled.div`
@@ -116,21 +162,46 @@ const SvgWrapper = styled.div`
 
 const FooterNav = styled.nav`
   display: flex;
-  flex-wrap: wrap;
-  width: 543px;
+  flex-direction: column;
   margin-left: 300px;
-  justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 12px;
+  @media only screen and ${range.mobileToTablet} {
+    margin-left: 0;
+  }
+
+  @media only screen and ${range.tabletToDesktop} {
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-left: 0;
+  }
 `;
 
 const FooterNavList = styled.ul`
-  width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   list-style-type: none;
-  gap: 16px;
-  justify-content: space-between;
+  gap: 6px;
+
+  @media only screen and ${range.mobileToTablet} {
+    margin-left: 0;
+  }
+
+  @media only screen and ${range.tabletToDesktop} {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  @media only screen and ${range.fromDesktop} {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 16px;
+  }
 `;
 
 const FooterNavItem = styled.li`
@@ -139,30 +210,54 @@ const FooterNavItem = styled.li`
   padding: 4px 10px;
   align-items: center;
   color: #000;
+  cursor: pointer;
+  font-size: 16px;
+
+  @media only screen and ${range.tabletToDesktop} {
+    font-size: 20px;
+  }
 `;
 
 const FooterSocialsWrapper = styled.div`
   width: 132px;
   height: 28px;
+  margin-right: 0;
+
+  @media only screen and ${range.fromDesktop} {
+    margin-right: 82px;
+  }
 `;
 
 const FooterSocialsList = styled.ul`
   display: flex;
   flex-direction: row;
   gap: 24px;
+
+  @media only screen and ${range.fromDesktop} {
+    margin-left: 20px;
+  }
 `;
 const FooterSocialsItem = styled.li`
   width: 28px;
   height: 28px;
   cursor: pointer;
 `;
-const FooterSocialIcon = styled.svg``;
 
 const FooterPhoneNumber = styled.p`
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: 20px;
   color: #000;
+  @media only screen and ${range.mobileToTablet} {
+    display: none;
+  }
+
+  @media only screen and ${range.tabletToDesktop} {
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const FooterCopyRigths = styled.p`
@@ -172,4 +267,27 @@ const FooterCopyRigths = styled.p`
   color: #000;
   margin: 0 auto;
   padding-bottom: 24px;
+  padding-top: 8px;
+  @media only screen and ${range.mobileToTablet} {
+    font-size: 14px;
+  }
+`;
+
+const FooterPhoneNumberInNav = styled(FooterPhoneNumber)`
+  display: none;
+  @media only screen and ${range.mobileToTablet} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+  }
+  @media only screen and ${range.tabletToDesktop} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media only screen and ${range.fromDesktop} {
+    display: none;
+  }
 `;

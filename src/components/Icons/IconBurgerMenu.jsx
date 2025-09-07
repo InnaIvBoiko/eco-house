@@ -1,0 +1,30 @@
+export default function IconContactsPageAddress() {
+  return (
+    <svg width="90" height="40" viewBox="0 0 90 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M9.65723 2.72656H80.3433"
+        stroke="black"
+        stroke-width="2"
+        stroke-miterlimit="10"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M9.65723 19.9995H80.3433"
+        stroke="black"
+        stroke-width="2"
+        stroke-miterlimit="10"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M9.65723 37.2734H80.3433"
+        stroke="black"
+        stroke-width="2"
+        stroke-miterlimit="10"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+}
