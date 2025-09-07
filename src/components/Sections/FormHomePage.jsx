@@ -56,6 +56,11 @@ export const SectionForm = styled.section`
         padding: 100px 30px;
         gap: 60px;
     }
+
+    @media (max-width: 743px) {
+        padding: 60px 16px;
+        gap: 32px;
+    }
 `;
 
 export const TextContainer = styled.div`
@@ -80,6 +85,16 @@ export const TextContainer = styled.div`
     span {
         color: #006837;
     }
+
+    @media (max-width: 743px) {
+        gap: 16px;
+        width: 288px;
+        h2, h3 {
+            font-size: 32px;
+            width: 100%;
+            text-align: center;
+        }
+    }
 `;
 
 export const Input = styled.input`
@@ -94,5 +109,9 @@ export const Input = styled.input`
     &:focus {
         outline: none;
         border-color: #006837;
+    }
+
+    @media (max-width: 743px) {
+        width: 100%;
     }
 `;

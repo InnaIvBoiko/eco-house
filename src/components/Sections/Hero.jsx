@@ -11,6 +11,8 @@ export default function Hero() {
     function updateImgSrc() {
       if (window.innerWidth <= 743) {
         setImgSrc("/images/homePage/house-mobile.png");
+        setImgWidth("320");
+        setImgHeight("409");
       } else if (window.innerWidth <= 1439) {
         setImgSrc("/images/homePage/house-tablet.png");
         setImgWidth("744");
@@ -29,9 +31,10 @@ export default function Hero() {
   return (
     <SectionHero>
       <h4>Оберіть житло майбутнього вже сьогодні</h4>
-      <h1>
-        <span>Еко</span> <br /> гніздо
-      </h1>
+      <HeadWrapper>
+        <h2>Еко</h2>
+        <h1>гніздо</h1>
+      </HeadWrapper>
       <Text>Сучасні квартири з продуманими плануваннями, зеленими зонами та сервісом для вашого комфорту.</Text>
       <HomeImage>
         <img src={imgSrc} alt="Еко гніздо" width={imgWidth} height={imgHeight} />
@@ -54,27 +57,6 @@ const SectionHero = styled.section`
   background-size: cover;
   text-align: center;
 
-  h1 {
-    font-weight: 600;
-    font-style: Semi Bold;
-    font-size: 180px;
-    leading-trim: NONE;
-    line-height: 100%;
-    letter-spacing: 0%;
-    color: #000000;
-    display: flex;
-    gap: 241px;
-    margin-left: 260px;
-    margin-top: 16px;
-
-    span {
-      font-weight: 700;
-      font-style: Bold;
-      font-size: 200px;
-      color: #006837;
-    }
-  }
-
   h4 {
     font-weight: 500;
     font-style: Medium;
@@ -92,21 +74,85 @@ const SectionHero = styled.section`
     padding: 16px;
     background-image: url('/images/homePage/hero-section-tablet.jpg');
 
-    h1 {
-      font-size: 90px;
-      gap: 184px;
-      margin-left: 104px;
-      margin-top: 10px;
-
-      span {
-        font-size: 90px;
-      }
-  }
     h4 {
       font-size: 24px;
       padding-top: 100px;
     }
   }
+
+  @media (max-width: 743px) {
+    width: 320px;
+    height: 409px;
+    background-image: url('/images/homePage/hero-section-mobile.jpg');
+
+    h4 {
+      font-size: 16px;
+      padding-top: 74px;
+    }
+  }
+`;
+
+const HeadWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    column-gap: 241px;
+    width: 1156px; 
+    margin-left: 260px;
+    margin-top: -4px;
+
+    h1 {
+      font-weight: 600;
+      font-style: Semi Bold;
+      font-size: 180px;
+      leading-trim: NONE;
+      line-height: 100%;
+      letter-spacing: 0%;
+      color: #000000;
+      margin-left: auto;
+      margin-top: -16px;
+    }
+      
+    h2 {
+      font-weight: 700;
+      font-style: Bold;
+      font-size: 200px;
+      color: #006837;
+    }
+
+    @media (max-width: 1439px) {
+      width: 628px;
+      margin-left: 100px;
+      margin-top: 0px;
+
+    h1 {
+      font-size: 90px;
+      margin-top: 4px;
+    }
+
+    h2 {
+        font-size: 90px;
+      }
+
+    }
+
+    @media (max-width: 743px) {
+      width: 254px;
+      margin-left: 38px;
+      margin-top: -12px;
+      gap: 8px;
+      flex-direction: row;
+
+      h1 {
+      font-size: 48px;
+    }
+
+      h2 {
+        font-size: 48px;
+        margin: 0;
+      }
+    }
+
 `;
 
 export const Text = styled.p`
@@ -129,6 +175,10 @@ export const Text = styled.p`
     top: 156px;
     left: 524px;
   }
+
+  @media (max-width: 743px) {
+    display: none;
+  }
 `;
 
 const HomeImage = styled.div`
@@ -150,9 +200,11 @@ const HomeImage = styled.div`
     height: 496px;
     top: 0px;
   }
-  @media (max-width: 767px) {
+  @media (max-width: 743px) {
     width: 320px;
+    height: 409px;
   }
+
 `;
 
 const List = styled.ul`
@@ -169,6 +221,23 @@ const List = styled.ul`
     width: 212px;
     top: 295px;
   }
+
+  @media (max-width: 743px) {
+    width: 112px;
+    top: 292px;
+    left: 16px;
+    gap: 8px;
+    justify-content: space-between;
+
+    li:first-child {
+      width: 112px;
+      padding: 8px 4px;
+    }
+
+    li:last-child {
+      width: 112px;
+    }
+  }
 `;
 
 export const ListItem = styled.li`
@@ -181,7 +250,11 @@ export const ListItem = styled.li`
   color: #000;
 
   @media (max-width: 1439px) {
-    // padding: 8px 0;
     font-size: 20px;
+  }
+
+  @media (max-width: 743px) {
+    font-size: 12px;
+    padding: 8px 7px;
   }
 `;

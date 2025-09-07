@@ -15,7 +15,7 @@ export default function HomePage() {
   return (
     <Container>
       <div>
-        {/* <Header /> */}
+        <Header />
       </div>
       <Hero />
       <Advantages />

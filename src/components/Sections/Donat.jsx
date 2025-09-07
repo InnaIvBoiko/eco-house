@@ -41,6 +41,16 @@ const Section = styled.section`
             font-size: 40px;
         }
     }
+
+    @media (max-width: 743px) {
+        width: 320px;
+        height: 342px;
+        background-image: url('/images/homePage/donat-mobile.jpg');
+        padding: 25px 16px;
+        h2 {
+            font-size: 24px;
+        }
+    } 
 `;
 const DonatButton = styled.button`
     border: none;
@@ -59,5 +69,9 @@ const DonatButton = styled.button`
     &:hover {
         background: #25a02a;
         color: #fff;
+    }
+
+    @media (max-width: 743px) {
+        width: 208px;
     }
 `;

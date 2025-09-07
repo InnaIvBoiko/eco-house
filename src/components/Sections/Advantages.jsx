@@ -89,6 +89,9 @@ const AdvantagesList = styled.ul`
     padding: 41px 24px;
     gap: 16px;
   }
+  @media (max-width: 743px) {
+    flex-wrap: wrap;
+    gap: 24px;
 `;
 
 const AdvantagesListItem = styled.li`
@@ -109,6 +112,16 @@ const AdvantagesListItem = styled.li`
 
   @media (max-width: 1439px) {
     font-size: 32px;
+  }
+  
+  @media (max-width: 743px) {
+    font-size: 24px;
+    width: calc((100% - 24px) / 2);
+    
+    span {
+      font-size: 16px;
+    }
+  }
 `;
 
 export const SectionContent = styled.div`
@@ -166,6 +179,25 @@ export const SectionContent = styled.div`
       font-size: 20px;
       margin-bottom: 40px;
     }
+
+    @media (max-width: 743px) {
+      padding: 24px 8px 60px 8px;
+
+      h2 {
+        font-size: 26px;
+        margin-bottom: 12px;
+      }
+
+      h3 {
+        font-size: 16px;
+        margin-left: 6px;
+      }
+
+      p {
+        font-size: 12px;
+        margin-bottom: 24px;
+      }
+    }
 `;
 
 export const FlexSpaceBetweenNoWrap = styled.div`
@@ -196,6 +228,13 @@ export const FlexSpaceBetween = styled.div`
     margin-bottom: 0px;
     }
   }
+
+  @media (max-width: 743px) {
+    gap: 22px;
+
+    p {
+      font-size: 20px;
+    }
 `;
 
 const FlexColumn = styled.div`
@@ -209,6 +248,12 @@ const FlexColumn = styled.div`
   }
   @media (max-width: 1439px) {
     gap: 24px;
+  }
+
+  @media (max-width: 743px) {
+    img {
+    width: 288px;
+    height: 119px;
   }
 `;
 
