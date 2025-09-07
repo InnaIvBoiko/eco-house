@@ -52,7 +52,7 @@ export default function Advantages() {
           <h2>
             <span>Еко</span>Гніздо
           </h2>
-          <h3 style={{ width: '684px' }}>
+          <h3>
             дім для <span>життя в гармонії</span> з природою
           </h3>
         </FlexSpaceBetweenNoWrap>
@@ -86,10 +86,12 @@ const AdvantagesList = styled.ul`
   gap: 84px;
 
   @media (max-width: 1439px) {
+    width: 744px;
     padding: 41px 24px;
     gap: 16px;
   }
   @media (max-width: 743px) {
+    width: 320px;
     flex-wrap: wrap;
     gap: 24px;
 `;

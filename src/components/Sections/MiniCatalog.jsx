@@ -2,7 +2,7 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { BtnSecondary } from "../Header/Header";
-import { FlexSpaceBetweenNoWrap } from "./Advantages";
+import { FlexSpaceBetween, FlexSpaceBetweenNoWrap } from "./Advantages";
 import Square from "../Icons/Square";
 import Bed from "../Icons/Bed";
 import Discount from "../Icons/Discount";
