@@ -30,6 +30,17 @@ const Section = styled.section`
     span {
         color: #006837;
     }
+
+    @media (max-width: 1439px) {
+        width: 744px;
+        height: 467px;
+        background-image: url('/images/homePage/donat-tablet.jpg');
+        gap: 24px;
+
+        h2 {
+            font-size: 40px;
+        }
+    }
 `;
 const DonatButton = styled.button`
     border: none;

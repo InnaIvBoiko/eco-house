@@ -1,6 +1,31 @@
+
 import styled from 'styled-components';
+import { useEffect, useState } from 'react';
 
 export default function Hero() {
+  const [imgSrc, setImgSrc] = useState("/images/homePage/house.png");
+  const [imgWidth, setImgWidth] = useState(window.innerWidth);
+  const [imgHeight, setImgHeight] = useState(window.innerHeight);
+
+  useEffect(() => {
+    function updateImgSrc() {
+      if (window.innerWidth <= 743) {
+        setImgSrc("/images/homePage/house-mobile.png");
+      } else if (window.innerWidth <= 1439) {
+        setImgSrc("/images/homePage/house-tablet.png");
+        setImgWidth("744");
+        setImgHeight("496");
+      } else {
+        setImgSrc("/images/homePage/house.png");
+        setImgWidth("1440");
+        setImgHeight("768");
+      }
+    }
+    updateImgSrc();
+    window.addEventListener('resize', updateImgSrc);
+    return () => window.removeEventListener('resize', updateImgSrc);
+  }, []);
+
   return (
     <SectionHero>
       <h4>Оберіть житло майбутнього вже сьогодні</h4>
@@ -9,7 +34,7 @@ export default function Hero() {
       </h1>
       <Text>Сучасні квартири з продуманими плануваннями, зеленими зонами та сервісом для вашого комфорту.</Text>
       <HomeImage>
-        <img src="/images/house.png" alt="" />
+        <img src={imgSrc} alt="Еко гніздо" width={imgWidth} height={imgHeight} />
       </HomeImage>
       <List>
         <ListItem>Соціальне житло</ListItem>
@@ -25,7 +50,7 @@ const SectionHero = styled.section`
   position: relative;
   width: 1440px;
   height: 768px;
-  background-image: url('/images/hero-section.jpg');
+  background-image: url('/images/homePage/hero-section.jpg');
   background-size: cover;
   text-align: center;
 
@@ -60,6 +85,28 @@ const SectionHero = styled.section`
     color: #000000;
     padding-top: 124px;
   }
+
+  @media (max-width: 1439px) {
+    width: 744px;
+    height: 496px;
+    padding: 16px;
+    background-image: url('/images/homePage/hero-section-tablet.jpg');
+
+    h1 {
+      font-size: 90px;
+      gap: 184px;
+      margin-left: 104px;
+      margin-top: 10px;
+
+      span {
+        font-size: 90px;
+      }
+  }
+    h4 {
+      font-size: 24px;
+      padding-top: 100px;
+    }
+  }
 `;
 
 export const Text = styled.p`
@@ -75,6 +122,13 @@ export const Text = styled.p`
   span {
     color: #006837;
   }
+
+  @media (max-width: 1439px) {
+    width: 220px;
+    font-size: 16px;
+    top: 156px;
+    left: 524px;
+  }
 `;
 
 const HomeImage = styled.div`
@@ -83,14 +137,21 @@ const HomeImage = styled.div`
   height: 768px;
   top: 0;
   left: 0;
-  border-radius: 12px;
   z-index: 1;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 12px;
+  }
+
+  @media (max-width: 1439px) {
+    width: 744px;
+    height: 496px;
+    top: 0px;
+  }
+  @media (max-width: 767px) {
+    width: 320px;
   }
 `;
 
@@ -102,6 +163,12 @@ const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+  z-index: 2;
+
+  @media (max-width: 1439px) {
+    width: 212px;
+    top: 295px;
+  }
 `;
 
 export const ListItem = styled.li`
@@ -112,4 +179,9 @@ export const ListItem = styled.li`
   font-weight: 500;
   font-size: 24px;
   color: #000;
+
+  @media (max-width: 1439px) {
+    // padding: 8px 0;
+    font-size: 20px;
+  }
 `;

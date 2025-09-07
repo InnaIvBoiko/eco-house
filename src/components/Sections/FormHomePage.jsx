@@ -50,6 +50,12 @@ export const SectionForm = styled.section`
     justify-content: space-between;
     gap: 24px;
     padding: 60px 24px;
+
+    @media (max-width: 1439px) {
+        flex-direction: column;
+        padding: 100px 30px;
+        gap: 60px;
+    }
 `;
 
 export const TextContainer = styled.div`

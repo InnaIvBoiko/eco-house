@@ -3,8 +3,34 @@ import IconHomePage1 from '../Icons/IconHomePage1';
 import IconHomePage2 from '../Icons/IconHomePage2';
 import IconHomePage3 from '../Icons/IconHomePage3';
 import IconHomePage4 from '../Icons/IconHomePage4';
+import { useEffect, useState } from 'react';
 
 export default function Advantages() {
+    const [imgSrc, setImgSrc] = useState("/images/homePage/img1.jpg");
+    const [imgWidth, setImgWidth] = useState(window.innerWidth);
+    const [imgHeight, setImgHeight] = useState(window.innerHeight);
+  
+    useEffect(() => {
+      function updateImgSrc() {
+        if (window.innerWidth <= 743) {
+          setImgSrc("/images/homePage/img1-tablet.jpg");
+          setImgWidth("288");
+          setImgHeight("226");
+        } else if (window.innerWidth <= 1439) {
+          setImgSrc("/images/homePage/img1-tablet.jpg");
+          setImgWidth("696");
+          setImgHeight("497");
+        } else {
+          setImgSrc("/images/homePage/img1.jpg");
+          setImgWidth("1440");
+          setImgHeight("768");
+        }
+      }
+      updateImgSrc();
+      window.addEventListener('resize', updateImgSrc);
+      return () => window.removeEventListener('resize', updateImgSrc);
+    }, []);
+  
   return (
     <section>
       <AdvantagesList>
@@ -22,14 +48,14 @@ export default function Advantages() {
         </AdvantagesListItem>
       </AdvantagesList>
       <SectionContent>
-        <FlexSpaceBetween>
+        <FlexSpaceBetweenNoWrap>
           <h2>
             <span>Еко</span>Гніздо
           </h2>
           <h3 style={{ width: '684px' }}>
             дім для <span>життя в гармонії</span> з природою
           </h3>
-        </FlexSpaceBetween>
+        </FlexSpaceBetweenNoWrap>
         <p>
           Ми створюємо простір, де сучасний дизайн і екологічність поєднуються з турботою про мешканців. Тут є все для
           комфортного життя — від тиші й чистого повітря до якісного будівництва та безпечного середовища.
@@ -45,7 +71,7 @@ export default function Advantages() {
             <img src="/images/homePage/img2.jpg" alt="House" width={801} height={342} />
             <p><span>Еко</span>Гніздо - це благодійний проєкт, що допомагає створювати доступне та екологічне житло. Ми поєднуємо сучасні технології, стильний дизайн та продумані планування, щоб ваш новий дім був затишним та безпечним</p>
           </FlexColumn>
-          <img src="/images/homePage/img1.jpg" alt="House" width={567} height={884}/>
+          <img src={imgSrc} alt="House" width={imgWidth} height={imgHeight} />
         </FlexSpaceBetween>
       </SectionContent>
     </section>
@@ -58,6 +84,11 @@ const AdvantagesList = styled.ul`
   display: flex;
   justify-content: space-between;
   gap: 84px;
+
+  @media (max-width: 1439px) {
+    padding: 41px 24px;
+    gap: 16px;
+  }
 `;
 
 const AdvantagesListItem = styled.li`
@@ -75,6 +106,9 @@ const AdvantagesListItem = styled.li`
     font-size: 24px;
     color: #cbcbcb;
   }
+
+  @media (max-width: 1439px) {
+    font-size: 32px;
 `;
 
 export const SectionContent = styled.div`
@@ -113,6 +147,35 @@ export const SectionContent = styled.div`
       font-weight: 600;
     }
   }
+
+  @media (max-width: 1439px) {
+    gap: 0px;
+
+    h2 {
+      font-size: 64px;
+      margin-bottom: 24px;
+    }
+
+    h3 {
+      font-size: 32px;
+      margin-left: 40px;
+      max-width: 340px;
+    }
+
+    p {
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
+`;
+
+export const FlexSpaceBetweenNoWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+
+  img {
+    border-radius: 10px;
+  }
 `;
 
 export const FlexSpaceBetween = styled.div`
@@ -121,6 +184,17 @@ export const FlexSpaceBetween = styled.div`
 
   img {
     border-radius: 10px;
+  }
+
+  @media (max-width: 1439px) {
+    flex-wrap: wrap;
+    gap: 24px;
+
+    p {
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 0px;
+    }
   }
 `;
 
@@ -132,6 +206,9 @@ const FlexColumn = styled.div`
 
   img {
     border-radius: 10px;
+  }
+  @media (max-width: 1439px) {
+    gap: 24px;
   }
 `;
 
@@ -156,4 +233,9 @@ const AdvantagesListIcons = styled.ul`
       margin: 0;
     }
   }
+
+  @media (max-width: 1439px) {
+    width: 100%;
+    padding-left: 0px;
+}
 `;
