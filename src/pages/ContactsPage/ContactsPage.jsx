@@ -152,7 +152,7 @@ export default function ContactsPage() {
       <SectionFAQ>
         <Accordion></Accordion>
       </SectionFAQ>
-      {/* <Donat /> */}
+      <Donat />
       <Footer />
       {showThanksModal && <ThanksModal onClose={() => setShowThanksModal(false)} />}
     </Container>
