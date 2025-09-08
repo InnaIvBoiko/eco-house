@@ -9,7 +9,7 @@ const ContactsPage = lazy(() => import('../../pages/ContactsPage/ContactsPage.js
 const HouseCompactPage = lazy(() => import('../../pages/HouseCompactPage/HouseCompactPage.jsx'));
 const HouseFamilyPage = lazy(() => import('../../pages/HouseFamilyPage/HouseFamilyPage.jsx'));
 const HousePremiumPage = lazy(() => import('../../pages/HousePremiumPage/HousePremiumPage.jsx'));
-// const NotFoundPage = lazy(() => import('../../pages/NotFoundPage/NotFoundPage.jsx'));
+const NotFoundPage = lazy(() => import('../../pages/NotFoundPage/NotFoundPage.jsx'));
 
 export default function App() {
   return (
@@ -22,7 +22,7 @@ export default function App() {
         <Route path="/house/compact" element={<HouseCompactPage />} />
         <Route path="/house/family" element={<HouseFamilyPage />} />
         <Route path="/house/premium" element={<HousePremiumPage />} />
-        {/* <Route path='/*' element={<NotFoundPage />} /> */}
+        <Route path='/*' element={<NotFoundPage />} />
       </Routes>
     </Layout>
   );
