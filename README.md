@@ -23,7 +23,7 @@ EcoNest — це pet-проєкт, створений у рамках хакат
 
 | Категорія      | Технології                                        |
 | -------------- | ------------------------------------------------- |
-| **Фреймворк**  | Next.js 14 (App Router, SSR/SSG)                  |
+| **Фреймворк**  | App Router, SSR/SSG, JavaScript + JSX             |
 | **Мова**       | JavaScript                                        |
 | **UI**         | Tailwind CSS, Framer Motion, Lucide Icons         |
 | **Форми**      | React Hook Form + Zod                             |
