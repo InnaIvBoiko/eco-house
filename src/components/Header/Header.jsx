@@ -1,13 +1,18 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { size, range } from '../../utils/breakpoints';
+import { range } from '../../utils/breakpoints';
 import PrimaryBtnIcon from '../Icons/IconPrimaryBtn';
 import SecondaryBtnIcon from '../Icons/IconSecondaryBtn';
 import PrimaryBtnIconMobile from '../Icons/IconPrimaryBtnMobile';
 import SecondaryBtnIconMobile from '../Icons/IconSecondaryBtnMobile';
+import MenuModal from '../Modal/MenuModal';
+import { useState } from 'react';
 
 export default function Header() {
   const navigate = useNavigate();
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <HeaderBox>
       <Container>
@@ -34,7 +39,7 @@ export default function Header() {
             </HeaderNavItem>
           </HeaderNavList>
         </HeaderNav>
-        <HeaderBurgerMenu onClick={() => navigate('/')}>
+        <HeaderBurgerMenu onClick={() => setIsMenuOpen(true)}>
           <SvgWrapper>
             <svg style={{ width: '90px', height: '40px' }}>
               <use href="/BurgerMenu.svg"></use>
@@ -42,28 +47,29 @@ export default function Header() {
           </SvgWrapper>
         </HeaderBurgerMenu>
         <HeaderBtnWrapper>
-          <BtnPrimary type="button" style={{ width: '236px' }}>
+          <BtnPrimary type="button" style={{ width: '236px' }} onClick={() => navigate('/catalog')}>
             Обрати дім
           </BtnPrimary>
-          <BtnSecondary type="button">Залишити заявку</BtnSecondary>
+          <BtnSecondary type="button" onClick={()=> navigate('/contacts')}>Залишити заявку</BtnSecondary>
         </HeaderBtnWrapper>
         <HeaderBtnIconWrapper>
-          <SvgBtnWrapper>
+          <SvgBtnWrapper onClick={() => navigate('/catalog')}>
             <StyledPrimaryIcon />
           </SvgBtnWrapper>
-          <SvgBtnWrapper>
+          <SvgBtnWrapper onClick={() => navigate('/contacts')}>
             <SecondaryBtnIcon />
           </SvgBtnWrapper>
         </HeaderBtnIconWrapper>
         <HeaderBtnIconWrapperMobile>
-          <SvgBtnWrapper>
+          <SvgBtnWrapper onClick={() => navigate('/catalog')}>
             <PrimaryBtnIconMobile />
           </SvgBtnWrapper>
-          <SvgBtnWrapper>
+          <SvgBtnWrapper onClick={() => navigate('/contacts')}>
             <SecondaryBtnIconMobile />
           </SvgBtnWrapper>
         </HeaderBtnIconWrapperMobile>
       </Container>
+      {isMenuOpen && <MenuModal onClose={() => setIsMenuOpen(false)} />}
     </HeaderBox>
   );
 }
@@ -82,6 +88,15 @@ const HeaderBox = styled.header`
   max-width: 1440px;
   width: 100%;
   background-color: transparent;
+
+  @media (max-width: 1439px) {
+    max-width: 744px;
+  }
+
+  @media (max-width: 743px) {
+    max-width: 320px;
+    height: 80px;
+  }
 `;
 
 const Container = styled.div`
@@ -95,9 +110,17 @@ const Container = styled.div`
   a {
     color: #000;
   }
-  @media only screen and ${range.mobileToTablet} {
-    padding: 20px 16px;
+
+  @media (max-width: 1439px) {
+    width: 744px;
+    padding: 20px 24px 20px 24px;
   }
+
+  @media (max-width: 743px) {
+    width: 320px;
+    padding: 20px 16px 20px 16px;
+  }
+
 `;
 
 const HeaderLogo = styled.div`
