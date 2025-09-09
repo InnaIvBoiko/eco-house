@@ -9,7 +9,7 @@ import IconContactsPageEmail from '../../components/Icons/IconContactsPageEmail'
 import IconContactsPagePhone from '../../components/Icons/IconContactsPagePhone';
 import IconContactsPageSchedule from '../../components/Icons/IconContactsPageSchedule';
 import Accordion from '../../components/Sections/Accordion';
-import { size, range } from '../../utils/breakpoints';
+import { range } from '../../utils/breakpoints';
 import ThanksModal from '../../components/Modal/ThanksModal';
 
 export default function ContactsPage() {
@@ -191,6 +191,14 @@ const Container = styled.div`
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
+
+    @media (max-width: 1439px) {
+        max-width: 744px;
+    }
+
+    @media (max-width: 743px) {
+        max-width: 320px;
+    }
 `;
 
 const SectionHero = styled.section`

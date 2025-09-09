@@ -21,7 +21,7 @@ useEffect(() => {
                 <svg style={{ width: 63, height: 60, margin: '0 auto' }}>
                     <use style={{ transform: 'scale(0.5)' }} href="/logo.svg"></use>
                 </svg>
-                <p>Це умовна кнопка для конкурсу</p>
+                <p style={{ color: '#006837' }}>Це умовна кнопка для конкурсу</p>
                 <p>Ми не збираємо кошти, але хочемо показати, як це могло б виглядати насправді</p>
             </ModalContent>
         </ModalOverlay>
