@@ -23,6 +23,7 @@ const Section = styled.section`
     flex-direction: column;
     align-items: center;
     gap: 32px;
+    margin: 0 auto;
 
     h2 {
         font-weight: 600;
