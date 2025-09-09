@@ -6,7 +6,7 @@ export default function ThanksModal({onClose}) {
         document.body.style.overflow = 'hidden';
         const timer = setTimeout(() => {
             onClose();
-        }, 4000);
+        }, 5000);
         return () => {
             document.body.style.overflow = '';
             clearTimeout(timer);
@@ -36,6 +36,10 @@ const ModalOverlay = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: 1000px) {
+        padding: 10px;
+    }
 `;
 
 export const ModalContent = styled.div`
@@ -65,7 +69,7 @@ export const ModalContent = styled.div`
     }
     
     span {
-margin-left: auto;
+        margin-left: auto;
         cursor: pointer;
         background: #000000;
         width: 48px;
@@ -76,5 +80,20 @@ margin-left: auto;
         justify-content: center;
         font-size: 18px;
         color: #fff;
+    }
+
+    @media (max-width: 1000px) {
+        width: 90vw;
+        height: 300px;
+        padding: 24px 16px 60px 16px;
+
+        h2 {
+            font-size: 32px;
+        }
+
+        p {
+            font-size: 24px;
+            white-space: normal;
+        }
     }
 `;
