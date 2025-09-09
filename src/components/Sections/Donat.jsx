@@ -1,10 +1,14 @@
+import { useState } from "react";
 import styled from "styled-components";
+import DonationModal from "../Modal/DonationModal";
 
 export default function Donat() {
+    const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
     return (
         <Section>
             <h2>Підтримай нашу ініціативу – <span>допоможи сім’ям отримати</span> своє <span>Еко</span>Гніздо</h2>
-            <DonatButton type="button">Зробити внесок</DonatButton>
+            <DonatButton type="button" onClick={() => setIsDonationModalOpen(true)}>Зробити внесок</DonatButton>
+            {isDonationModalOpen && <DonationModal onClose={() => setIsDonationModalOpen(false)} />}
         </Section>
     );
 }

@@ -1,8 +1,9 @@
 import { useEffect } from "react";
+import { ModalOverlay } from "./ThanksModal";
 import styled from "styled-components";
 
-export default function ThanksModal({onClose}) {
-    useEffect(() => {
+export default function DonationModal({ onClose }) {
+useEffect(() => {
         document.body.style.overflow = 'hidden';
         const timer = setTimeout(() => {
             onClose();
@@ -17,55 +18,31 @@ export default function ThanksModal({onClose}) {
         <ModalOverlay>
             <ModalContent>
                 <span onClick={onClose}>X</span>
-                <h2>Дякуємо!</h2>
-                <p>Ми зв'яжемося з вами протягом дня</p>
+                <svg style={{ width: 63, height: 60, margin: '0 auto' }}>
+                    <use style={{ transform: 'scale(0.5)' }} href="/logo.svg"></use>
+                </svg>
+                <p>Це умовна кнопка для конкурсу</p>
+                <p>Ми не збираємо кошти, але хочемо показати, як це могло б виглядати насправді</p>
             </ModalContent>
         </ModalOverlay>
     )
 }
 
-export const ModalOverlay = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(40, 70, 86, 0.5);
-    z-index: 1000;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    @media (max-width: 1000px) {
-        padding: 10px;
-    }
-`;
-
-export const ModalContent = styled.div`
+const ModalContent = styled.div`
     border-radius: 10px;
     width: 920px;
-    height: 400px;
-    padding: 24px 24px 96px 24px;
+    padding: 24px 24px 120px 24px;
     box-shadow: 0 1px 1px 0 rgba(30, 30, 30, 0.15);
     background: #fff;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-
-    h2 {
-        font-weight: 600;
-        font-size: 64px;
-        text-align: center;
-        color: #000;
-    }
+    gap: 40px;
 
     p {
         font-weight: 600;
-        font-size: 46px;
+        font-size: 36px;
         text-align: center;
         color: #000;
-        white-space: nowrap;
     }
     
     span {
@@ -84,12 +61,7 @@ export const ModalContent = styled.div`
 
     @media (max-width: 1000px) {
         width: 90vw;
-        height: 300px;
-        padding: 24px 16px 60px 16px;
-
-        h2 {
-            font-size: 32px;
-        }
+        padding: 24px 16px 80px 16px;
 
         p {
             font-size: 24px;
