@@ -18,10 +18,25 @@ export default function ContactsPage() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
+  const [nameError, setNameError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+
+  const [isDisabled, setIsDisabled] = useState(false);
+
+  const validateName = name => {
+    setNameError(name.trim().length < 2);
+  };
+
+  const validateEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setEmailError(!regex.test(email));
+  };
+
   const [showThanksModal, setShowThanksModal] = useState(false);
 
   const handleSubmit = async e => {
     e.preventDefault();
+    setIsDisabled(true);
 
     const formData = new URLSearchParams();
     formData.append('type', 'form2');
@@ -42,8 +57,8 @@ export default function ContactsPage() {
     setPhone('');
     setEmail('');
     setMessage('');
-
     setShowThanksModal(true);
+    setTimeout(() => setIsDisabled(false), 5000);
   };
 
   return (
@@ -69,17 +84,24 @@ export default function ContactsPage() {
                 placeholder="Ваше Ім'я"
                 value={name}
                 onChange={e => setName(e.target.value)}
+                onBlur={() => validateName(name)}
+                style={nameError ? { border: '2px solid red' } : {}}
+                required
               ></ContactsInput>
             </ContactsInputWrapper>
             <ContactsInputWrapper>
               <ContactsLabelInput htmlFor="usertel">Телефон</ContactsLabelInput>
               <ContactsInput
-                type="text"
+                type="tel"
                 id="usertel"
                 name="usertel"
                 placeholder="Ваш телефон"
                 value={phone}
+                pattern="[0-9+]*"
+                inputMode="tel"
+                onInput={e => e.target.value = e.target.value.replace(/[^0-9+]/g, '')}
                 onChange={e => setPhone(e.target.value)}
+                required
               ></ContactsInput>
             </ContactsInputWrapper>
             <ContactsInputWrapper style={{ width: '802px' }}>
@@ -91,6 +113,9 @@ export default function ContactsPage() {
                 placeholder="Ваша ел. адреса"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
+                onBlur={() => validateEmail(email)}
+                required
+                style={emailError ? { border: '2px solid red' } : {}} 
               ></ContactsInput>
             </ContactsInputWrapper>
             <ContactsInputWrapper style={{ height: 'auto' }}>
@@ -103,7 +128,7 @@ export default function ContactsPage() {
                 onChange={e => setMessage(e.target.value)}
               ></ContactsMessage>
             </ContactsInputWrapper>
-            <BtnPrimary style={{ width: '100%' }}>Надіслати</BtnPrimary>
+            <BtnPrimary style={{ width: '100%' }} disabled={isDisabled} type='submit'>Надіслати</BtnPrimary>
           </ContactsForm>
         </div>
         <ContactsAddress>
@@ -398,6 +423,7 @@ const ContactsInput = styled.input`
     line-height: 120%;
     letter-spacing: -0.02em;
     color: #666;
+    outline: none;
   }
 
   @media only screen and ${range.fromDesktop} {
