@@ -6,7 +6,7 @@ export default function IconHousePage7() {
   <path d="M7.00397 20.7175V6.51792C7.00397 6.51792 6.93684 1.00012 11.2465 1.00012C14.1104 1.00012 14.8953 3.35808 15.0966 4.94008" stroke="#353535" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
   <path d="M18.5509 10.2346H13.9029C13.0721 10.2346 12.3984 9.47602 12.3984 8.54001V6.63489C12.3984 5.69916 13.0719 4.94031 13.9029 4.94031H18.5509C19.3816 4.94031 20.0553 5.69888 20.0553 6.63489V8.54001C20.0551 9.47602 19.3816 10.2346 18.5509 10.2346Z" stroke="#353535" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
   <path d="M13.1895 12.8567V15.2825" stroke="#353535" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-  <path d="M16.2266 12.8567V15.2825" stroke="#353535" strokeWidth="2" strokeMmiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+  <path d="M16.2266 12.8567V15.2825" stroke="#353535" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
   <path d="M19.2627 12.8567V15.2825" stroke="#353535" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
   <path d="M16.2272 46.4139V48.6601C16.2272 49.9538 15.2957 51.0002 14.1497 51.0002C13.0013 51.0002 12.0723 49.9538 12.0723 48.6601V46.4139" stroke="#353535" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
   <path d="M39.6783 46.4139V48.6601C39.6783 49.9538 38.7469 51.0002 37.6009 51.0002C36.4524 51.0002 35.5234 49.9538 35.5234 48.6601V46.4139" stroke="#353535" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />

@@ -1,7 +1,7 @@
 export default function IconHousePage1() {
   return (
    <svg width="52" height="53" viewBox="0 0 52 53" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M8.43359 26.8477V51.5H19.5334" stroke="#353535" strokeWidth="2" strokeWiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+  <path d="M8.43359 26.8477V51.5H19.5334" stroke="#353535" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
   <path d="M43.5911 26.8477V51.5H32.4912" stroke="#353535" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
   <path d="M43.6436 26.8607L26.0015 9.55762L8.35938 26.8607" stroke="#353535" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
   <path d="M43.5912 26.8472H51L26.0001 1.5L1 26.8472H8.43393" stroke="#353535" strokeWidth="2" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
