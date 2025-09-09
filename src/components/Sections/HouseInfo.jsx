@@ -15,8 +15,8 @@ export default function HouseInfo() {
            <ListItem><ContentWrapper><IconHousePage8 />А+</ContentWrapper>Клас</ListItem>     
         </List>
         <TextPrice> 476 000 грн</TextPrice>  
-     </InfoPage>
-    <HomePageInfo>
+      </InfoPage>
+      <HomePageInfo>
               <Text> <span>ЕкоГніздо Компакт</span> — це затишний і функціональний модульний будинок, створений для тих, хто цінує комфорт у мінімалістичному форматі. Площа 25 м² ідеально підходить для однієї людини чи пари, забезпечуючи все необхідне для щоденного життя.
                   <ul>
                       <li>Раціональне планування: простора кімната з можливістю облаштувати спальню та робочу зону.</li>
@@ -28,23 +28,39 @@ export default function HouseInfo() {
                   
                   Ідеальний вибір для молодих сімей або як гостьовий будиночок на вашій ділянці.
               </Text>
-    </HomePageInfo>
+      </HomePageInfo>
     </SectionHouseInfo>
   );
 }
 
 const SectionHouseInfo = styled.section`
   width: 1440px;
-  height: 545px;
   background-color: inherit;
+ 
 
-  
+
+  @media (max-width: 1439px) {
+    width: 744px;
+ 
+  }
+  @media (max-width: 743px){
+  width: 320px;
+  }
 `;
 const InfoPage = styled.div`
   padding: 64px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 1439px) {
+  display: block;
+  padding: 46px 9px 30px 9px;
+  
+  }
+  @media (max-width: 743px){
+  padding: 24px 26px 35px 26px;
+  }
  
 `
 
@@ -61,8 +77,10 @@ padding: 25px 24px;
 list-style-type: inherit;
 }
 
-li {
-
+@media (max-width: 743px) {
+font-weight: 500;
+font-size: 18px;
+padding: 0 16px;
 }
 `;
 
@@ -70,6 +88,17 @@ const List = styled.ul`
   display: flex;
   flex-direction: row;
   gap:64px;
+
+  @media (max-width: 1439px) {
+  gap: 54px;
+  margin-bottom: 46px;
+  }
+  @media (max-width: 743px){
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 24px;
+  
+  }
 `;
 
  const ListItem = styled.li`
@@ -77,6 +106,19 @@ const List = styled.ul`
 font-weight: 400;
 font-size: 36px;
 color: #333;
+
+@media (max-width: 1439px) {
+font-weight: 400;
+font-size: 32px;
+}
+
+@media (max-width: 743px){
+
+font-weight: 400;
+font-size: 24px;
+width: calc((100% - 40px) / 2);
+
+}
   
 `;
 const ContentWrapper = styled.div`
@@ -90,6 +132,18 @@ justify-content: start;
 flex-direction: row;
 gap: 16px;
 margin-bottom: 4px;
+
+
+@media (max-width: 1439px) {
+font-weight: 500;
+font-size: 36px;
+}
+
+@media (max-width: 743px) {
+font-weight: 500;
+font-size: 24px;
+
+}
 `
 
 const HomePageInfo = styled.div`
@@ -102,4 +156,19 @@ font-size: 64px;
 letter-spacing: -0.02em;
 color: #000;
 font-family: "Inter", sans-serif;
+
+
+@media (max-width: 1439px) {
+font-weight: 600;
+font-size: 48px;
+text-align: right;
+
+padding-right: 17px;
+}
+
+@media (max-width: 743px) {
+font-weight: 600;
+font-size: 24px;
+padding-right: 0px;
+}
 `
