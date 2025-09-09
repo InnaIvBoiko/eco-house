@@ -19,7 +19,7 @@ export default function ModularDreamPage() {
       <div></div>
       <HeroDream />
       <WhyImportant />
-      {/* <DreamsMiniCatalog /> */}
+      <DreamsMiniCatalog />
       <ModulCity />
       <FormHousePage setShowThanksModal={setShowThanksModal} />
       <Footer />
