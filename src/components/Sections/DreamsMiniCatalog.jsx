@@ -14,9 +14,10 @@ import 'swiper/css/navigation';
 import { useEffect, useState } from 'react';
 import PrevButton from './PrevButton';
 import NextButton from './NextButton';
+import { useNavigate } from 'react-router-dom';
 
 export default function DreamsMiniCatalog() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [isSlider, setIsSlider] = useState(false);
   const [slidesPerView, setSlidesPerView] = useState(1);
   
@@ -41,6 +42,7 @@ export default function DreamsMiniCatalog() {
       baths: "1",
       discount: "А+",
       plan: "/images/catalogPage/plan.png",
+      link: '/house/in-progress',
     },
     {
       img: "/images/dreamPage/grand.jpg",
@@ -51,6 +53,7 @@ export default function DreamsMiniCatalog() {
       baths: "2",
       discount: "А++",
       plan: "/images/catalogPage/plan.png",
+      link: '/house/in-progress',
     },
   ];
 
@@ -92,7 +95,7 @@ export default function DreamsMiniCatalog() {
                       <IconListItem><Discount /> <ListItemIconText>{card.discount}</ListItemIconText></IconListItem>
                     </IconList>
                     <img src={card.plan} alt={`План ${card.title}`} width={516} height={360} />
-                    <BtnPrimary style={{ width: '100%' }} type="button">
+                    <BtnPrimary style={{ width: '100%' }} type="button" onClick={() => navigate(card.link)}>
                       Дізнатися більше
                     </BtnPrimary>
                   </Item>
@@ -122,7 +125,7 @@ export default function DreamsMiniCatalog() {
                   <li><Discount /> <p>{card.discount}</p></li>
                 </ul>
                 <img src={card.plan} alt={`План ${card.title}`} width={516} height={360} />
-                <BtnPrimary style={{ width: '100%' }} type="button">
+                <BtnPrimary style={{ width: '100%' }} type="button" onClick={() => navigate(card.link)}>
                   Дізнатися більше
                 </BtnPrimary>
               </Item>

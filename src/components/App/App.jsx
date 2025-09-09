@@ -7,8 +7,7 @@ const CatalogPage = lazy(() => import('../../pages/CatalogPage/CatalogPage.jsx')
 const ModularDreamPage = lazy(() => import('../../pages/ModularDreamPage/ModularDreamPage.jsx'));
 const ContactsPage = lazy(() => import('../../pages/ContactsPage/ContactsPage.jsx'));
 const HouseCompactPage = lazy(() => import('../../pages/HouseCompactPage/HouseCompactPage.jsx'));
-const HouseFamilyPage = lazy(() => import('../../pages/HouseFamilyPage/HouseFamilyPage.jsx'));
-const HousePremiumPage = lazy(() => import('../../pages/HousePremiumPage/HousePremiumPage.jsx'));
+const HouseDetailsPageInProgress = lazy(() => import('../../pages/HouseDetailsPageInProgress/HouseDetailsPageInProgress.jsx'));
 const NotFoundPage = lazy(() => import('../../pages/NotFoundPage/NotFoundPage.jsx'));
 
 export default function App() {
@@ -20,8 +19,7 @@ export default function App() {
         <Route path="/modular-dream" element={<ModularDreamPage />} />
         <Route path="/contacts" element={<ContactsPage />} />
         <Route path="/house/compact" element={<HouseCompactPage />} />
-        <Route path="/house/family" element={<HouseFamilyPage />} />
-        <Route path="/house/premium" element={<HousePremiumPage />} />
+        <Route path="/house/in-progress" element={<HouseDetailsPageInProgress />} />
         <Route path='/*' element={<NotFoundPage />} />
       </Routes>
     </Layout>

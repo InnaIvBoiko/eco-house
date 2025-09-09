@@ -16,6 +16,7 @@ import NextButton from './NextButton';
 
 export default function MiniCatalog() {
     const navigate = useNavigate();
+    
     const [isSlider, setIsSlider] = useState(false);
     const [slidesPerView, setSlidesPerView] = useState(1.5);
     useEffect(() => {
@@ -50,7 +51,7 @@ export default function MiniCatalog() {
             beds: "2",
             discount: "А++",
             price: "982 000 грн",
-            link: '/house/family',
+            link: '/house/in-progress',
         },
         {
             img: "/images/homePage/card3.jpg",
@@ -59,7 +60,7 @@ export default function MiniCatalog() {
             beds: "3",
             discount: "А+++",
             price: "1 276 000 грн",
-            link: '/house/premium',
+            link: '/house/in-progress',
         },
     ];
 

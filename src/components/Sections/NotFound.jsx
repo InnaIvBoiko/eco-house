@@ -94,6 +94,7 @@ const ImageLeft = styled.div`
     background-image: url('/images/notFoundPage/404-left.png');
     background-size: cover;
     background-position: center;
+    z-index: -1;
 
     @media (max-width: 1439px) {
         width: 553px;
@@ -118,6 +119,7 @@ const ImageRight = styled.div`
     background-image: url('/images/notFoundPage/404-right.png'); 
     background-size: cover;
     background-position: center;
+    z-index: -1;
 
     @media (max-width: 1439px) {
         width: 393px;

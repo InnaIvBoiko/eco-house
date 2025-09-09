@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useState } from "react";
 import styled from "styled-components";
 import Header from "../../components/Header/Header";
@@ -12,6 +13,10 @@ import ThanksModal from "../../components/Modal/ThanksModal";
 export default function CatalogPage() {
     const [showThanksModal, setShowThanksModal] = useState(false);
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <Container>
             <Header />
@@ -23,7 +28,7 @@ export default function CatalogPage() {
             <Footer />
             {showThanksModal && <ThanksModal onClose={() => setShowThanksModal(false)} />}
         </Container>
-  );
+   );
 }
 
 const Container = styled.div`

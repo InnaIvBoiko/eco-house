@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Header from '../../components/Header/Header';
 import { Form } from 'react-router-dom';
@@ -13,6 +13,10 @@ import { HeaderBg } from '../HouseCompactPage/HouseCompactPage';
 
 export default function ModularDreamPage() {
   const [showThanksModal, setShowThanksModal] = useState(false);
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Container>

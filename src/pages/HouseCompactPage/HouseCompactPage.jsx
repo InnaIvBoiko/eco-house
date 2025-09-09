@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Header from "../../components/Header/Header";
 import HouseHero from "../../components/Sections/HouseHero";
@@ -11,6 +11,11 @@ import ThanksModal from "../../components/Modal/ThanksModal";
 
 export default function HouseCompactPage() {
     const [showThanksModal, setShowThanksModal] = useState(false);
+    
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);    
+  
     return (
         <Container>
             <Header />
@@ -33,17 +38,17 @@ const Container = styled.div`
     margin-right: auto;
 
     @media (max-width: 1439px) {
-    max-width: 744px;
-  }
+        max-width: 744px;
+    }
     @media (max-width: 767px) {
-    max-width: 320px;
-  }
+        max-width: 320px;
+    }
 `;
 
 export const HeaderBg = styled.div`
-   height: 100px;
+    height: 100px;
 
-  @media (max-width: 743px) {
-    height: 80px;
-  } 
+    @media (max-width: 743px) {
+        height: 80px;
+    } 
 `;
