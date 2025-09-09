@@ -14,8 +14,8 @@ export default function HouseCompactPage() {
     return (
         <Container>
             <Header />
-            <div style={{ height: "100px" }}>
-            </div>
+            <HeaderBg>
+            </HeaderBg>
             <HouseHero />
             <HouseInfo />
             <HousePlan/>
@@ -35,7 +35,15 @@ const Container = styled.div`
     @media (max-width: 1439px) {
     max-width: 744px;
   }
-  @media (max-width: 767px) {
+    @media (max-width: 767px) {
     max-width: 320px;
   }
+`;
+
+export const HeaderBg = styled.div`
+   height: 100px;
+
+  @media (max-width: 743px) {
+    height: 80px;
+  } 
 `;

@@ -9,6 +9,7 @@ import WhyImportant from '../../components/Sections/WhyImportant';
 import DreamsMiniCatalog from '../../components/Sections/DreamsMiniCatalog';
 import ModulCity from '../../components/Sections/ModulCity';
 import ThanksModal from '../../components/Modal/ThanksModal';
+import { HeaderBg } from '../HouseCompactPage/HouseCompactPage';
 
 export default function ModularDreamPage() {
   const [showThanksModal, setShowThanksModal] = useState(false);
@@ -16,7 +17,8 @@ export default function ModularDreamPage() {
   return (
     <Container>
       <Header />
-      <div></div>
+      <HeaderBg>
+      </HeaderBg>
       <HeroDream />
       <WhyImportant />
       <DreamsMiniCatalog />
@@ -32,22 +34,12 @@ const Container = styled.div`
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
-  > div:first-of-type {
-    width: 1440px;
-    height: 100px;
-  }
-  @media (max-width: 1439.8px) {
-    > div:first-of-type {
-      width: 744px;
-      height: 100px;
-    }
+
+  @media (max-width: 1439px) {
     max-width: 744px;
   }
-  @media (max-width: 743.8px) {
-    > div:first-of-type {
-      width: 320px;
-      height: 100px;
-    }
+  @media (max-width: 767px) {
     max-width: 320px;
   }
 `;
+
