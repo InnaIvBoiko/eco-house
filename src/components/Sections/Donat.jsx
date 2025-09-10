@@ -1,11 +1,15 @@
+import { useState } from "react";
 import styled from "styled-components";
+import DonationModal from "../Modal/DonationModal";
 
 export default function Donat() {
+    const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
     return (
         <Section>
             <h2>Підтримай нашу ініціативу – <span>допоможи сім’ям отримати</span> своє <span>Еко</span>Гніздо</h2>
-            <DonatButton data-track="donation_click"
- type="button">Зробити внесок</DonatButton>
+
+            <DonatButton type="button" onClick={() => setIsDonationModalOpen(true)}>Зробити внесок</DonatButton>
+            {isDonationModalOpen && <DonationModal onClose={() => setIsDonationModalOpen(false)} />}
         </Section>
     );
 }
@@ -20,6 +24,7 @@ const Section = styled.section`
     flex-direction: column;
     align-items: center;
     gap: 32px;
+    margin: 0 auto;
 
     h2 {
         font-weight: 600;

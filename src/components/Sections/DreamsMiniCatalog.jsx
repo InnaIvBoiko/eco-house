@@ -1,3 +1,4 @@
+
 // import { useNavigate } from "react-router-dom";
 import styled from 'styled-components';
 import { BtnPrimary } from '../Header/Header';
@@ -6,76 +7,183 @@ import Square from '../Icons/Square';
 import Bed from '../Icons/Bed';
 import Bath from '../Icons/Bath';
 import Discount from '../Icons/Discount';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { useEffect, useState } from 'react';
+import PrevButton from './PrevButton';
+import NextButton from './NextButton';
+import { useNavigate } from 'react-router-dom';
 
 export default function DreamsMiniCatalog() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+  const [isSlider, setIsSlider] = useState(false);
+  const [slidesPerView, setSlidesPerView] = useState(1);
+  
+  useEffect(() => {
+    function handleResize() {
+      const width = window.innerWidth;
+      setIsSlider(width <= 1439);
+      setSlidesPerView(1);
+    }
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const cards = [
+    {
+      img: "/images/dreamPage/mini.jpg",
+      title: "БудСвіт Міні",
+      price: "безкоштовно для переселенців",
+      area: "25 м²",
+      beds: "1",
+      baths: "1",
+      discount: "А+",
+      plan: "/images/catalogPage/plan.png",
+      link: '/house/in-progress',
+    },
+    {
+      img: "/images/dreamPage/grand.jpg",
+      title: "БудСвіт Гранд",
+      price: "безкоштовно для переселенців",
+      area: "82 м²",
+      beds: "2",
+      baths: "2",
+      discount: "А++",
+      plan: "/images/catalogPage/plan.png",
+      link: '/house/in-progress',
+    },
+  ];
+
   return (
     <section>
       <SectionContent style={{ alignItems: 'center' }}>
         <h2>Модульні будинки для тих, хто залишився без дому</h2>
-        <p>
+        <h4>
           Війна забрала у багатьох українських родин звичне життя. Ми пропонуємо тимчасові та довгострокові модульні
           будинки, які допомагають переселенцям отримати дах над головою та безпеку.
-        </p>
-        <List>
-          <Item>
-            <img src="/images/dreamPage/mini.jpg" alt="БудСвіт Міні" width="516" height="320" />
-            <FlexSpaceBetween style={{ alignItems: 'center' }}>
-              <h3>БудСвіт Міні</h3>
-              <p style={{ width: '175px' }}>безкоштовно для переселенців</p>
-            </FlexSpaceBetween>
-            <ul>
-              <li>
-                <Square /> <p>25 м²</p>
-              </li>
-              <li>
-                <Bed /> <p>1</p>
-              </li>
-              <li>
-                <Bath /> <p>1</p>
-              </li>
-              <li>
-                <Discount /> <p>А+</p>
-              </li>
-            </ul>
-            <img src="/images/catalogPage/plan.png" alt="План Гармонія" width="516" height="360" />
-            <BtnPrimary style={{ width: '100%' }} type="button">
-              Дізнатися більше
-            </BtnPrimary>
-          </Item>
-          <Item>
-            <img src="/images/dreamPage/grand.jpg" alt="БудСвіт Гранд" width="516" height="320" />
-            <FlexSpaceBetween style={{ alignItems: 'center' }}>
-              <h3>БудСвіт Гранд</h3>
-              <p style={{ width: '175px' }}>безкоштовно для переселенців</p>
-            </FlexSpaceBetween>
-            <ul>
-              <li>
-                <Square /> <p>82 м²</p>
-              </li>
-              <li>
-                <Bed /> <p>2</p>
-              </li>
-              <li>
-                <Bath /> <p>2</p>
-              </li>
-              <li>
-                <Discount /> <p>А++</p>
-              </li>
-            </ul>
-            <img src="/images/catalogPage/plan.png" alt="План Горизонт" width="516" height="360" />
-            <BtnPrimary style={{ width: '100%' }} type="button">
-              Дізнатися більше
-            </BtnPrimary>
-          </Item>
-        </List>
+        </h4>
+        {isSlider ? (
+          <SliderWrapper>
+            <Swiper
+              modules={[Navigation]}
+              navigation={{
+                prevEl: '.custom-swiper-prev',
+                nextEl: '.custom-swiper-next',
+              }}
+              spaceBetween={24}
+              slidesPerView={slidesPerView}
+              initialSlide={0}
+              centeredSlides={false}
+              loop={true}
+              style={{ width: '100%', height: 'auto', paddingLeft: 0 }}
+            >
+              {cards.map((card, idx) => (
+                <SwiperSlide key={idx} style={{ display: 'flex', justifyContent: 'flex-start' }}>
+                  <Item>
+                    <img src={card.img} alt={card.title} width={516} height={320} />
+                    <FlexSpaceBetween style={{ alignItems: 'center' }}>
+                      <h3>{card.title}</h3>
+                      <span style={{ width: '175px', margin: '0 0 0 auto' }}>{card.price}</span>
+                    </FlexSpaceBetween>
+                    <IconList>
+                      <IconListItem><Square /> <ListItemIconText>{card.area}</ListItemIconText></IconListItem>
+                      <IconListItem><Bed /> <ListItemIconText>{card.beds}</ListItemIconText></IconListItem>
+                      <IconListItem><Bath /> <ListItemIconText>{card.baths}</ListItemIconText></IconListItem>
+                      <IconListItem><Discount /> <ListItemIconText>{card.discount}</ListItemIconText></IconListItem>
+                    </IconList>
+                    <img src={card.plan} alt={`План ${card.title}`} width={516} height={360} />
+                    <BtnPrimary style={{ width: '100%' }} type="button" onClick={() => navigate(card.link)}>
+                      Дізнатися більше
+                    </BtnPrimary>
+                  </Item>
+                </SwiperSlide>
+              ))}
+              <NavButton className="custom-swiper-prev" $left>
+                <PrevButton />
+              </NavButton>
+              <NavButton className="custom-swiper-next" $right>
+                <NextButton />
+              </NavButton>
+            </Swiper>
+          </SliderWrapper>
+        ) : (
+          <List>
+            {cards.map((card, idx) => (
+              <Item key={idx}>
+                <img src={card.img} alt={card.title} width={516} height={320} />
+                <FlexSpaceBetween style={{ alignItems: 'center' }}>
+                  <h3>{card.title}</h3>
+                  <span style={{ width: '175px' }}>{card.price}</span>
+                </FlexSpaceBetween>
+                <ul>
+                  <li><Square /> <p>{card.area}</p></li>
+                  <li><Bed /> <p>{card.beds}</p></li>
+                  <li><Bath /> <p>{card.baths}</p></li>
+                  <li><Discount /> <p>{card.discount}</p></li>
+                </ul>
+                <img src={card.plan} alt={`План ${card.title}`} width={516} height={360} />
+                <BtnPrimary style={{ width: '100%' }} type="button" onClick={() => navigate(card.link)}>
+                  Дізнатися більше
+                </BtnPrimary>
+              </Item>
+            ))}
+          </List>
+        )}
       </SectionContent>
     </section>
   );
 }
 
+const SliderWrapper = styled.div`
+  width: 100%;
+  position: relative;
+  .swiper {
+    width: 100%;
+    height: auto;
+    padding-left: 0;
+  }
+  .swiper-slide {
+    display: flex;
+    justify-content: flex-start;
+  }
+`;
+
+const NavButton = styled.div`
+  position: absolute;
+  top: 32%;
+  z-index: 10;
+  transform: translateY(-50%);
+  ${({ $left }) => $left && `left: 0;`}
+  ${({ $right }) => $right && `right: 0;`}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  button {
+    border-radius: 10px;
+    background: none;
+    padding: 0;
+    outline: none;
+    margin-left: 24px;
+    margin-right: 24px;
+    cursor: pointer;
+  }
+
+      @media (max-width: 743px) {
+      top: 28%;
+        button {
+         margin-left: -2px;
+         margin-right: -2px;
+        }
+    }
+`;
+
 export const SectionContent = styled.section`
   display: flex;
+  width: 1440px;
   flex-direction: column;
   gap: 60px;
   padding: 60px 24px;
@@ -86,37 +194,47 @@ export const SectionContent = styled.section`
     font-size: 64px;
     text-align: center;
     color: #000;
+    margin: 0 auto;
   }
 
-  p {
+  h4 {
     font-weight: 500;
     font-size: 24px;
     text-align: center;
     color: #000;
   }
-  @media (max-width: 743.8px) {
-      padding: 0;
-    gap: 12px;
+  
+  @media (max-width: 1439px) {
+    width: 744px;
+    padding: 110px 24px 40px 24px;
+    gap: 16px;
     h2 {
-      width: 294px;
+      width: 698px;
+      text-align: center;
       font-size: 48px;
     }
-    p {
-      font-size: 12px;
-      margin-bottom: 24px;
+
+    h4 {
+      width: 696px;
+      font-size: 20px;
+      margin: 0 auto 44px auto;
+
     }
   }
-  }
-  @media (max-width: 743.8px) {
-    padding: 0;
+  
+  @media (max-width: 743px) {
+    width: 320px;
+    padding: 60px 16px 20px 16px;
     gap: 12px;
     h2 {
-      width: 294px;
       font-size: 24px;
+      width: 294px;
     }
-    p {
+
+    h4 {
+      width: 288px;
       font-size: 12px;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
   }
 `;
@@ -145,7 +263,7 @@ const Item = styled.li`
     color: #000;
   }
 
-  p {
+  span {
     font-weight: 600;
     font-size: 20px;
     line-height: 120%;
@@ -153,24 +271,27 @@ const Item = styled.li`
     color: #000;
   }
 
-  ul {
-    display: flex;
-    gap: 36px;
-    justify-content: space-between;
-    width: 512px;
+   ul {
+        display: flex;
+        gap: 24px;
+    
     li {
-      display: flex;
-      align-items: center;
-      gap: 16px;
+        width: 100%;
+        display: flex;
+        gap: 16px!;
+        justify-content: space-between;
 
-      p {
-        font-weight: 500;
-        font-size: 20px;
-        color: #000;
-        margin: 0;
+        svg {
+            height: 36px;
+        }
+
+        p {
+            font-weight: 400;
+            font-size: 24px;
+            color: #000;
+        }
       }
     }
-  }
 
   img {
     border-radius: 10px;
@@ -181,5 +302,69 @@ const Item = styled.li`
   &:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+  }
+
+  @media (max-width: 1439px) {
+    width: 564px;
+    height: 1005px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 743px) {
+    width: 288px;
+    height: auto;
+    padding: 16px 8px 32px 8px;
+    gap: 32px;
+
+    h3 {
+      font-size: 16px;
+    }
+    span {
+      font-size: 10px;
+      width: 86px!important;
+    }
+
+    img {
+            width: 256px;
+            height: 240px;
+        }
+  }
+`;
+
+const IconList = styled.ul`
+    display: flex;
+    gap: 24px;
+    width: 512px!important;
+    height: 36px;
+    justify-content: space-between;
+`;
+
+const IconListItem = styled.li`
+    max-width: 116px;
+    display: flex;
+    gap: 8px!important;
+    align-items: center;
+
+    svg {
+        height: 36px;
+
+        @media (max-width: 743px) {
+          height: 22px!important;
+        }
+    }
+
+    @media (max-width: 743px) {
+      gap: 8px;
+    }
+`;
+
+const ListItemIconText = styled.p`
+  font-weight: 400;
+  font-size: 24px!important;
+  margin: 0!important;
+  color: #000;
+
+  @media (max-width: 743px) {
+    font-size: 16px!important;
   }
 `;

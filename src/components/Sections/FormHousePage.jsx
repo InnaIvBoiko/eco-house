@@ -7,8 +7,16 @@ export default function FormHousePage({ setShowThanksModal }) {
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
 
+    const [nameError, setNameError] = useState(false);
+    const [isDisabled, setIsDisabled] = useState(false);
+
+    const validateName = name => {
+        setNameError(name.trim().length < 2);
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsDisabled(true);
 
         const formData = new URLSearchParams();
         formData.append("type", "form1");
@@ -33,10 +41,27 @@ export default function FormHousePage({ setShowThanksModal }) {
             </TextContainer>
             <form onSubmit={handleSubmit}>
                 <FlexSpaceBetween style={{gap: '24px', marginBottom: '40px'}}>
-                    <Input type="text" placeholder="Ім&#39;я" value={name} onChange={(e) => setName(e.target.value)} />
-                    <Input type="tel" placeholder="Телефон" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                    <Input
+                        type="text"
+                        placeholder="Ім&#39;я"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        onBlur={() => validateName(name)}
+                        style={nameError ? { border: '2px solid red' } : {}}
+                        required
+                    />
+                    <Input
+                        type="tel"
+                        placeholder="Телефон"
+                        value={phone}
+                        pattern="[0-9+]*"
+                        inputMode="tel"
+                        onInput={e => e.target.value = e.target.value.replace(/[^0-9+]/g, '')}
+                        onChange={(e) => setPhone(e.target.value)}
+                        required
+                    />
                 </FlexSpaceBetween>
-                <BtnPrimary type="submit" style={{ width: "100%" }}>Надіслати</BtnPrimary>
+                <BtnPrimary type="submit" style={{ width: "100%" }} disabled={isDisabled}>Надіслати</BtnPrimary>
             </form>
         </SectionForm>
     );

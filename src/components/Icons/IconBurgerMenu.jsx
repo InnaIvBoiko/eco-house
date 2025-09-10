@@ -4,25 +4,25 @@ export default function IconContactsPageAddress() {
       <path
         d="M9.65723 2.72656H80.3433"
         stroke="black"
-        stroke-width="2"
-        stroke-miterlimit="10"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M9.65723 19.9995H80.3433"
         stroke="black"
-        stroke-width="2"
-        stroke-miterlimit="10"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
         stroke-linejoin="round"
       />
       <path
         d="M9.65723 37.2734H80.3433"
         stroke="black"
-        stroke-width="2"
-        stroke-miterlimit="10"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
         stroke-linejoin="round"
       />
     </svg>

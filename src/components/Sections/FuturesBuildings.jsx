@@ -48,7 +48,7 @@ export default function FuturesBuildings() {
             baths: "2",
             discount: "А++",
             plan: "/images/catalogPage/plan.png",
-            link: '/house/premium',
+            link: '/house/in-progress',
         },
         {
             img: "/images/catalogPage/harmony.jpg",
@@ -59,6 +59,7 @@ export default function FuturesBuildings() {
             baths: "1",
             discount: "А++",
             plan: "/images/catalogPage/plan.png",
+            link: '/house/in-progress',
         },
         {
             img: "/images/catalogPage/horizon.jpg",
@@ -69,6 +70,7 @@ export default function FuturesBuildings() {
             baths: "2",
             discount: "А++",
             plan: "/images/catalogPage/plan.png",
+            link: '/house/in-progress',
         },
     ];
 
@@ -105,7 +107,7 @@ export default function FuturesBuildings() {
                                         <li><Discount /> <p>{card.discount}</p></li>
                                     </ul>
                                     <img src={card.plan} alt={`План ${card.title}`} width={516} height={360} />
-                                    <BtnPrimary style={{width: '100%'}} type="button">Дізнатися більше</BtnPrimary>
+                                    <BtnPrimary style={{width: '100%'}} type="button" onClick={() => navigate(card.link)}>Дізнатися більше</BtnPrimary>
                                 </Item>
                             </SwiperSlide>
                         ))}
@@ -133,7 +135,7 @@ export default function FuturesBuildings() {
                                 <li><Discount /> <p>{card.discount}</p></li>
                             </ul>
                             <img src={card.plan} alt={`План ${card.title}`} width={516} height={360} />
-                            <BtnPrimary style={{width: '100%'}} type="button">Дізнатися більше</BtnPrimary>
+                            <BtnPrimary style={{width: '100%'}} type="button" onClick={() => navigate(card.link)}>Дізнатися більше</BtnPrimary>
                         </Item>
                     ))}
                 </List>

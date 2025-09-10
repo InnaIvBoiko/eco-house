@@ -21,12 +21,12 @@ export default function MenuModal({ onClose }) {
         <ModalOverlay>
             <ModalContent>
                 <span onClick={onClose}>X</span>
-                <ul>
-                    <li onClick={() => { onClose(); navigate('/')}}>Про нас</li>
-                    <li onClick={() => { onClose(); navigate('/catalog')}}>Каталог будинків</li>
-                    <li onClick={() => { onClose(); navigate('/modular-dream')}}>Модульна мрія</li>
-                    <li onClick={() => { onClose(); navigate('/contacts')}}>Контакти</li>
-                </ul>
+                <NavigationList>
+                    <NavigationItem onClick={() => { onClose(); navigate('/')}}>Про нас</NavigationItem>
+                    <NavigationItem onClick={() => { onClose(); navigate('/catalog')}}>Каталог будинків</NavigationItem>
+                    <NavigationItem onClick={() => { onClose(); navigate('/modular-dream')}}>Модульна мрія</NavigationItem>
+                    <NavigationItem onClick={() => { onClose(); navigate('/contacts')}}>Контакти</NavigationItem>
+                </NavigationList>
                 
             </ModalContent>
         </ModalOverlay>
@@ -47,7 +47,6 @@ const ModalOverlay = styled.div`
 `;
 
 export const ModalContent = styled.div`
-    
     width: 744px;
     height: 100vh;
     padding: 24px 24px 96px 24px;
@@ -83,18 +82,6 @@ export const ModalContent = styled.div`
         }
     }
 
-    ul{
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-
-        li:hover {
-            cursor: pointer;
-            color: #0D6511;
-            text-decoration: underline;
-        }
-    }
-
     media (max-width: 767px) {
         width: 320px;
         background-image: url('images/homePage/house-mobile.png');
@@ -102,4 +89,18 @@ export const ModalContent = styled.div`
         background-size: cover;
         background-position: center;
     }   
+`;
+
+const NavigationList = styled.ul`
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+`;
+
+const NavigationItem = styled.li`
+    li:hover {
+        cursor: pointer;
+        color: #0D6511;
+        text-decoration: underline;
+    }
 `;
