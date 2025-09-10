@@ -78,7 +78,8 @@ export default function ContactsPage() {
         <div>
           <h2>Залишилися запитання?</h2>
           <p>Залиште повідомлення і ми обов’язково з Вами зв’яжемося</p>
-          <ContactsForm onSubmit={handleSubmit}>
+          <ContactsForm data-track="form_submit"
+ onSubmit={handleSubmit}>
             <ContactsInputWrapper>
               <ContactsLabelInput htmlFor="username">Ім'я</ContactsLabelInput>
               <ContactsInput

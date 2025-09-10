@@ -7,7 +7,8 @@ export default function Donat() {
     return (
         <Section>
             <h2>Підтримай нашу ініціативу – <span>допоможи сім’ям отримати</span> своє <span>Еко</span>Гніздо</h2>
-            <DonatButton type="button" onClick={() => setIsDonationModalOpen(true)}>Зробити внесок</DonatButton>
+
+            <DonatButton data-track="donation_click" type="button" onClick={() => setIsDonationModalOpen(true)}>Зробити внесок</DonatButton>
             {isDonationModalOpen && <DonationModal onClose={() => setIsDonationModalOpen(false)} />}
         </Section>
     );
