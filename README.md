@@ -28,7 +28,7 @@ EcoNest — це pet-проєкт, створений у рамках хакат
 | **UI**         | Tailwind CSS, Framer Motion, Lucide Icons         |
 | **Форми**      | React Hook Form + Zod                             |
 | **Data Layer** | TanStack Query (React Query)                      |
-| **Аналітика**  | Google Analytics 4, Tag Manager, Hotjar / Clarity |
+| **Аналітика**  | Google Analytics 4, Tag Manager                   |
 | **DevOps**     | Vercel (CI/CD), ESLint, Prettier, Husky           |
 
 ---
@@ -100,7 +100,7 @@ eco-house/
 - Iuliia Krestianko — QA / Data Analyst
 - Yana Shpylova — UI/UX Designer
 - Svitlana Kozhemiaka — UI/UX Designer
-- Iryna Tsymbaliuk — Documentation / Analytics
+- Iryna Tsymbaliuk — Documentation / Analytics, Scrum Master
 - Oleksandr Salnikov — Video Production / Analytics
 
 ---
