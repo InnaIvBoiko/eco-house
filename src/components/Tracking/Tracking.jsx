@@ -1,9 +1,8 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const TrackingSession = () => {
   const location = useLocation();
-
   const [userId, setUserId] = useState('');
   const [sessionStart, setSessionStart] = useState(Date.now());
   const hasSentDataRef = useRef(false);
@@ -19,21 +18,30 @@ const TrackingSession = () => {
     '/404': 'not_found'
   };
 
+  const generateId = () => {
+    const timestamp = Date.now().toString(36);
+    const random = Math.random().toString(36).substr(2, 5);
+    return `user_${timestamp}_${random}`;
+  };
+
   useEffect(() => {
     let storedId = localStorage.getItem('userId');
     if (!storedId) {
-      const lastIndex = parseInt(localStorage.getItem('lastUserIndex') || '0', 10);
-      storedId = `user_${lastIndex}`;
+      storedId = generateId();
       localStorage.setItem('userId', storedId);
-      localStorage.setItem('lastUserIndex', String(lastIndex + 1));
     }
     setUserId(storedId);
     setSessionStart(Date.now());
+
+    if (!localStorage.getItem('trackingState')) {
+      localStorage.setItem('trackingState', JSON.stringify({}));
+    }
   }, []);
 
   const setFlagInStorage = (key) => {
     const stored = localStorage.getItem('trackingState');
     const state = stored ? JSON.parse(stored) : {};
+    if (state[key]) return;
     const updated = { ...state, [key]: true };
     localStorage.setItem('trackingState', JSON.stringify(updated));
   };
@@ -41,8 +49,7 @@ const TrackingSession = () => {
   useEffect(() => {
     const handleClick = () => {
       const current = parseInt(localStorage.getItem('totalClickCount') || '0', 10);
-      const updated = current + 1;
-      localStorage.setItem('totalClickCount', String(updated));
+      localStorage.setItem('totalClickCount', String(current + 1));
     };
 
     document.addEventListener('click', handleClick);
@@ -58,12 +65,8 @@ const TrackingSession = () => {
 
     const handleClick = (e) => {
       const track = e.target?.dataset?.track;
-      if (track === 'donation_click') {
-        setFlagInStorage('donationClicked');
-      }
-      if (track === 'contact_request') {
-        setFlagInStorage('contactRequested');
-      }
+      if (track === 'donation_click') setFlagInStorage('donationClicked');
+      if (track === 'contact_request') setFlagInStorage('contactRequested');
     };
 
     document.addEventListener('submit', handleFormSubmit);
@@ -78,16 +81,8 @@ const TrackingSession = () => {
   useEffect(() => {
     const path = location.pathname;
     const normalizedPath = path.replace(/\/+$/, '') || '/';
-
-    if (trackedPages[normalizedPath]) {
-      const pageKey = trackedPages[normalizedPath];
-      const stored = localStorage.getItem('trackingState');
-      const state = stored ? JSON.parse(stored) : {};
-      if (!state[pageKey]) {
-        const updated = { ...state, [pageKey]: true };
-        localStorage.setItem('trackingState', JSON.stringify(updated));
-      }
-    }
+    const pageKey = trackedPages[normalizedPath];
+    if (pageKey) setFlagInStorage(pageKey);
   }, [location]);
 
   useEffect(() => {
@@ -99,46 +94,40 @@ const TrackingSession = () => {
     };
 
     document.addEventListener('visibilitychange', handleVisibilityChange);
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-    };
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
   }, []);
 
+  const sendSessionData = useCallback(() => {
+    if (hasSentDataRef.current || !userId) return;
+    hasSentDataRef.current = true;
+
+    const durationSec = Math.round((Date.now() - sessionStart) / 1000);
+    const rawState = JSON.parse(localStorage.getItem('trackingState') || '{}');
+    const totalClicks = parseInt(localStorage.getItem('totalClickCount') || '0', 10);
+
+    const query = new URLSearchParams({
+      type: 'tracking',
+      userId,
+      timestamp: new Date(sessionStart).toISOString(),
+      durationSec: String(durationSec),
+      clickCount: String(totalClicks),
+      formSubmitted: rawState.formSubmitted ? 'true' : 'false',
+      donationClicked: rawState.donationClicked ? 'true' : 'false',
+      contactRequested: rawState.contactRequested ? 'true' : 'false',
+      page_home: rawState.home ? 'true' : 'false',
+      page_modular_dream: rawState.modular_dream ? 'true' : 'false',
+      page_catalog: rawState.catalog ? 'true' : 'false',
+      page_house_compact: rawState.house_compact ? 'true' : 'false',
+      page_contacts: rawState.contacts ? 'true' : 'false',
+      page_not_found: rawState.not_found ? 'true' : 'false'
+    }).toString();
+
+    fetch(`${scriptURL}?${query}`)
+      .then(res => res.text())
+      .catch(err => console.error('❌ Помилка відправки:', err));
+  }, [userId, sessionStart]);
+
   useEffect(() => {
-    if (!userId) return;
-
-    const sendSessionData = () => {
-      if (hasSentDataRef.current) return;
-      hasSentDataRef.current = true;
-
-      const durationSec = Math.round((Date.now() - sessionStart) / 1000);
-      const rawState = JSON.parse(localStorage.getItem('trackingState') || '{}');
-      const totalClicks = parseInt(localStorage.getItem('totalClickCount') || '0', 10);
-
-      const query = new URLSearchParams({
-        type: 'tracking',
-        userId,
-        timestamp: new Date(sessionStart).toISOString(),
-        durationSec: String(durationSec),
-        clickCount: String(totalClicks),
-
-        formSubmitted: rawState.formSubmitted ? 'true' : 'false',
-        donationClicked: rawState.donationClicked ? 'true' : 'false',
-        contactRequested: rawState.contactRequested ? 'true' : 'false',
-
-        page_home: rawState.home ? 'true' : 'false',
-        page_modular_dream: rawState.modular_dream ? 'true' : 'false',
-        page_catalog: rawState.catalog ? 'true' : 'false',
-        page_house_compact: rawState.house_compact ? 'true' : 'false',
-        page_contacts: rawState.contacts ? 'true' : 'false',
-        page_not_found: rawState.not_found ? 'true' : 'false'
-      }).toString();
-
-      fetch(`${scriptURL}?${query}`)
-        .then(res => res.text())
-        .catch(err => console.error('❌ Помилка відправки:', err));
-    };
-
     window.addEventListener('beforeunload', sendSessionData);
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'hidden') sendSessionData();
@@ -148,7 +137,7 @@ const TrackingSession = () => {
       window.removeEventListener('beforeunload', sendSessionData);
       document.removeEventListener('visibilitychange', sendSessionData);
     };
-  }, [userId, sessionStart]);
+  }, [sendSessionData]);
 
   return null;
 };
