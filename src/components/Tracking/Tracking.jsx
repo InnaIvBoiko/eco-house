@@ -5,18 +5,13 @@ const TrackingSession = () => {
   const location = useLocation();
 
   const [userId, setUserId] = useState('');
-  const [clickCount, setClickCount] = useState(0);
   const [sessionStart, setSessionStart] = useState(Date.now());
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [donationClicked, setDonationClicked] = useState(false);
-  const [contactRequested, setContactRequested] = useState(false);
-  const [pageFlags, setPageFlags] = useState({});
   const hasSentDataRef = useRef(false);
 
   const scriptURL = 'https://script.google.com/macros/s/AKfycbxdXsDYRymbz0tg-9VvowIeBLkdtZDLw7lc0G2ZZWwb0zdxcG1qBhxEC5UZjw68YJp91A/exec';
 
   const trackedPages = {
-    '': 'home',
+    '/': 'home',
     '/modular-dream': 'modular_dream',
     '/catalog': 'catalog',
     '/house/compact': 'house_compact',
@@ -24,71 +19,90 @@ const TrackingSession = () => {
     '/404': 'not_found'
   };
 
+  // Ініціалізація userId
   useEffect(() => {
     let storedId = localStorage.getItem('userId');
     if (!storedId) {
-      storedId = 'user_' + Math.random().toString(36).substr(2, 9);
+      const lastIndex = parseInt(localStorage.getItem('lastUserIndex') || '0', 10);
+      storedId = `user_${lastIndex}`;
       localStorage.setItem('userId', storedId);
+      localStorage.setItem('lastUserIndex', String(lastIndex + 1));
     }
     setUserId(storedId);
     setSessionStart(Date.now());
   }, []);
 
+  // Збереження флажка в localStorage.trackingState
+  const setFlagInStorage = (key) => {
+    const stored = localStorage.getItem('trackingState');
+    const state = stored ? JSON.parse(stored) : {};
+    const updated = { ...state, [key]: true };
+    localStorage.setItem('trackingState', JSON.stringify(updated));
+  };
+
+  // Клік трекінг (загальний лічильник)
   useEffect(() => {
-    const handleClick = () => setClickCount(prev => prev + 1);
+    const handleClick = () => {
+      const current = parseInt(localStorage.getItem('totalClickCount') || '0', 10);
+      const updated = current + 1;
+      localStorage.setItem('totalClickCount', String(updated));
+    };
+
     document.addEventListener('click', handleClick);
     return () => document.removeEventListener('click', handleClick);
   }, []);
 
+  // Відстеження подій
   useEffect(() => {
-    const handleFormSubmit = () => setFormSubmitted(true);
-    const handleDonationClick = () => setDonationClicked(true);
-    const handleContactClick = () => setContactRequested(true);
+    const handleFormSubmit = (e) => {
+      if (e.target?.dataset?.track === 'form_submit') {
+        console.log('📨 Форма надіслана');
+        setFlagInStorage('formSubmitted');
+      }
+    };
 
-    const formEls = document.querySelectorAll('[data-track="form_submit"]');
-    const donationEls = document.querySelectorAll('[data-track="donation_click"]');
-    const contactEls = document.querySelectorAll('[data-track="contact_request"]');
+    const handleClick = (e) => {
+      const track = e.target?.dataset?.track;
+      if (track === 'donation_click') {
+        console.log('💰 Клік по донату');
+        setFlagInStorage('donationClicked');
+      }
+      if (track === 'contact_request') {
+        console.log('📞 Запит контакту');
+        setFlagInStorage('contactRequested');
+      }
+    };
 
-    formEls.forEach(el => el.addEventListener('submit', handleFormSubmit));
-    donationEls.forEach(el => el.addEventListener('click', handleDonationClick));
-    contactEls.forEach(el => el.addEventListener('click', handleContactClick));
+    document.addEventListener('submit', handleFormSubmit);
+    document.addEventListener('click', handleClick);
 
     return () => {
-      formEls.forEach(el => el.removeEventListener('submit', handleFormSubmit));
-      donationEls.forEach(el => el.removeEventListener('click', handleDonationClick));
-      contactEls.forEach(el => el.removeEventListener('click', handleContactClick));
+      document.removeEventListener('submit', handleFormSubmit);
+      document.removeEventListener('click', handleClick);
     };
   }, []);
 
-useEffect(() => {
-  const path = location.pathname;
-  const normalizedPath = path.replace(/\/+$/, ''); // видаляє кінцевий слеш
+  // Відмітка сторінки як відвіданої
+  useEffect(() => {
+    const path = location.pathname;
+    const normalizedPath = path.replace(/\/+$/, '') || '/';
 
-  console.log('📍 Поточний pathname:', path);
-  console.log('🔧 Нормалізований pathname:', normalizedPath);
-  console.log('📂 trackedPages:', trackedPages);
+    if (trackedPages[normalizedPath]) {
+      const pageKey = trackedPages[normalizedPath];
+      const stored = localStorage.getItem('trackingState');
+      const state = stored ? JSON.parse(stored) : {};
+      if (!state[pageKey]) {
+        const updated = { ...state, [pageKey]: true };
+        localStorage.setItem('trackingState', JSON.stringify(updated));
+      }
+    }
+  }, [location]);
 
-  if (trackedPages[normalizedPath]) {
-    const pageKey = trackedPages[normalizedPath];
-    console.log(`✅ Відмічаємо сторінку: ${pageKey}`);
-    setPageFlags(prev => ({
-      ...prev,
-      [pageKey]: true
-    }));
-  } else {
-    console.warn(`⚠️ Сторінка "${normalizedPath}" не входить до trackedPages`);
-  }
-}, [location]);
-
+  // Скидання сесії при поверненні
   useEffect(() => {
     const handleVisibilityChange = () => {
       if (document.visibilityState === 'visible') {
-        setClickCount(0);
         setSessionStart(Date.now());
-        setFormSubmitted(false);
-        setDonationClicked(false);
-        setContactRequested(false);
-        setPageFlags({});
         hasSentDataRef.current = false;
       }
     };
@@ -99,6 +113,7 @@ useEffect(() => {
     };
   }, []);
 
+  // Відправка даних
   useEffect(() => {
     if (!userId) return;
 
@@ -107,37 +122,28 @@ useEffect(() => {
       hasSentDataRef.current = true;
 
       const durationSec = Math.round((Date.now() - sessionStart) / 1000);
+      const rawState = JSON.parse(localStorage.getItem('trackingState') || '{}');
+      const totalClicks = parseInt(localStorage.getItem('totalClickCount') || '0', 10);
 
       const query = new URLSearchParams({
         type: 'tracking',
         userId,
         timestamp: new Date(sessionStart).toISOString(),
         durationSec: String(durationSec),
-        clickCount: String(clickCount),
-        formSubmitted: formSubmitted ? 'true' : 'false',
-        donationClicked: donationClicked ? 'true' : 'false',
-        contactRequested: contactRequested ? 'true' : 'false',
-        page_home: pageFlags['home'] ? 'true' : 'false',
-        page_modular_dream: pageFlags['modular_dream'] ? 'true' : 'false',
-        page_catalog: pageFlags['catalog'] ? 'true' : 'false',
-        page_house_compact: pageFlags['house_compact'] ? 'true' : 'false',
-        page_contacts: pageFlags['contacts'] ? 'true' : 'false',
-        page_not_found: pageFlags['not_found'] ? 'true' : 'false'
+        clickCount: String(totalClicks),
+
+        formSubmitted: rawState.formSubmitted ? 'true' : 'false',
+        donationClicked: rawState.donationClicked ? 'true' : 'false',
+        contactRequested: rawState.contactRequested ? 'true' : 'false',
+
+        page_home: rawState.home ? 'true' : 'false',
+        page_modular_dream: rawState.modular_dream ? 'true' : 'false',
+        page_catalog: rawState.catalog ? 'true' : 'false',
+        page_house_compact: rawState.house_compact ? 'true' : 'false',
+        page_contacts: rawState.contacts ? 'true' : 'false',
+        page_not_found: rawState.not_found ? 'true' : 'false'
       }).toString();
-       console.log({ type: 'tracking',
-        userId,
-        timestamp: new Date(sessionStart).toISOString(),
-        durationSec: String(durationSec),
-        clickCount: String(clickCount),
-        formSubmitted: formSubmitted ? 'true' : 'false',
-        donationClicked: donationClicked ? 'true' : 'false',
-        contactRequested: contactRequested ? 'true' : 'false',
-        page_home: pageFlags['home'] ? 'true' : 'false',
-        page_modular_dream: pageFlags['modular_dream'] ? 'true' : 'false',
-        page_catalog: pageFlags['catalog'] ? 'true' : 'false',
-        page_house_compact: pageFlags['house_compact'] ? 'true' : 'false',
-        page_contacts: pageFlags['contacts'] ? 'true' : 'false',
-        page_not_found: pageFlags['not_found'] ? 'true' : 'false'})
+
       fetch(`${scriptURL}?${query}`)
         .then(res => res.text())
         .then(text => console.log('✅ Відповідь від Apps Script:', text))
@@ -153,7 +159,7 @@ useEffect(() => {
       window.removeEventListener('beforeunload', sendSessionData);
       document.removeEventListener('visibilitychange', sendSessionData);
     };
-  }, [userId, clickCount, formSubmitted, donationClicked, contactRequested, pageFlags, sessionStart]);
+  }, [userId, sessionStart]);
 
   return null;
 };
