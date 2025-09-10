@@ -19,7 +19,6 @@ const TrackingSession = () => {
     '/404': 'not_found'
   };
 
-  // Ініціалізація userId
   useEffect(() => {
     let storedId = localStorage.getItem('userId');
     if (!storedId) {
@@ -32,7 +31,6 @@ const TrackingSession = () => {
     setSessionStart(Date.now());
   }, []);
 
-  // Збереження флажка в localStorage.trackingState
   const setFlagInStorage = (key) => {
     const stored = localStorage.getItem('trackingState');
     const state = stored ? JSON.parse(stored) : {};
@@ -40,7 +38,6 @@ const TrackingSession = () => {
     localStorage.setItem('trackingState', JSON.stringify(updated));
   };
 
-  // Клік трекінг (загальний лічильник)
   useEffect(() => {
     const handleClick = () => {
       const current = parseInt(localStorage.getItem('totalClickCount') || '0', 10);
@@ -52,11 +49,9 @@ const TrackingSession = () => {
     return () => document.removeEventListener('click', handleClick);
   }, []);
 
-  // Відстеження подій
   useEffect(() => {
     const handleFormSubmit = (e) => {
       if (e.target?.dataset?.track === 'form_submit') {
-        console.log('📨 Форма надіслана');
         setFlagInStorage('formSubmitted');
       }
     };
@@ -64,11 +59,9 @@ const TrackingSession = () => {
     const handleClick = (e) => {
       const track = e.target?.dataset?.track;
       if (track === 'donation_click') {
-        console.log('💰 Клік по донату');
         setFlagInStorage('donationClicked');
       }
       if (track === 'contact_request') {
-        console.log('📞 Запит контакту');
         setFlagInStorage('contactRequested');
       }
     };
@@ -82,7 +75,6 @@ const TrackingSession = () => {
     };
   }, []);
 
-  // Відмітка сторінки як відвіданої
   useEffect(() => {
     const path = location.pathname;
     const normalizedPath = path.replace(/\/+$/, '') || '/';
@@ -98,7 +90,6 @@ const TrackingSession = () => {
     }
   }, [location]);
 
-  // Скидання сесії при поверненні
   useEffect(() => {
     const handleVisibilityChange = () => {
       if (document.visibilityState === 'visible') {
@@ -113,7 +104,6 @@ const TrackingSession = () => {
     };
   }, []);
 
-  // Відправка даних
   useEffect(() => {
     if (!userId) return;
 
@@ -146,7 +136,6 @@ const TrackingSession = () => {
 
       fetch(`${scriptURL}?${query}`)
         .then(res => res.text())
-        .then(text => console.log('✅ Відповідь від Apps Script:', text))
         .catch(err => console.error('❌ Помилка відправки:', err));
     };
 

@@ -56,7 +56,7 @@ export default function ContactsPage() {
         body: formData,
       }
     );
-    // Clear form fields after submission
+
     setName('');
     setPhone('');
     setEmail('');
@@ -77,9 +77,8 @@ export default function ContactsPage() {
       <SectionContacts>
         <div>
           <h2>Залишилися запитання?</h2>
-          <p>Залиште повідомлення і ми обов’язково з Вами зв’яжемося</p>
-          <ContactsForm data-track="form_submit"
- onSubmit={handleSubmit}>
+          <p>Залиште повідомлення і ми обов&#39;язково з Вами зв&#39;яжемося</p>
+          <ContactsForm data-track="form_submit"onSubmit={handleSubmit}>
             <ContactsInputWrapper>
               <ContactsLabelInput htmlFor="username">Ім'я</ContactsLabelInput>
               <ContactsInput
