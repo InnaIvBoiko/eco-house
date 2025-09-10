@@ -50,13 +50,15 @@ export default function Header() {
           <BtnPrimary type="button" style={{ width: '236px' }} onClick={() => navigate('/catalog')}>
             Обрати дім
           </BtnPrimary>
-          <BtnSecondary type="button" onClick={()=> navigate('/contacts')}>Залишити заявку</BtnSecondary>
+          <BtnSecondary data-track="contact_request"
+ type="button" onClick={()=> navigate('/contacts')}>Залишити заявку</BtnSecondary>
         </HeaderBtnWrapper>
         <HeaderBtnIconWrapper>
           <SvgBtnWrapper onClick={() => navigate('/catalog')}>
             <StyledPrimaryIcon />
           </SvgBtnWrapper>
-          <SvgBtnWrapper onClick={() => navigate('/contacts')}>
+          <SvgBtnWrapper data-track="contact_request"
+ onClick={() => navigate('/contacts')}>
             <SecondaryBtnIcon />
           </SvgBtnWrapper>
         </HeaderBtnIconWrapper>
@@ -64,7 +66,8 @@ export default function Header() {
           <SvgBtnWrapper onClick={() => navigate('/catalog')}>
             <PrimaryBtnIconMobile />
           </SvgBtnWrapper>
-          <SvgBtnWrapper onClick={() => navigate('/contacts')}>
+          <SvgBtnWrapper data-track="contact_request"
+ onClick={() => navigate('/contacts')}>
             <SecondaryBtnIconMobile />
           </SvgBtnWrapper>
         </HeaderBtnIconWrapperMobile>

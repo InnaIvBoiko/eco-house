@@ -1,6 +1,8 @@
 import { lazy } from 'react';
 import Layout from '../Layout/Layout.jsx';
 import { Route, Routes } from 'react-router-dom';
+import TrackingSession from '../Tracking/Tracking.jsx';
+
 
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage.jsx'));
 const CatalogPage = lazy(() => import('../../pages/CatalogPage/CatalogPage.jsx'));
@@ -14,6 +16,7 @@ const NotFoundPage = lazy(() => import('../../pages/NotFoundPage/NotFoundPage.js
 export default function App() {
   return (
     <Layout>
+      <TrackingSession />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<CatalogPage />} />
