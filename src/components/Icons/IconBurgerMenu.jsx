@@ -7,7 +7,7 @@ export default function IconContactsPageAddress() {
         strokeWidth="2"
         strokeMiterlimit="10"
         strokeLinecap="round"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
       />
       <path
         d="M9.65723 19.9995H80.3433"
@@ -15,7 +15,7 @@ export default function IconContactsPageAddress() {
         strokeWidth="2"
         strokeMiterlimit="10"
         strokeLinecap="round"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
       />
       <path
         d="M9.65723 37.2734H80.3433"
@@ -23,7 +23,7 @@ export default function IconContactsPageAddress() {
         strokeWidth="2"
         strokeMiterlimit="10"
         strokeLinecap="round"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
