@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import { size, range } from '../../utils/breakpoints';
 import FooterLogoDesk from '../Icons/FooterLogoDesk';
 import IconLogoMob from '../Icons/IconLogoMob';
+import IconFacebook from '../Icons/IconFacebook';
+import IconInstagram from '../Icons/IconInstagram';
+import IconYoutube from '../Icons/IconYoutube';
 
 export default function Footer() {
   const navigate = useNavigate();
@@ -31,24 +34,18 @@ export default function Footer() {
             <FooterSocialsWrapper>
               <FooterSocialsList>
                 <FooterSocialsItem>
-                  <a href="#" rel="noopener noreferer">
-                    <svg style={{ width: 28, height: 28 }}>
-                      <use href="/facebook.svg"></use>
-                    </svg>
+                  <a href="#" target="_blank" rel="noopener noreferer">
+                    <IconFacebook />
                   </a>
                 </FooterSocialsItem>
                 <FooterSocialsItem>
-                  <a href="#" rel="noopener noreferer">
-                    <svg style={{ width: 28, height: 28 }}>
-                      <use href="/instagram.svg"></use>
-                    </svg>
+                  <a href="#" target="_blank" rel="noopener noreferer">
+                    <IconInstagram />
                   </a>
                 </FooterSocialsItem>
                 <FooterSocialsItem>
-                  <a href="#" rel="noopener noreferer">
-                    <svg style={{ width: 28, height: 28 }}>
-                      <use href="/youtube.svg"></use>
-                    </svg>
+                  <a href="#" target="_blank" rel="noopener noreferer">
+                    <IconYoutube />
                   </a>
                 </FooterSocialsItem>
               </FooterSocialsList>
