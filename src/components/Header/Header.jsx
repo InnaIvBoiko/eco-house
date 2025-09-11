@@ -7,6 +7,9 @@ import PrimaryBtnIconMobile from '../Icons/IconPrimaryBtnMobile';
 import SecondaryBtnIconMobile from '../Icons/IconSecondaryBtnMobile';
 import MenuModal from '../Modal/MenuModal';
 import { useState } from 'react';
+import IconBurgerMenu from '../Icons/IconBurgerMenu';
+import IconHeaderDesk from '../Icons/IconHeaderDesk';
+import IconHeaderMob from '../Icons/IconHeaderMob';
 
 export default function Header() {
   const navigate = useNavigate();
@@ -17,10 +20,11 @@ export default function Header() {
     <HeaderBox>
       <Container>
         <HeaderLogo onClick={() => navigate('/')}>
-          <SvgWrapper>
-            <svg style={{ width: 63, height: 60 }}>
-              <use style={{ transform: 'scale(0.5)' }} href="/logo.svg"></use>
-            </svg>
+          <SvgWrapper className="svgdesktop">
+            <IconHeaderDesk />
+          </SvgWrapper>
+          <SvgWrapper className="svgmobile">
+            <IconHeaderMob />
           </SvgWrapper>
         </HeaderLogo>
         <HeaderNav>
@@ -41,24 +45,22 @@ export default function Header() {
         </HeaderNav>
         <HeaderBurgerMenu onClick={() => setIsMenuOpen(true)}>
           <SvgWrapper>
-            <svg style={{ width: '90px', height: '40px' }}>
-              <use href="/BurgerMenu.svg"></use>
-            </svg>
+            <IconBurgerMenu />
           </SvgWrapper>
         </HeaderBurgerMenu>
         <HeaderBtnWrapper>
           <BtnPrimary type="button" style={{ width: '236px' }} onClick={() => navigate('/catalog')}>
             Обрати дім
           </BtnPrimary>
-          <BtnSecondary data-track="contact_request"
- type="button" onClick={()=> navigate('/contacts')}>Залишити заявку</BtnSecondary>
+          <BtnSecondary data-track="contact_request" type="button" onClick={() => navigate('/contacts')}>
+            Залишити заявку
+          </BtnSecondary>
         </HeaderBtnWrapper>
         <HeaderBtnIconWrapper>
           <SvgBtnWrapper onClick={() => navigate('/catalog')}>
             <StyledPrimaryIcon />
           </SvgBtnWrapper>
-          <SvgBtnWrapper data-track="contact_request"
- onClick={() => navigate('/contacts')}>
+          <SvgBtnWrapper data-track="contact_request" onClick={() => navigate('/contacts')}>
             <SecondaryBtnIcon />
           </SvgBtnWrapper>
         </HeaderBtnIconWrapper>
@@ -66,8 +68,7 @@ export default function Header() {
           <SvgBtnWrapper onClick={() => navigate('/catalog')}>
             <PrimaryBtnIconMobile />
           </SvgBtnWrapper>
-          <SvgBtnWrapper data-track="contact_request"
- onClick={() => navigate('/contacts')}>
+          <SvgBtnWrapper data-track="contact_request" onClick={() => navigate('/contacts')}>
             <SecondaryBtnIconMobile />
           </SvgBtnWrapper>
         </HeaderBtnIconWrapperMobile>
@@ -123,13 +124,32 @@ const Container = styled.div`
     width: 320px;
     padding: 20px 16px 20px 16px;
   }
-
 `;
 
 const HeaderLogo = styled.div`
   width: 63px;
   height: 60px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .svgmobile {
+    display: none;
+    width: 42px;
+    height: 40px;
+  }
+
+  @media only screen and (max-width: 1439.98px) {
+    .svgdesktop {
+      display: none;
+    }
+    .svgmobile {
+      display: flex;
+      width: 42px;
+      height: 40px;
+    }
+  }
 `;
 
 const SvgWrapper = styled.div`
@@ -138,7 +158,6 @@ const SvgWrapper = styled.div`
   height: 60px;
   justify-content: center;
   align-items: center;
-  Object-
 `;
 
 const HeaderNav = styled.nav`
@@ -303,11 +322,6 @@ const SvgBtnWrapper = styled.div`
 const StyledPrimaryIcon = styled(PrimaryBtnIcon)`
   width: 40px;
   height: 40px;
-
-  // @media only screen and ${range.tabletToDesktop} {
-  //   width: 60px;
-  //   height: 60px;
-  // }
 `;
 
 const HeaderBtnIconWrapperMobile = styled(HeaderBtnIconWrapper)`
