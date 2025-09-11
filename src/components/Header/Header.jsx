@@ -9,7 +9,7 @@ import MenuModal from '../Modal/MenuModal';
 import { useState } from 'react';
 import IconBurgerMenu from '../Icons/IconBurgerMenu';
 import IconHeaderDesk from '../Icons/IconHeaderDesk';
-import IconHeaderMob from '../Icons/IconHeaderMob';
+import IconLogoMob from '../Icons/IconLogoMob';
 
 export default function Header() {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ export default function Header() {
             <IconHeaderDesk />
           </SvgWrapper>
           <SvgWrapper className="svgmobile">
-            <IconHeaderMob />
+            <IconLogoMob />
           </SvgWrapper>
         </HeaderLogo>
         <HeaderNav>
