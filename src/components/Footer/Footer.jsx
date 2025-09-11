@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { size, range } from '../../utils/breakpoints';
+import FooterLogoDesk from '../Icons/FooterLogoDesk';
+import IconLogoMob from '../Icons/IconLogoMob';
 
 export default function Footer() {
   const navigate = useNavigate();
@@ -10,16 +12,12 @@ export default function Footer() {
         <FooteLogoAndNavWrapper>
           <FooterLogo onClick={() => navigate('/')}>
             <SvgWrapper>
-              <svg style={{ width: 125, height: 120 }}>
-                <use href="/logo.svg"></use>
-              </svg>
+              <FooterLogoDesk />
             </SvgWrapper>
           </FooterLogo>
           <FooterLogoMobile onClick={() => navigate('/')}>
             <SvgWrapper>
-              <svg style={{ width: 42, height: 40 }}>
-                <use href="/footerLogoMobile.svg"></use>
-              </svg>
+              <IconLogoMob />
             </SvgWrapper>
           </FooterLogoMobile>
           <FooterNav>
