@@ -247,13 +247,19 @@ const SvgWrapper = styled.div`
   width: 50px;
   height: 50px;
 
+  svg {
+    width: 50px;
+    height: 50px;
+  }
+
   @media (max-width: 743px){
     width: 30px;
     height: 30px;
+    
+    svg {
+      width: 30px;
+      height: 30px;
+    }
   }
 
-  svg {
-    width: 30px;
-    height: 30px;
-  }
 `;
