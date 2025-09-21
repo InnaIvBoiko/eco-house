@@ -48,7 +48,7 @@ export default function FuturesBuildings() {
             baths: "2",
             discount: "А++",
             plan: "/images/catalogPage/plan.png",
-            link: '/house/in-progress',
+            link: '/house/premium',
         },
         {
             img: "/images/catalogPage/harmony.jpg",
@@ -59,7 +59,7 @@ export default function FuturesBuildings() {
             baths: "1",
             discount: "А++",
             plan: "/images/catalogPage/plan.png",
-            link: '/house/in-progress',
+            link: '/house/harmony',
         },
         {
             img: "/images/catalogPage/horizon.jpg",
@@ -70,7 +70,7 @@ export default function FuturesBuildings() {
             baths: "2",
             discount: "А++",
             plan: "/images/catalogPage/plan.png",
-            link: '/house/in-progress',
+            link: '/house/horizon',
         },
     ];
 

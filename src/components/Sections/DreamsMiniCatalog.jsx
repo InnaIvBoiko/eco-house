@@ -42,7 +42,7 @@ export default function DreamsMiniCatalog() {
       baths: "1",
       discount: "А+",
       plan: "/images/catalogPage/plan.png",
-      link: '/house/in-progress',
+      link: '/house/bud-world-mini',
     },
     {
       img: "/images/dreamPage/grand.jpg",
@@ -53,7 +53,7 @@ export default function DreamsMiniCatalog() {
       baths: "2",
       discount: "А++",
       plan: "/images/catalogPage/plan.png",
-      link: '/house/in-progress',
+      link: '/house/bud-world-grandee',
     },
   ];
 

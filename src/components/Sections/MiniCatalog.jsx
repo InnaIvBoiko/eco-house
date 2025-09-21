@@ -60,7 +60,7 @@ export default function MiniCatalog() {
             beds: "3",
             discount: "А+++",
             price: "1 276 000 грн",
-            link: '/house/in-progress',
+            link: '/house/premium',
         },
     ];
 
