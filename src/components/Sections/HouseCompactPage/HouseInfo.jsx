@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import IconHousePage5 from '../Icons/IconsHousePage/IconHousePage5';
-import IconHousePage6 from '../Icons/IconsHousePage/IconHousePage6';
-import IconHousePage7 from '../Icons/IconsHousePage/IconHousePage7';
-import IconHousePage8 from '../Icons/IconsHousePage/IconHousePage8';
+import IconHousePage5 from '../../Icons/IconsHousePage/IconHousePage5';
+import IconHousePage6 from '../../Icons/IconsHousePage/IconHousePage6';
+import IconHousePage7 from '../../Icons/IconsHousePage/IconHousePage7';
+import IconHousePage8 from '../../Icons/IconsHousePage/IconHousePage8';
 
 export default function HouseInfo() {
   return (

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Header from "../../components/Header/Header";
-import HouseHero from "../../components/Sections/HouseHero";
-import HouseInfo from '../../components/Sections/HouseInfo'
+import HouseHero from "../../components/Sections/HouseCompactPage/HouseHero";
+import HouseInfo from '../../components/Sections/HouseCompactPage/HouseInfo'
 import HousePlan  from "../../components/Sections/HousePlan";
 import FormHousePage from "../../components/Sections/FormHousePage";
 import Donat from "../../components/Sections/Donat";
@@ -19,8 +19,7 @@ export default function HouseCompactPage() {
     return (
         <Container>
             <Header />
-            <HeaderBg>
-            </HeaderBg>
+            <HeaderBg></HeaderBg>
             <HouseHero />
             <HouseInfo />
             <HousePlan/>
