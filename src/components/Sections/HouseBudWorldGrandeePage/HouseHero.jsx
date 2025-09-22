@@ -89,7 +89,7 @@ const SectionHeroHouse = styled.section`
       font-weight: 600;
       font-size: 64px;
       padding-top: 36px;
-    
+      padding-left: 0;
 
     span {
       font-weight: 600;
@@ -164,27 +164,27 @@ const ListItemHouse = styled.li`
  
 &:nth-child(1) {
     position: relative;
-    top: 12px;
-    left: 748px;
+    top: 70px;
+    left: 228px;
     width: 209px;
     
   }
   &:nth-child(2) {
     position: relative;
-    top: 236px;
+    top: 224px;
     left: 848px;
     width: 205px;
   }
   &:nth-child(3) {
     position: relative;
     top: 18px;
-    left: 688px;
+    left: 990px;
     width: 257px;
   }
   &:nth-child(4) {
     position: relative;
-    top: 136px;
-    left: 472px;
+    top: 148px;
+    left: 440px;
     width: 260px;
   }
 
@@ -192,20 +192,20 @@ const ListItemHouse = styled.li`
     font-size: 16px;
 
     &:nth-child(1) {
-      top: 36px;
-      left: 380px;
+      top: 28px;
+        left: 20px;
     }
     &:nth-child(2){
-      top: 224px;
-      left: 446px;
+      top: 122px;
+      left: 496px;
     }
     &:nth-child(3){
-      top: 20px;
-      left: 324px;
+      top: -104px;
+      left: 396px;
     }
     &:nth-child(4) {
       top: 118px;
-      left: 166px;
+      left: 260px;
     }
 
     }
@@ -218,26 +218,26 @@ const ListItemHouse = styled.li`
   &:nth-child(1) {
       width: 116px;
       height: 56px;
-      top: 14px;
-      left: 150px;
+      top: 20px;
+      left: 14px;
     }
     &:nth-child(2){
       width: 127px;
       height: 57px;
-      top: 138px;
-      left: 185px;
+      top: 50px;
+      left: 186px;
     }
     &:nth-child(3){
       width: 150px;
       height: 68px;
-      top: -46px;
-      left: 140px;
+      top: -112px;
+      left: 150px;
     }
     &:nth-child(4) {
       width: 124px;
       height: 72px;
-      top: -28px;
-      left: 10px;
+      top: -12px;
+      left: 20px;
     }
      }
   }
