@@ -2,9 +2,12 @@ import { useState } from "react";
 import styled from "styled-components";
 import { ChevronLeft, ChevronRight } from "lucide-react"; 
 import IconHousePage9 from '../../Icons/IconsHousePage/IconHousePage9';
+import DonationModal from "../../Modal/DonationModal";
 
 
 export default function HousePlan() {
+  const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
+
   const images = [
     { src: "/images/houseBudWorldGrandeePage/Grandee1.jpg", alt: "Вид спереду"  },
     { src: "/images/houseBudWorldGrandeePage/Grandee2.jpg", alt: "Бічний фасад" },
@@ -86,8 +89,8 @@ export default function HousePlan() {
             </ul>
           </ThirdCardList>
         </HousePriceInfo>
-        <BtnLeaveAppl>Підтримати мрію</BtnLeaveAppl>
-        
+        <BtnLeaveAppl onClick={() => setIsDonationModalOpen(true)}>Підтримати мрію</BtnLeaveAppl>
+        {isDonationModalOpen && <DonationModal onClose={() => setIsDonationModalOpen(false)} />}
         </SectionHousePlan>
     );
 }
