@@ -9,24 +9,26 @@ export default function HouseInfo() {
         <SectionHouseInfo>
             <InfoPage>
                 <List>
-                    <ListItem><ContentWrapper><IconHousePage5/>25 м²</ContentWrapper>Площа</ListItem>
-                    <ListItem><ContentWrapper><IconHousePage6/>1</ContentWrapper>Кімнати</ListItem>
-                    <ListItem><ContentWrapper><IconHousePage7/>1</ContentWrapper>Санвузли</ListItem>
-                    <ListItem><ContentWrapper><IconHousePage8 />А+</ContentWrapper>Клас</ListItem>     
+                    <ListItem><ContentWrapper><IconHousePage5/>82 м²</ContentWrapper>Площа</ListItem>
+                    <ListItem><ContentWrapper><IconHousePage6/>2</ContentWrapper>Кімнати</ListItem>
+                    <ListItem><ContentWrapper><IconHousePage7/>2</ContentWrapper>Санвузли</ListItem>
+                    <ListItem><ContentWrapper><IconHousePage8 />А++</ContentWrapper>Клас</ListItem>     
                 </List>
                 <TextPrice>Безкоштовно*</TextPrice>
             </InfoPage>
             <HomePageInfo>
-                <Text> <span>БудСвіт Міні</span> — це компактний і зручний модульний будиночок, створений для тих, хто цінує мобільність, простоту та сучасний стиль життя. Площа 25 м² оптимально підходить для однієї людини або як гостьовий будиночок.
-                <ul>
-                    <li>Раціональне планування: простора кімната з можливістю облаштувати спальню та робоче місце.</li>
-                    <li>Сучасний санвузол: все необхідне для комфортного щоденного використання.</li>
-                    <li>Енергоефективність класу A+: економія до 30% на опаленні та охолодженні.</li>
-                    <li>Екологічні матеріали: безпечні для здоров’я та природи.</li>
-                    <li>Швидкий монтаж: встановлення займає всього кілька днів.</li>
-                </ul>
+                <Text> <span>БудСвіт Гранд</span> — просторий і сучасний модульний будинок, який поєднує комфорт та енергоефективність. <br />
+                    Площа 82 м² дозволяє зручно облаштувати житло для сім’ї або пари, які цінують якість і стиль.
+                    <ul>
+                        <li>Раціональне планування: дві окремі кімнати, які можна облаштувати як спальні або кабінет і дитячу.</li>
+                        <li>Два санвузли: зручно для всієї родини та гостей.</li>
+                        <li>Простора вітальня з кухонною зоною: ідеальне місце для сімейного відпочинку чи прийому гостей.</li>
+                        <li>Енергоефективність класу A++: значна економія на опаленні та охолодженні.</li>
+                        <li>Екологічні матеріали: безпечні для здоров’я та природи.</li>
+                        <li>Швидкий монтаж: встановлення займає всього кілька днів.</li>
+                    </ul>
                 
-                Ідеальний варіант для відпочинку на природі, дачного використання або тимчасового житла.
+                    Ідеальний вибір як постійне житло для сім’ї або комфортний заміський дім.
                 </Text>
             </HomePageInfo>
         </SectionHouseInfo>
@@ -37,12 +39,10 @@ const SectionHouseInfo = styled.section`
     width: 1440px;
     background-color: inherit;
   
-
-
     @media (max-width: 1439px) {
         width: 744px;
-  
     }
+
     @media (max-width: 743px){
         width: 320px;
     }
@@ -57,8 +57,8 @@ const InfoPage = styled.div`
     @media (max-width: 1439px) {
         display: block;
         padding: 46px 9px 30px 9px;
-  
     }
+
     @media (max-width: 743px){
         padding: 24px 26px 35px 26px;
     }
@@ -69,9 +69,11 @@ const Text = styled.div`
     font-size: 24px;
     color: #333;
     padding: 0 24px;
+
     span {
         color: #006837;
     }
+
     ul {
         padding: 25px 24px;
         list-style-type: inherit;
@@ -93,6 +95,7 @@ const List = styled.ul`
         gap: 54px;
         margin-bottom: 46px;
     }
+
     @media (max-width: 743px){
         flex-wrap: wrap;
         gap: 40px;
@@ -151,7 +154,6 @@ const TextPrice = styled.p`
     letter-spacing: -0.02em;
     color: #000;
     font-family: "Inter", sans-serif;
-
 
     @media (max-width: 1439px) {
         font-weight: 600;
