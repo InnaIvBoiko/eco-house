@@ -6,9 +6,9 @@ import IconHousePage9 from '../../Icons/IconsHousePage/IconHousePage9';
 
 export default function HousePlan() {
   const images = [
-    { src: "/images/houseHarmonyPage/Harmony1.jpg", alt: "Вид спереду"  },
-    { src: "/images/houseHarmonyPage/Harmony2.jpg", alt: "Бічний фасад" },
-    { src: "/images/houseHarmonyPage/Harmony3.jpg", alt: "Задній фасад" },
+    { src: "/images/houseBudWorldMiniPage/Mini1.jpg", alt: "Вид спереду"  },
+    { src: "/images/houseBudWorldMiniPage/Mini2.jpg", alt: "Бічний фасад" },
+    { src: "/images/houseBudWorldMiniPage/Mini3.jpg", alt: "Задній фасад" },
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
   
@@ -50,13 +50,12 @@ export default function HousePlan() {
 
             <PlanSection>
                 <h3>План будинку</h3>
-                <img src="/images/houseHarmonyPage/housePlan.jpg" alt="План будинку" width="1036" height="611" />
+                <img src="/images/houseBudWorldMiniPage/housePlan.jpg" alt="План будинку" width="1036" height="611" />
             </PlanSection>
 
         <HousePriceInfo>
-          <h2>Що входить у вартість будинку</h2>
-          <FirstImage src="/images/houseHarmonyPage/FullInfoSection1.png" alt="Будинок"/>
-          <SecondImage src="/images/houseHarmonyPage/FullInfoSection2.png" alt="Будинок"/>
+          <h2>Що входить до будинку</h2>
+          <FirstImage src="/images/houseBudWorldMiniPage/FullInfoSection1.png" alt="Будинок"/>
           <FirstCardList>
             <h3><IconHousePage9/> Конструкція та матеріали </h3>
             <ul>
@@ -86,24 +85,8 @@ export default function HousePlan() {
               <li>Опалення (інфрачервоні панелі або тепловий насос — залежно від комплектації).</li>
             </ul>
           </ThirdCardList>
-          <FourthCardList>
-            <h3><IconHousePage9/> Додатково </h3>
-            <ul>
-              <li>Базові меблі (шафа-купе, кухня-мінімум).</li>
-              <li>Санвузол з душовою кабіною.</li>
-              <li>Гарантія: 5 років на конструкцію, 2 роки на обладнання.</li>
-            </ul>
-          </FourthCardList>
-          <FifthCardList>
-            <h3><IconHousePage9/> Доставка та монтаж </h3>
-            <ul>
-              <li>Доставка по Україні включена у вартість.</li>
-              <li>Монтаж під ключ — 3–7 днів (залежно від ділянки).</li>
-              <li>Підключення до мереж (електрика, вода, каналізація — за наявності на ділянці).</li>
-            </ul>
-          </FifthCardList>
         </HousePriceInfo>
-        <BtnLeaveAppl>Залишити заявку</BtnLeaveAppl>
+        <BtnLeaveAppl>Підтримати мрію</BtnLeaveAppl>
         
         </SectionHousePlan>
     );
@@ -308,7 +291,7 @@ height: 145px;
 
 const HousePriceInfo = styled.div`
 position: relative;
-min-height: 1486px;
+min-height: 1050px;
 
 h2 {
 font-weight: 600;
@@ -316,14 +299,14 @@ font-size: 48px;
 color: #000;
 }
 @media (max-width: 1439px){
-min-height: 1379px;
+min-height: 880px;
 h2 {
 font-weight: 600;
 font-size: 36px;
 }
 }
 @media (max-width: 743px){
-min-height: 1166px;
+min-height: 820px;
 h2{
 font-weight: 600;
 font-size: 24px;
@@ -335,37 +318,18 @@ font-size: 24px;
 const FirstImage = styled.img`
   position:absolute;
   left: -24px;
-  top: 146px;
-  width: 560px;
+  top: 246px;
+  width: 631px;
 
   @media (max-width: 1439px){
-    left: -90px;
-    top: 238px;
-    width: 320px;
+    left: -172px;
+    top: 286px;
+    width: 416px;
   }
   @media (max-width: 743px){
-    left: -112px;
-    top: 398px;
-    width: 162px;
-  }
-`
-
-const SecondImage = styled.img`
-  position:absolute;
-  right: 0;
-  bottom: 40px;
-  width: 450px;
-  oppacity: 1;
-
-  @media (max-width: 1439px){
-    right: -216px;
-    bottom: 130px;
-    width: 450px;
-  }
-  @media (max-width: 743px){
-    left: 248px;
-    bottom: 178px;
-    width: 188px;
+    left: -156px;
+    top: 424px;
+    width: 200px;
   }
 `
 
@@ -589,158 +553,6 @@ font-size: 14px;
 }
 }
 `
-
-const FourthCardList = styled.div`
-position: absolute;
-left: 37px;
-bottom: 250px;
-width: 723px;
-height: 185px;
-
-
-h3{
-font-weight: 500;
-font-size: 48px;
-color: #006837;
-margin-bottom: 40px;
-
-display:flex;
-align-items:center;
-justify-content: flex-start;
-gap:24px;
-
-}
-ul{
-list-style-type: inherit;
-padding-left: 50px;
-}
-
-li{
-font-weight: 400;
-font-size: 24px;
-color: #333;
-}
-@media (max-width: 1439px) {
-width: 534px;
-
-left: 0px;
-top: 870px;
-
-h3 {
-font-size: 32px;
-margin-bottom: 24px;
-}
-
-li{
-font-size: 20px;
-}
-}
-
-@media (max-width: 743px){
-width: 263px;
-height: 319px;
-
-left: 0;
-top: 840px;
-
-h3 {
-font-size: 20px;
-margin-bottom: 16px;
-gap: 20px;
-
-svg{
-width: 32px;
-height: 32px;
-}
-}
-ul{
-padding-left: 25px;
-}
-li{
-font-size: 14px;
-}
-}
-
-
-
-`
-
-const FifthCardList = styled.div`
-position: absolute;
-left: 37px;
-bottom: 0px;
-width: 1018px;
-height: 185px;
-
-
-
-h3{
-font-weight: 500;
-font-size: 48px;
-color: #006837;
-margin-bottom: 40px;
-
-display:flex;
-align-items:center;
-justify-content: flex-start;
-gap:24px;
-
-}
-ul{
-list-style-type: inherit;
-padding-left: 50px;
-
-}
-
-li{
-font-weight: 400;
-font-size: 24px;
-color: #333;
-}
-
-@media (max-width: 1439px) {
-width: 534px;
-
-
-left: 0px;
-bottom: 110px;
-
-h3 {
-font-size: 32px;
-margin-bottom: 24px;
-}
-
-li{
-font-size: 20px;
-}
-}
-@media (max-width: 743px){
-width: 263px;
-
-
-left: 0px;
-bottom: -15px;
-
-h3 {
-font-size: 20px;
-margin-bottom: 16px;
-gap: 20px;
-
-svg{
-width: 32px;
-height: 32px;
-}
-}
-ul{
-padding-left: 25px;
-}
-li{
-font-size: 14px;
-}
-}
-`
-
-
 const BtnLeaveAppl = styled.button`
 
 margin: 60px auto 0 auto;
