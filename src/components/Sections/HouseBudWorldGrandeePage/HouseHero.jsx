@@ -10,7 +10,7 @@ export default function HouseHero() {
         <SectionHeroHouse>
             
         <h1>
-          <span>Буд</span>Світ Міні
+          <span>Буд</span>Світ Гранд
         </h1>
             <List>
                 <ListItemHouse><SvgWrapper><IconHousePage1 /></SvgWrapper>
@@ -41,9 +41,8 @@ const SectionHeroHouse = styled.section`
   position: relative;
   width: 1440px;
   height: 666px;
-  background-image: url('/images/houseBudWorldMiniPage/house.jpg');
+  background-image: url('/images/houseBudWorldGrandeePage/house.jpg');
   background-size: cover;
-
 
   h1 {
     font-family: "Inter", sans-serif;
@@ -55,6 +54,7 @@ const SectionHeroHouse = styled.section`
     color:  #000000;
     text-align: center;
     padding-top: 16px;
+    padding-left: 120px;
 
     span {
       font-weight: 500;
@@ -81,7 +81,7 @@ const SectionHeroHouse = styled.section`
     }
 
     @media (max-width: 1439px) {
-    background-image: url('/images/houseBudWorldMiniPage/house-tab.jpg');
+    background-image: url('/images/houseBudWorldGrandeePage/house-tab.jpg');
     width: 744px;
     height: 666px;
 
@@ -104,7 +104,7 @@ const SectionHeroHouse = styled.section`
   @media (max-width: 743px){
     width: 320px;
     height: 350px;
-    background-image: url('/images/houseBudWorldMiniPage/house-mob.jpg');
+    background-image: url('/images/houseBudWorldGrandeePage/house-mob.jpg');
 
     h1 {
     font-weight: 600;
