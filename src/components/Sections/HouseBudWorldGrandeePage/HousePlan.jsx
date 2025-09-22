@@ -6,9 +6,9 @@ import IconHousePage9 from '../../Icons/IconsHousePage/IconHousePage9';
 
 export default function HousePlan() {
   const images = [
-    { src: "/images/houseBudWorldMiniPage/Mini1.jpg", alt: "Вид спереду"  },
-    { src: "/images/houseBudWorldMiniPage/Mini2.jpg", alt: "Бічний фасад" },
-    { src: "/images/houseBudWorldMiniPage/Mini3.jpg", alt: "Задній фасад" },
+    { src: "/images/houseBudWorldGrandeePage/Grandee1.jpg", alt: "Вид спереду"  },
+    { src: "/images/houseBudWorldGrandeePage/Grandee2.jpg", alt: "Бічний фасад" },
+    { src: "/images/houseBudWorldGrandeePage/Grandee3.jpg", alt: "Задній фасад" },
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
   
@@ -50,12 +50,12 @@ export default function HousePlan() {
 
             <PlanSection>
                 <h3>План будинку</h3>
-                <img src="/images/houseBudWorldMiniPage/housePlan.jpg" alt="План будинку" width="1036" height="611" />
+                <img src="/images/houseBudWorldGrandeePage/housePlan.jpg" alt="План будинку" width="1036" height="611" />
             </PlanSection>
 
         <HousePriceInfo>
           <h2>Що входить до будинку</h2>
-          <FirstImage src="/images/houseBudWorldMiniPage/FullInfoSection1.png" alt="Будинок"/>
+          <FirstImage src="/images/houseBudWorldGrandeePage/FullInfoSection1.png" alt="Будинок"/>
           <FirstCardList>
             <h3><IconHousePage9/> Конструкція та матеріали </h3>
             <ul>
@@ -317,19 +317,19 @@ font-size: 24px;
 
 const FirstImage = styled.img`
   position:absolute;
-  left: -24px;
-  top: 246px;
-  width: 631px;
+  left: -78px;
+  top: 96px;
+  width: 634px;
 
   @media (max-width: 1439px){
-    left: -172px;
-    top: 286px;
-    width: 416px;
+    left: -234px;
+    top: 141px;
+    width: 430px;
   }
   @media (max-width: 743px){
-    left: -156px;
-    top: 424px;
-    width: 200px;
+    left: -134px;
+    top: 400px;
+    width: 184px;
   }
 `
 
