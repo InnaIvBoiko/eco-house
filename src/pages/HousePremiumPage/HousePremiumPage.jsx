@@ -8,10 +8,12 @@ import FormHousePage from "../../components/Sections/FormHousePage";
 import Donat from "../../components/Sections/Donat";
 import Footer from "../../components/Footer/Footer";
 import ThanksModal from "../../components/Modal/ThanksModal";
+import RequestModal from "../../components/Modal/RequestModal";
 
 export default function HousePremiumPage() {
     const [showThanksModal, setShowThanksModal] = useState(false);
-    
+    const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);    
@@ -22,11 +24,14 @@ export default function HousePremiumPage() {
             <HeaderBg></HeaderBg>
             <HouseHero />
             <HouseInfo />
-            <HousePlan />
+            <HousePlan setIsRequestModalOpen={setIsRequestModalOpen} />
             <FormHousePage />
             <Donat />
             <Footer />
+            
             {showThanksModal && <ThanksModal onClose={() => setShowThanksModal(false)} />}
+            {isRequestModalOpen && <RequestModal onClose={() => setIsRequestModalOpen(false)} />}
+            
         </Container>
     );
 }

@@ -3,8 +3,7 @@ import styled from "styled-components";
 import { ChevronLeft, ChevronRight } from "lucide-react"; 
 import IconHousePage9 from '../Icons/IconsHousePage/IconHousePage9';
 
-
-export default function HousePlan() {
+export default function HousePlan({ setIsRequestModalOpen}) {
   const images = [
     { src: "/images/housePage/Compact1.jpg", alt: "Вид спереду"  },
     { src: "/images/housePage/Compact2.jpg", alt: "Бічний фасад" },
@@ -103,9 +102,8 @@ export default function HousePlan() {
             </ul>
           </FifthCardList>
         </HousePriceInfo>
-        <BtnLeaveAppl>Залишити заявку</BtnLeaveAppl>
-        
-        </SectionHousePlan>
+        <BtnLeaveAppl onClick={() => setIsRequestModalOpen(true)}>Залишити заявку</BtnLeaveAppl>
+      </SectionHousePlan>
     );
 }
 
