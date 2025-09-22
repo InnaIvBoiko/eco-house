@@ -6,9 +6,9 @@ import IconHousePage9 from '../../Icons/IconsHousePage/IconHousePage9';
 
 export default function HousePlan() {
   const images = [
-    { src: "/images/houseHarmonyPage/Harmony1.jpg", alt: "Вид спереду"  },
-    { src: "/images/houseHarmonyPage/Harmony2.jpg", alt: "Бічний фасад" },
-    { src: "/images/houseHarmonyPage/Harmony3.jpg", alt: "Задній фасад" },
+    { src: "/images/houseHorizonPage/Horizon1.jpg", alt: "Вид спереду"  },
+    { src: "/images/houseHorizonPage/Horizon2.jpg", alt: "Бічний фасад" },
+    { src: "/images/houseHorizonPage/Horizon3.jpg", alt: "Задній фасад" },
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
   
@@ -50,13 +50,13 @@ export default function HousePlan() {
 
             <PlanSection>
                 <h3>План будинку</h3>
-                <img src="/images/houseHarmonyPage/housePlan.jpg" alt="План будинку" width="1036" height="611" />
+                <img src="/images/houseHorizonPage/housePlan.jpg" alt="План будинку" width="1036" height="611" />
             </PlanSection>
 
         <HousePriceInfo>
           <h2>Що входить у вартість будинку</h2>
-          <FirstImage src="/images/houseHarmonyPage/FullInfoSection1.png" alt="Будинок"/>
-          <SecondImage src="/images/houseHarmonyPage/FullInfoSection2.png" alt="Будинок"/>
+          <FirstImage src="/images/houseHorizonPage/FullInfoSection1.png" alt="Будинок"/>
+          <SecondImage src="/images/houseHorizonPage/FullInfoSection2.png" alt="Будинок"/>
           <FirstCardList>
             <h3><IconHousePage9/> Конструкція та матеріали </h3>
             <ul>
@@ -339,13 +339,13 @@ const FirstImage = styled.img`
   width: 560px;
 
   @media (max-width: 1439px){
-    left: -90px;
-    top: 238px;
-    width: 320px;
+    left: -190px;
+    top: 160px;
+    width: 490px;
   }
   @media (max-width: 743px){
-    left: -112px;
-    top: 398px;
+    left: -76px;
+    top: 448px;
     width: 162px;
   }
 `
@@ -358,12 +358,12 @@ const SecondImage = styled.img`
   oppacity: 1;
 
   @media (max-width: 1439px){
-    right: -216px;
-    bottom: 130px;
+    right: -138px;
+    bottom: 218px;
     width: 450px;
   }
   @media (max-width: 743px){
-    left: 248px;
+    left: 206px;
     bottom: 178px;
     width: 188px;
   }
