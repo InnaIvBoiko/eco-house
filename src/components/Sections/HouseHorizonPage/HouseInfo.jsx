@@ -9,24 +9,25 @@ export default function HouseInfo() {
     <SectionHouseInfo>
       <InfoPage>
         <List>
-           <ListItem><ContentWrapper><IconHousePage5/>58 м²</ContentWrapper>Площа</ListItem>
-           <ListItem><ContentWrapper><IconHousePage6/>1</ContentWrapper>Кімнати</ListItem>
-           <ListItem><ContentWrapper><IconHousePage7/>1</ContentWrapper>Санвузли</ListItem>
+           <ListItem><ContentWrapper><IconHousePage5/>78 м²</ContentWrapper>Площа</ListItem>
+           <ListItem><ContentWrapper><IconHousePage6/>2</ContentWrapper>Кімнати</ListItem>
+           <ListItem><ContentWrapper><IconHousePage7/>2</ContentWrapper>Санвузли</ListItem>
            <ListItem><ContentWrapper><IconHousePage8 />А++</ContentWrapper>Клас</ListItem>     
         </List>
-        <TextPrice>632 000 грн</TextPrice>
+        <TextPrice>992 000 грн</TextPrice>
       </InfoPage>
       <HomePageInfo>
-              <Text> <span>ЕкоГніздо Преміум</span> — це затишний і функціональний модульний будинок, створений для тих, хто цінує комфорт у мінімалістичному форматі. Площа 58 м² ідеально підходить для однієї людини чи пари, забезпечуючи все необхідне для щоденного життя.
+              <Text> <span>ЕкоГніздо Преміум</span> — це просторий і сучасний модульний будинок, створений для комфортного життя родини або пари, яка цінує простір та функціональність. Площа 78 м² дозволяє раціонально розташувати всі необхідні зони для життя.
                   <ul>
-                      <li>Раціональне планування: простора кімната з можливістю облаштувати спальню та робочу зону.</li>
-                      <li>Затишна спальня: комфорт для відпочинку й відновлення.</li>
-                      <li>Енергоефективність класу A++: до 50% економії на опаленні та охолодженні.</li>
+                      <li>Раціональне планування: дві кімнати, які можна облаштувати як спальні, дитячу чи робочий кабінет.</li>
+                      <li>Два санвузли: зручність для всієї родини або гостей.</li>
+                      <li>Простора вітальня: місце для відпочинку та спільного дозвілля.</li>
+                      <li>Енергоефективність класу A++: значна економія на опаленні та охолодженні.</li>
                       <li>Екологічні матеріали: безпечні для здоров’я та навколишнього середовища.</li>
                       <li>Швидкий монтаж: встановлення будинку займає лише кілька днів.</li>
                   </ul>
                   
-                  Ідеальний вибір для молодих сімей або як гостьовий будиночок на вашій ділянці.
+                  Ідеальний вибір для сімей із дітьми або як постійне житло на власній ділянці.
               </Text>
       </HomePageInfo>
     </SectionHouseInfo>
